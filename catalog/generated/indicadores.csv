@@ -1,0 +1,134 @@
+code;name;family;catalog_section;unit;stat_type;dimensions;universe;denominator;formula;app_functions;scoring_role;is_protected_attribute;is_excluded;notes
+pop.padron;Población padronal;poblacion;9.1;personas;stock;[];Residentes empadronados a 1 de enero;;;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+pop.census;Población censal;poblacion;9.1;personas;stock;[];Población residente (censo);;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+pop.padron.by_sex;Población padronal por sexo;poblacion;9.1;personas;stock;"[""sex""]";;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+pop.share.by_sex;Porcentaje de población por sexo;poblacion;9.1;%;share;"[""sex""]";;pop.padron;pop.padron.by_sex / pop.padron × 100;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+pop.mean_age;Edad media;poblacion;9.1;años;average;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+pop.mean_age.by_sex;Edad media por sexo;poblacion;9.1;años;average;"[""sex""]";;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+pop.by_nationality;Población por nacionalidad;poblacion;9.1;personas;stock;"[""nationality"", ""sex""]";;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+pop.by_birthplace;Población por lugar de nacimiento;poblacion;9.1;personas;stock;"[""birthplace"", ""sex""]";;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+pop.by_age;Población por grupo de edad;poblacion;9.1;personas;stock;"[""age_group""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;"Edad: solo pantalla, filtro y contexto; no participa en scoring."
+pop.by_age_sex;Población por grupo de edad y sexo;poblacion;9.1;personas;stock;"[""age_group"", ""sex""]";;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+pop.share.by_age;Porcentaje de población por grupo de edad;poblacion;9.1;%;share;"[""age_group""]";;pop.padron;pop.by_age / pop.padron × 100;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+pop.share.by_age_sex;Porcentaje por grupo de edad y sexo;poblacion;9.1;%;share;"[""age_group"", ""sex""]";;pop.padron.by_sex;pop.by_age_sex / pop.padron.by_sex × 100;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+demo.density;Densidad de población;demografia_derivada;9.2;hab/km²;ratio;[];;área de la geometría 'full' del territorio;pop.padron / área (km², geometría vigente);"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+demo.masculinity_index;Índice de masculinidad;demografia_derivada;9.2;hombres por 100 mujeres;ratio;[];;;hombres / mujeres × 100;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+demo.ageing_index;Índice de envejecimiento;demografia_derivada;9.2;%;ratio;[];;;pop 65+ / pop 0-15 × 100;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;Convención: 0–15 y 65+.
+demo.dependency_youth;Dependencia juvenil;demografia_derivada;9.2;%;ratio;[];;;pop 0-15 / pop 16-64 × 100;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;Convención INE de 16–64 años como población potencialmente activa.
+demo.dependency_old;Dependencia de mayores;demografia_derivada;9.2;%;ratio;[];;;pop 65+ / pop 16-64 × 100;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+demo.dependency_total;Dependencia total;demografia_derivada;9.2;%;ratio;[];;;(pop 0-15 + pop 65+) / pop 16-64 × 100;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+demo.pop_growth_1y;Crecimiento de población a 1 año;demografia_derivada;9.2;%;rate;[];;;(P[t] / P[t-1]) - 1;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+demo.pop_growth_5y;Crecimiento de población a 5 años;demografia_derivada;9.2;%;rate;[];;;(P[t] / P[t-5]) - 1;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+demo.pop_growth_10y;Crecimiento de población a 10 años;demografia_derivada;9.2;%;rate;[];;;(P[t] / P[t-10]) - 1;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+demo.pop_cagr_5y;Crecimiento anual compuesto a 5 años;demografia_derivada;9.2;%;rate;[];;;(P[t] / P[t-5])^(1/5) - 1;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+demo.pop_cagr_10y;Crecimiento anual compuesto a 10 años;demografia_derivada;9.2;%;rate;[];;;(P[t] / P[t-10])^(1/10) - 1;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+mig.immigration_internal;Inmigración interior;migraciones;9.3;personas;flow;"[""sex""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+mig.emigration_internal;Emigración interior;migraciones;9.3;personas;flow;"[""sex""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+mig.internal_flows_foreign;Flujos interiores de nacionalidad extranjera;migraciones;9.3;personas;flow;"[""nationality"", ""direction""]";;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+mig.immigration_external;Inmigración exterior;migraciones;9.3;personas;flow;"[""sex""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+mig.emigration_external;Emigración exterior;migraciones;9.3;personas;flow;"[""sex""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+mig.net_internal;Saldo migratorio interior;migraciones;9.3;personas;flow;[];;;inmigración interior − emigración interior;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+mig.net_external;Saldo migratorio exterior;migraciones;9.3;personas;flow;[];;;inmigración exterior − emigración exterior;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+mig.net_total;Saldo migratorio total;migraciones;9.3;personas;flow;[];;;saldo interior + saldo exterior;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+mig.net_per_1000;Saldo migratorio por 1.000 habitantes;migraciones;9.3;‰;rate;"[""balance_type""]";;pop.padron (1 de enero del año del flujo);saldo / pop.padron a 1 de enero del año × 1000;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+inc.net_mean_person;Renta neta media por persona;renta;9.4;EUR;average;[];Personas (ADRH);;;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+inc.net_mean_household;Renta neta media por hogar;renta;9.4;EUR;average;[];Hogares (ADRH);;;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+inc.mean_consumption_unit;Renta media por unidad de consumo;renta;9.4;EUR;average;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+inc.median_consumption_unit;Renta mediana por unidad de consumo;renta;9.4;EUR;median;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+inc.gross_mean_person;Renta bruta media por persona;renta;9.4;EUR;average;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+inc.gross_mean_household;Renta bruta media por hogar;renta;9.4;EUR;average;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+inc.source_share;Peso de cada fuente de ingresos;renta;9.4;%;share;"[""income_source""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+inc.pop_below_threshold;Población bajo umbral de ingresos por unidad de consumo;renta;9.4;%;share;"[""threshold""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;"Solo umbrales publicados por el INE; los no publicados quedan pendientes (sin interpolar)."
+inc.pop_above_threshold;Población sobre umbral relativo a la mediana;renta;9.4;%;share;"[""threshold""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+inc.gini;Índice de Gini;renta;9.4;índice;index;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+inc.p80_p20;Relación P80/P20;renta;9.4;ratio;ratio;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+hh.total;Número de hogares;hogares;9.5;hogares;stock;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;Hogar ≠ vivienda.
+hh.by_size;Hogares por número de miembros;hogares;9.5;hogares;stock;"[""household_size""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+hh.mean_size;Tamaño medio del hogar;hogares;9.5;personas/hogar;average;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+hh.share_single;Porcentaje de hogares unipersonales;hogares;9.5;%;share;[];;;hogares de 1 miembro / hogares × 100;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+hh.growth;Evolución del número de hogares;hogares;9.5;%;rate;[];;;(H[t] / H[t-k]) - 1;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+edu.attainment;Nivel de estudios completados (población de 15 y más);educacion;9.6;personas;stock;"[""level""]";Población de 15 y más años;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+edu.attainment_share;Porcentaje por nivel de estudios (15 y más);educacion;9.6;%;share;"[""level""]";;población de 15 y más;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+edu.enrolment;Matriculación;educacion;9.6;personas;stock;"[""level""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;Alumnado matriculado en centros del municipio ≠ estudiantes residentes.
+edu.students_resident;Estudiantes residentes;educacion;9.6;personas;stock;[];Residentes (censo);;;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+pers.activity_status;Situación de actividad (16 y más);educacion;9.6;personas;stock;"[""activity""]";Población de 16 y más (censo);;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+pers.disability_pension;Pensión por discapacidad;educacion;9.6;personas;stock;[];;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+pers.marital_status;Estado civil;educacion;9.6;personas;stock;"[""marital_status""]";;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+emp.registered_unemployment;Paro registrado;empleo;9.7;personas;stock;"[""sex"", ""age_group"", ""sector""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;Paro registrado (SEPE) ≠ tasa de paro (censo/EPA).
+emp.registered_unemployment_yoy;Variación interanual del paro registrado;empleo;9.7;%;rate;[];;;(paro[t] / paro[t-12m]) - 1;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+emp.contracts;Contratos registrados;empleo;9.7;contratos;flow;"[""contract_type"", ""sector"", ""sex""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;Contratos ≠ personas.
+emp.affiliations;Afiliaciones a la Seguridad Social;empleo;9.7;afiliaciones;stock;"[""regime""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;Afiliaciones ≠ personas únicas.
+emp.affiliations_yoy;Variación interanual de la afiliación;empleo;9.7;%;rate;[];;;(afil[t] / afil[t-12m]) - 1;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+emp.census_rates;Tasas censales de paro, empleo y actividad;empleo;9.7;%;rate;"[""rate""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+emp.firms_by_activity;Empresas y locales por actividad;empleo;9.7;unidades;stock;"[""unit_type"", ""sector""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+emp.registered_unemployment.by_sex;Paro registrado por sexo;empleo;9.7;personas;stock;"[""sex""]";;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+emp.contracts.by_sex;Contratos por tipo y sexo;empleo;9.7;contratos;flow;"[""contract_type"", ""sex""]";;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+irpf.returns;Número de declaraciones del IRPF;irpf;9.8;declaraciones;count;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;"Renta por declaración ≠ renta por hogar; no se asignan equivalencias por parecido de nombres."
+irpf.returns_by_component;Declaraciones con el componente;irpf;9.8;declaraciones;count;"[""component""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+irpf.amount;Importe agregado del componente;irpf;9.8;EUR;amount;"[""component""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+irpf.mean_per_return;Importe medio por declaración;irpf;9.8;EUR;average;"[""component""]";;declaraciones con el componente;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+hou.dwellings;Viviendas por tipo;vivienda;9.9;viviendas;stock;"[""dwelling_type""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;Vivienda vacía no significa disponible para alquilar.
+hou.main_by_tenure;Viviendas principales por régimen de tenencia;vivienda;9.9;viviendas;stock;"[""tenure""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+hou.dwellings_share;Porcentaje de viviendas por tipo;vivienda;9.9;%;share;"[""dwelling_type""]";;viviendas totales;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+hou.tenure_share;Porcentaje de principales por tenencia;vivienda;9.9;%;share;"[""tenure""]";;viviendas principales;;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+mkt.offer_price_sale_m2;Precio de oferta de venta (mediana €/m²);mercado;9.9;EUR/m2;median;[];Inmuebles únicos con anuncio de venta activo (deduplicados);;;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;Oferta ≠ cierre. Muestra (n) y fecha obligatorias.
+mkt.offer_rent_m2;Renta de oferta (mediana €/m²/mes);mercado;9.9;EUR/m2/mes;median;[];Inmuebles únicos con anuncio de alquiler activo;;;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+mkt.rent_reference_official;Referencia estadística oficial de alquiler;mercado;9.9;EUR/m2/mes;median;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;SERPAVI/MIVAU: referencia agregada, no precio de un inmueble.
+mkt.declared_rent;Rentas declaradas de alquiler;mercado;9.9;EUR/mes;median;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+mkt.transactions;Compraventas de vivienda;mercado;9.9;transacciones;flow;"[""dwelling_kind""]";;;;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+mkt.appraisal_value_m2;Valor tasado (€/m²);mercado;9.9;EUR/m2;average;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;Tasación ≠ precio de cierre ≠ oferta.
+mkt.price_index_sale;Índice de precios de vivienda (venta);mercado;9.9;índice;index;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+mkt.price_index_rent;Índice de precios de vivienda en alquiler;mercado;9.9;índice;index;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+mkt.active_listings;Oferta activa observada;mercado;9.9;anuncios / inmuebles;count;"[""operation"", ""count_unit""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;Se distinguen anuncios publicados e inmuebles únicos.
+mkt.listing_events;Altas, cambios y bajas observadas de anuncios;mercado;9.9;eventos;flow;"[""event_type""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;Una retirada no observada no significa venta.
+tour.dwellings;Viviendas turísticas;turismo;9.10;viviendas;stock;[];Viviendas anunciadas en plataformas (INE VTE);;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+tour.places;Plazas en viviendas turísticas;turismo;9.10;plazas;stock;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+tour.places_per_dwelling;Plazas por vivienda turística;turismo;9.10;plazas/vivienda;ratio;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+tour.dwellings_share;Porcentaje de viviendas turísticas;turismo;9.10;%;share;[];;viviendas censadas;;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+tour.travellers;Viajeros;turismo;9.10;viajeros;flow;"[""accommodation_type""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+tour.overnights;Pernoctaciones;turismo;9.10;pernoctaciones;flow;"[""accommodation_type""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+tour.occupancy;Ocupación;turismo;9.10;%;rate;"[""accommodation_type"", ""measure""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;No se extrapola la ocupación de una categoría de alojamiento a cualquier vivienda.
+tour.seasonality;Estacionalidad;turismo;9.10;índice;index;[];;;máximo mensual / media mensual de pernoctaciones;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+tour.registry_entries;Inscripciones en registros turísticos;turismo;9.10;inscripciones;stock;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+con.dwellings_stage;Viviendas por fase del proceso constructivo;construccion;9.11;viviendas;flow;"[""stage""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;No se suman visados, inicios y terminaciones como viviendas independientes.
+con.licences;Licencias de obra;construccion;9.11;licencias;flow;"[""licence_type""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;No se suman visados, inicios y terminaciones como viviendas independientes.
+con.dwellings_created;Viviendas creadas;construccion;9.11;viviendas;flow;"[""origin""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;No se suman visados, inicios y terminaciones como viviendas independientes.
+con.licences_5y_per_1000;Licencias quinquenales por 1.000 habitantes;construccion;9.11;‰;rate;[];;pop.padron;Σ licencias 5 años / pop.padron (año final) × 1000;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;No se suman visados, inicios y terminaciones como viviendas independientes.
+con.protected_housing;Vivienda protegida;construccion;9.11;viviendas/actuaciones;flow;"[""measure""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;No se suman visados, inicios y terminaciones como viviendas independientes.
+cad.parcel_attributes;Catastro: referencia, uso, superficies, antigüedad, localización y geometrías;complementarios;9.12;varios;category;[];;;;"[""pantalla"", ""calculo"", ""documentacion""]";not_scored;False;False;
+geo.boundaries_addresses;Cartografía: límites, direcciones y códigos territoriales;complementarios;9.12;varios;category;[];;;;"[""pantalla"", ""calculo"", ""documentacion""]";not_scored;False;False;
+ene.certificate;Energía: certificado, fecha, ámbito, calificación, consumo y emisiones calculados;complementarios;9.12;varios;category;[];;;;"[""pantalla"", ""calculo"", ""documentacion""]";not_scored;False;False;Consumo y emisiones son calculados por el certificador, no medidos.
+svc.facilities;Servicios: centros sanitarios, docentes y enseñanzas;complementarios;9.12;unidades;count;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+svc.distance;Distancia a servicios;complementarios;9.12;m;distance;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;Distancia euclídea salvo que se indique red.
+trn.transit;Transporte: paradas, líneas, horarios y calendarios;complementarios;9.12;varios;count;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+trn.access_time;Tiempos de acceso;complementarios;9.12;min;time;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;Solo con red y metodología adecuadas.
+mob.commuting;Movilidad residencia-trabajo;complementarios;9.12;personas;flow;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+fin.interest_rates;Tipos de interés y financiación;complementarios;9.12;%;rate;[];;;;"[""pantalla"", ""calculo"", ""contexto""]";not_scored;False;False;
+fin.mortgages;Hipotecas;complementarios;9.12;hipotecas;flow;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+fin.cpi;IPC y referencias de actualización;complementarios;9.12;índice;index;[];;;;"[""pantalla"", ""calculo"", ""contexto""]";not_scored;False;False;
+tax.acquisition;Tributos de adquisición;complementarios;9.12;%;rate;[];;;;"[""pantalla"", ""calculo"", ""documentacion""]";not_scored;False;False;Reglas fechadas en invest.tax_rules.
+tax.ibi_rules;Tipos y reglas de IBI;complementarios;9.12;%;rate;[];;;;"[""pantalla"", ""calculo"", ""documentacion""]";not_scored;False;False;El tipo no basta para conocer el recibo individual.
+tax.fees_bonuses;Tasas y bonificaciones;complementarios;9.12;varios;category;[];;;;"[""pantalla"", ""calculo"", ""documentacion""]";not_scored;False;False;No se aplican bonificaciones sin comprobar condiciones.
+reg.regulation;Normativa aplicable, con fecha y ámbito;complementarios;9.12;texto;category;[];;;;"[""documentacion""]";not_scored;False;False;
+urb.planning;Planeamiento y usos publicados;complementarios;9.12;texto;category;[];;;;"[""documentacion""]";not_scored;False;False;
+urb.heritage;Protección patrimonial;complementarios;9.12;texto;category;[];;;;"[""documentacion""]";not_scored;False;False;
+urb.ite_iee;ITE/IEE y documentación de conservación;complementarios;9.12;texto;category;[];;;;"[""documentacion""]";not_scored;False;False;"Documentación o entrada justificada; no genera puntuación de riesgos."
+hou.protected_stock;Vivienda protegida;complementarios;9.12;viviendas;stock;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+loc.budget_investment;Presupuestos e inversión local;complementarios;9.12;EUR;amount;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+loc.public_procurement;Contratación pública y estado de las actuaciones;complementarios;9.12;contratos;count;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+study.public;Estudios públicos;complementarios;9.12;texto;category;[];;;;"[""documentacion""]";not_scored;False;False;Respetar metodología y posibilidades de reutilización.
+der.rent_effort;Esfuerzo de alquiler;derivados;13;%;ratio;[];;"Renta neta media por hogar (ADRH, mismo territorio; año más próximo, indicado)";renta de oferta anual de una vivienda tipo / inc.net_mean_household × 100;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;Universo compatible: hogar con hogar. No se divide entre renta por declaración o por persona.
+der.price_to_income;Relación precio/ingresos;derivados;13;años;ratio;[];;Renta neta media por hogar;precio de oferta de una vivienda tipo (m² declarados) / inc.net_mean_household;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+der.tourism_weight;Peso turístico;derivados;13;%;share;[];;;tour.dwellings / hou.dwellings total × 100;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
+der.sector_concentration;Concentración sectorial (HHI);derivados;13;índice;index;[];;;Σ (cuota sectorial²) sobre afiliación o empresas;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+der.percentile;Percentil en un universo estable;derivados;13;percentil;other;"[""indicator"", ""universe""]";;;posición del valor en la distribución ordenada del universo declarado;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+der.gross_yield_zone;Rentabilidad bruta estimada de la zona;derivados;13;%;ratio;[];;;mediana renta oferta €/m²/mes × 12 / mediana precio oferta €/m² × 100;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;"Estimación con medianas de oferta; requiere n mínimo y misma fecha. No es un resultado de inversión."
+der.change_abs;Variación absoluta;derivados;13;según indicador;flow;"[""indicator"", ""k""]";;;v[t] - v[t-k];"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+der.change_pct;Variación porcentual;derivados;13;%;rate;"[""indicator"", ""k""]";;;(v[t] / v[t-k]) - 1;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+risk.flood;Inundación;excluidos;9.13;—;other;[];;;;"[""documentacion""]";excluded_risk;False;True;
+risk.radon;Radón;excluidos;9.13;—;other;[];;;;"[""documentacion""]";excluded_risk;False;True;
+risk.fire;Incendio;excluidos;9.13;—;other;[];;;;"[""documentacion""]";excluded_risk;False;True;
+risk.geological;Riesgos geológicos;excluidos;9.13;—;other;[];;;;"[""documentacion""]";excluded_risk;False;True;
+risk.other_physical;Otros riesgos físicos del catálogo original;excluidos;9.13;—;other;[];;;;"[""documentacion""]";excluded_risk;False;True;
+risk.crime;Criminalidad;excluidos;9.13;—;other;[];;;;"[""documentacion""]";excluded_risk;False;True;
+risk.evictions;Ejecuciones o lanzamientos como indicadores de riesgo;excluidos;9.13;—;other;[];;;;"[""documentacion""]";excluded_risk;False;True;

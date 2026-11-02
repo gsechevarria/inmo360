@@ -1,0 +1,15 @@
+local-data/
+node_modules/
+.next/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.venv/
+test-results/
+playwright-report/
+.pytest_cache/
+coverage/
+media-store/

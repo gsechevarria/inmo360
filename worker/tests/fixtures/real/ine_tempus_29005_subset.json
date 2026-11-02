@@ -1,0 +1,620 @@
+{
+ "_capture": {
+  "captured_at": "2026-11-02T11:53:37.351Z",
+  "url": "https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/29005?nult=2&tip=AM",
+  "method": "Navegador del propietario (Claude Browser) — respuesta real, subconjunto de series copiadas literalmente",
+  "total_series_in_response": 24414,
+  "synthetic": false
+ },
+ "series": [
+  {
+   "COD": "DPOP19723",
+   "Nombre": "Ababuj. Total. Total habitantes. Personas. ",
+   "T3_Unidad": "Personas",
+   "T3_Escala": " ",
+   "MetaData": [
+    {
+     "Id": 7352,
+     "T3_Variable": "Municipios",
+     "Nombre": "Ababuj",
+     "Codigo": "44001"
+    },
+    {
+     "Id": 451,
+     "T3_Variable": "Sexo",
+     "Nombre": "Total",
+     "Codigo": "0"
+    },
+    {
+     "Id": 8677,
+     "T3_Variable": "Tamaño de los municipios",
+     "Nombre": "Total habitantes",
+     "Codigo": "0"
+    },
+    {
+     "Id": 20258,
+     "T3_Variable": "Tipo de dato",
+     "Nombre": "Personas",
+     "Codigo": ""
+    }
+   ],
+   "Data": [
+    {
+     "Fecha": "2025-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2025,
+     "Valor": 73
+    },
+    {
+     "Fecha": "2024-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2024,
+     "Valor": 74
+    }
+   ]
+  },
+  {
+   "COD": "DPOP19724",
+   "Nombre": "Ababuj. Hombres. Total habitantes. Personas. ",
+   "T3_Unidad": "Personas",
+   "T3_Escala": " ",
+   "MetaData": [
+    {
+     "Id": 7352,
+     "T3_Variable": "Municipios",
+     "Nombre": "Ababuj",
+     "Codigo": "44001"
+    },
+    {
+     "Id": 452,
+     "T3_Variable": "Sexo",
+     "Nombre": "Hombres",
+     "Codigo": "1"
+    },
+    {
+     "Id": 8677,
+     "T3_Variable": "Tamaño de los municipios",
+     "Nombre": "Total habitantes",
+     "Codigo": "0"
+    },
+    {
+     "Id": 20258,
+     "T3_Variable": "Tipo de dato",
+     "Nombre": "Personas",
+     "Codigo": ""
+    }
+   ],
+   "Data": [
+    {
+     "Fecha": "2025-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2025,
+     "Valor": 45
+    },
+    {
+     "Fecha": "2024-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2024,
+     "Valor": 44
+    }
+   ]
+  },
+  {
+   "COD": "DPOP19725",
+   "Nombre": "Ababuj. Mujeres. Total habitantes. Personas. ",
+   "T3_Unidad": "Personas",
+   "T3_Escala": " ",
+   "MetaData": [
+    {
+     "Id": 7352,
+     "T3_Variable": "Municipios",
+     "Nombre": "Ababuj",
+     "Codigo": "44001"
+    },
+    {
+     "Id": 453,
+     "T3_Variable": "Sexo",
+     "Nombre": "Mujeres",
+     "Codigo": "2"
+    },
+    {
+     "Id": 8677,
+     "T3_Variable": "Tamaño de los municipios",
+     "Nombre": "Total habitantes",
+     "Codigo": "0"
+    },
+    {
+     "Id": 20258,
+     "T3_Variable": "Tipo de dato",
+     "Nombre": "Personas",
+     "Codigo": ""
+    }
+   ],
+   "Data": [
+    {
+     "Fecha": "2025-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2025,
+     "Valor": 28
+    },
+    {
+     "Fecha": "2024-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2024,
+     "Valor": 30
+    }
+   ]
+  },
+  {
+   "COD": "DPOP17671",
+   "Nombre": "Abades. Total. Total habitantes. Personas. ",
+   "T3_Unidad": "Personas",
+   "T3_Escala": " ",
+   "MetaData": [
+    {
+     "Id": 6917,
+     "T3_Variable": "Municipios",
+     "Nombre": "Abades",
+     "Codigo": "40001"
+    },
+    {
+     "Id": 451,
+     "T3_Variable": "Sexo",
+     "Nombre": "Total",
+     "Codigo": "0"
+    },
+    {
+     "Id": 8677,
+     "T3_Variable": "Tamaño de los municipios",
+     "Nombre": "Total habitantes",
+     "Codigo": "0"
+    },
+    {
+     "Id": 20258,
+     "T3_Variable": "Tipo de dato",
+     "Nombre": "Personas",
+     "Codigo": ""
+    }
+   ],
+   "Data": [
+    {
+     "Fecha": "2025-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2025,
+     "Valor": 849
+    },
+    {
+     "Fecha": "2024-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2024,
+     "Valor": 859
+    }
+   ]
+  },
+  {
+   "COD": "DPOP17672",
+   "Nombre": "Abades. Hombres. Total habitantes. Personas. ",
+   "T3_Unidad": "Personas",
+   "T3_Escala": " ",
+   "MetaData": [
+    {
+     "Id": 6917,
+     "T3_Variable": "Municipios",
+     "Nombre": "Abades",
+     "Codigo": "40001"
+    },
+    {
+     "Id": 452,
+     "T3_Variable": "Sexo",
+     "Nombre": "Hombres",
+     "Codigo": "1"
+    },
+    {
+     "Id": 8677,
+     "T3_Variable": "Tamaño de los municipios",
+     "Nombre": "Total habitantes",
+     "Codigo": "0"
+    },
+    {
+     "Id": 20258,
+     "T3_Variable": "Tipo de dato",
+     "Nombre": "Personas",
+     "Codigo": ""
+    }
+   ],
+   "Data": [
+    {
+     "Fecha": "2025-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2025,
+     "Valor": 417
+    },
+    {
+     "Fecha": "2024-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2024,
+     "Valor": 422
+    }
+   ]
+  },
+  {
+   "COD": "DPOP17673",
+   "Nombre": "Abades. Mujeres. Total habitantes. Personas. ",
+   "T3_Unidad": "Personas",
+   "T3_Escala": " ",
+   "MetaData": [
+    {
+     "Id": 6917,
+     "T3_Variable": "Municipios",
+     "Nombre": "Abades",
+     "Codigo": "40001"
+    },
+    {
+     "Id": 453,
+     "T3_Variable": "Sexo",
+     "Nombre": "Mujeres",
+     "Codigo": "2"
+    },
+    {
+     "Id": 8677,
+     "T3_Variable": "Tamaño de los municipios",
+     "Nombre": "Total habitantes",
+     "Codigo": "0"
+    },
+    {
+     "Id": 20258,
+     "T3_Variable": "Tipo de dato",
+     "Nombre": "Personas",
+     "Codigo": ""
+    }
+   ],
+   "Data": [
+    {
+     "Fecha": "2025-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2025,
+     "Valor": 432
+    },
+    {
+     "Fecha": "2024-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2024,
+     "Valor": 437
+    }
+   ]
+  },
+  {
+   "COD": "DPOP15952",
+   "Nombre": "Cerdedo. Total. Total habitantes. Personas. ",
+   "T3_Unidad": "Personas",
+   "T3_Escala": " ",
+   "MetaData": [
+    {
+     "Id": 6530,
+     "T3_Variable": "Municipios",
+     "Nombre": "Cerdedo",
+     "Codigo": "36011"
+    },
+    {
+     "Id": 451,
+     "T3_Variable": "Sexo",
+     "Nombre": "Total",
+     "Codigo": "0"
+    },
+    {
+     "Id": 8677,
+     "T3_Variable": "Tamaño de los municipios",
+     "Nombre": "Total habitantes",
+     "Codigo": "0"
+    },
+    {
+     "Id": 20258,
+     "T3_Variable": "Tipo de dato",
+     "Nombre": "Personas",
+     "Codigo": ""
+    }
+   ],
+   "Data": []
+  },
+  {
+   "COD": "DPOP13156",
+   "Nombre": "Madrid. Total. Total habitantes. Personas. ",
+   "T3_Unidad": "Personas",
+   "T3_Escala": " ",
+   "MetaData": [
+    {
+     "Id": 2813,
+     "T3_Variable": "Municipios",
+     "Nombre": "Madrid",
+     "Codigo": "28079"
+    },
+    {
+     "Id": 451,
+     "T3_Variable": "Sexo",
+     "Nombre": "Total",
+     "Codigo": "0"
+    },
+    {
+     "Id": 8677,
+     "T3_Variable": "Tamaño de los municipios",
+     "Nombre": "Total habitantes",
+     "Codigo": "0"
+    },
+    {
+     "Id": 20258,
+     "T3_Variable": "Tipo de dato",
+     "Nombre": "Personas",
+     "Codigo": ""
+    }
+   ],
+   "Data": [
+    {
+     "Fecha": "2025-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2025,
+     "Valor": 3506730
+    },
+    {
+     "Fecha": "2024-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2024,
+     "Valor": 3416771
+    }
+   ]
+  },
+  {
+   "COD": "DPOP13157",
+   "Nombre": "Madrid. Hombres. Total habitantes. Personas. ",
+   "T3_Unidad": "Personas",
+   "T3_Escala": " ",
+   "MetaData": [
+    {
+     "Id": 2813,
+     "T3_Variable": "Municipios",
+     "Nombre": "Madrid",
+     "Codigo": "28079"
+    },
+    {
+     "Id": 452,
+     "T3_Variable": "Sexo",
+     "Nombre": "Hombres",
+     "Codigo": "1"
+    },
+    {
+     "Id": 8677,
+     "T3_Variable": "Tamaño de los municipios",
+     "Nombre": "Total habitantes",
+     "Codigo": "0"
+    },
+    {
+     "Id": 20258,
+     "T3_Variable": "Tipo de dato",
+     "Nombre": "Personas",
+     "Codigo": ""
+    }
+   ],
+   "Data": [
+    {
+     "Fecha": "2025-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2025,
+     "Valor": 1645087
+    },
+    {
+     "Fecha": "2024-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2024,
+     "Valor": 1600298
+    }
+   ]
+  },
+  {
+   "COD": "DPOP13158",
+   "Nombre": "Madrid. Mujeres. Total habitantes. Personas. ",
+   "T3_Unidad": "Personas",
+   "T3_Escala": " ",
+   "MetaData": [
+    {
+     "Id": 2813,
+     "T3_Variable": "Municipios",
+     "Nombre": "Madrid",
+     "Codigo": "28079"
+    },
+    {
+     "Id": 453,
+     "T3_Variable": "Sexo",
+     "Nombre": "Mujeres",
+     "Codigo": "2"
+    },
+    {
+     "Id": 8677,
+     "T3_Variable": "Tamaño de los municipios",
+     "Nombre": "Total habitantes",
+     "Codigo": "0"
+    },
+    {
+     "Id": 20258,
+     "T3_Variable": "Tipo de dato",
+     "Nombre": "Personas",
+     "Codigo": ""
+    }
+   ],
+   "Data": [
+    {
+     "Fecha": "2025-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2025,
+     "Valor": 1861643
+    },
+    {
+     "Fecha": "2024-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2024,
+     "Valor": 1816473
+    }
+   ]
+  },
+  {
+   "COD": "DPOP63263",
+   "Nombre": "Usansolo. Total. Total habitantes. Personas. ",
+   "T3_Unidad": "Personas",
+   "T3_Escala": " ",
+   "MetaData": [
+    {
+     "Id": 416493,
+     "T3_Variable": "Municipios",
+     "Nombre": "Usansolo",
+     "Codigo": "48916"
+    },
+    {
+     "Id": 451,
+     "T3_Variable": "Sexo",
+     "Nombre": "Total",
+     "Codigo": "0"
+    },
+    {
+     "Id": 8677,
+     "T3_Variable": "Tamaño de los municipios",
+     "Nombre": "Total habitantes",
+     "Codigo": "0"
+    },
+    {
+     "Id": 20258,
+     "T3_Variable": "Tipo de dato",
+     "Nombre": "Personas",
+     "Codigo": ""
+    }
+   ],
+   "Data": [
+    {
+     "Fecha": "2025-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2025,
+     "Valor": 4565
+    },
+    {
+     "Fecha": "2024-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2024,
+     "Valor": 4572
+    }
+   ]
+  },
+  {
+   "COD": "DPOP63262",
+   "Nombre": "Usansolo. Hombres. Total habitantes. Personas. ",
+   "T3_Unidad": "Personas",
+   "T3_Escala": " ",
+   "MetaData": [
+    {
+     "Id": 416493,
+     "T3_Variable": "Municipios",
+     "Nombre": "Usansolo",
+     "Codigo": "48916"
+    },
+    {
+     "Id": 452,
+     "T3_Variable": "Sexo",
+     "Nombre": "Hombres",
+     "Codigo": "1"
+    },
+    {
+     "Id": 8677,
+     "T3_Variable": "Tamaño de los municipios",
+     "Nombre": "Total habitantes",
+     "Codigo": "0"
+    },
+    {
+     "Id": 20258,
+     "T3_Variable": "Tipo de dato",
+     "Nombre": "Personas",
+     "Codigo": ""
+    }
+   ],
+   "Data": [
+    {
+     "Fecha": "2025-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2025,
+     "Valor": 2243
+    },
+    {
+     "Fecha": "2024-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2024,
+     "Valor": 2250
+    }
+   ]
+  },
+  {
+   "COD": "DPOP63261",
+   "Nombre": "Usansolo. Mujeres. Total habitantes. Personas. ",
+   "T3_Unidad": "Personas",
+   "T3_Escala": " ",
+   "MetaData": [
+    {
+     "Id": 416493,
+     "T3_Variable": "Municipios",
+     "Nombre": "Usansolo",
+     "Codigo": "48916"
+    },
+    {
+     "Id": 453,
+     "T3_Variable": "Sexo",
+     "Nombre": "Mujeres",
+     "Codigo": "2"
+    },
+    {
+     "Id": 8677,
+     "T3_Variable": "Tamaño de los municipios",
+     "Nombre": "Total habitantes",
+     "Codigo": "0"
+    },
+    {
+     "Id": 20258,
+     "T3_Variable": "Tipo de dato",
+     "Nombre": "Personas",
+     "Codigo": ""
+    }
+   ],
+   "Data": [
+    {
+     "Fecha": "2025-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2025,
+     "Valor": 2322
+    },
+    {
+     "Fecha": "2024-01-01T00:00:00.000+01:00",
+     "T3_TipoDato": "Definitivo",
+     "T3_Periodo": "A",
+     "Anyo": 2024,
+     "Valor": 2322
+    }
+   ]
+  }
+ ]
+}

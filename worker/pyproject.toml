@@ -1,0 +1,30 @@
+[project]
+name = "inmo-worker"
+version = "0.1.0"
+description = "Trabajador local de Inmo360: cola de importación, conectores, almacenamiento de medios y deduplicación"
+requires-python = ">=3.12"
+dependencies = [
+  "psycopg[binary]==3.2.10",
+  "httpx==0.28.1",
+  "pydantic==2.11.9",
+  "lxml==6.0.2",
+  "python-dotenv==1.1.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.2", "respx==0.22.0"]
+shp = ["pyshp==2.3.1"]
+
+[project.scripts]
+inmo-worker = "inmo_worker.cli:main"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["inmo_worker*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["db: requiere la base aislada de pruebas (INMO_TEST_DATABASE_URL)"]

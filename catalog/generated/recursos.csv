@@ -1,0 +1,79 @@
+code;source_code;name;url;table_or_series;format;coverage_geo;coverage_time;frequency;import_method;connector_code;tech_status;reuse_status;status_evidence;blocked_reason;notes
+ine.dpop.29005;ine;Cifras oficiales del padrón por municipio (y sexo);https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/29005;29005;json-api;municipio · España (8.132 vigentes + 6 históricos);1996–2025;anual (1 de enero);worker:ine_tempus;ine_tempus;import_tested;open_license;"2026-11-02: descarga real desde el navegador del propietario (24.414 series); parser validado con fixture literal; importación probada en BD aislada. Pendiente ejecución directa del trabajador en el PC → 'operational'.";;
+ine.adrh.renta;ine;ADRH · Indicadores de renta media y mediana (una tabla por provincia);https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/{id};52 tablas (p. ej. 30656 = Albacete);json-api;municipio, distrito y sección censal;2015–último;anual;worker:ine_tempus;ine_tempus;import_tested;open_license;"2026-11-02: descarga real de las tablas provinciales desde el navegador; importadas renta neta media por persona y por hogar a nivel municipal en BD aislada. Media/mediana por UC y renta bruta: mapeadas, no importadas aún.";;
+ine.adrh.fuentes;ine;ADRH · Distribución por fuente de ingresos;;tablas provinciales;json-api;municipio/distrito/sección;;anual;worker:ine_tempus;ine_tempus;resource_identified;open_license;Operación 353 listada en la API (540 tablas).;;
+ine.adrh.umbrales;ine;ADRH · Población por umbrales de ingresos por unidad de consumo;;;json-api;municipio/distrito/sección;;anual;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.adrh.demograficos;ine;ADRH · Indicadores demográficos (edad media, hogares, tamaño medio…);;;json-api;municipio/distrito/sección;;anual;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.adrh.gini;ine;ADRH · Índice de Gini y distribución P80/P20;;;json-api;municipio/distrito/sección;;anual;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.dpop.prov_edad;ine;Padrón · población por municipio, sexo y edad (quinquenal);;;json-api;municipio;;anual;worker:ine_tempus;ine_tempus;catalogued;open_license;;;Identificar tablas provinciales de la operación DPOP/ECP con desglose de edad.
+ine.dpop.prov_nacionalidad;ine;Padrón · población por municipio, nacionalidad y lugar de nacimiento;;;json-api;municipio;;anual;worker:ine_tempus;ine_tempus;catalogued;open_license;;;
+ine.censo2021.poblacion;ine;Censo de Población 2021+ (CENSOP) · tablas municipales;;p. ej. 66597 (nivel de estudios);json-api;municipio (43 tablas municipales);2021–;anual (censo continuo);worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.censo2021.viviendas;ine;Censo de Viviendas 2021 · tenencia y uso por municipio;;;csv/json;municipio;2021;;none;;catalogued;open_license;;;Pendiente localizar el recurso estructurado municipal de viviendas principales/no principales/vacías y tenencia.
+ine.emcr.69696;ine;Inmigraciones procedentes del extranjero por municipio, año y sexo;https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/69696;69696;json-api;municipio;;anual;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.emcr.69711;ine;Emigraciones con destino al extranjero por municipio, año y sexo;https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/69711;69711;json-api;municipio;;anual;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.emcr.69743;ine;Inmigraciones intermunicipales por municipio de destino, año, sexo y nacionalidad;https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/69743;69743;json-api;municipio;;anual;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.emcr.69767;ine;Saldos migratorios por municipio, año, sexo y tipo de saldo;https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/69767;69767;json-api;municipio;;anual;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.vte.39363;ine;Viviendas turísticas, plazas y plazas por vivienda turística por municipio;https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/39363;39363;json-api;municipio;;semestral;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;Estadística experimental del INE basada en plataformas.
+ine.vte.39366;ine;Porcentaje de viviendas turísticas sobre el total de viviendas censadas;https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/39366;39366;json-api;municipio;;semestral;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.ipva.59060;ine;IPVA · índices por municipio (> 10.000 habitantes);https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/59060;59060;json-api;municipio > 10.000 hab;;anual;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.ipv;ine;Índice de Precios de Vivienda (IPV);;;json-api;CCAA;;trimestral;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.etdp;ine;Estadística de Transmisiones de Derechos de la Propiedad;;;json-api;provincia/CCAA;;mensual;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.hpt;ine;Estadística de Hipotecas;;;json-api;provincia/CCAA;;mensual;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.ipc;ine;Índice de Precios de Consumo (IPC);;;json-api;España/CCAA/provincia;;mensual;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.irav;ine;Índice de Referencia de Arrendamientos de Vivienda (IRAV);;;json-api;España;;mensual;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.dirce;ine;DIRCE · empresas y locales por actividad;;;json-api;municipio (según tabla);;anual;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;"La operación 43 (DIR) no expone tablas municipales en la API; puede requerir descarga de ficheros."
+ine.eot;ine;Encuestas de ocupación turística (hoteles, apartamentos, rural);;;json-api;puntos turísticos / zonas;;mensual;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;Universo: establecimientos reglados, no viviendas.
+ine.proyecciones;ine;Proyecciones de población y hogares;;;json-api;provincia;;bienal;worker:ine_tempus;ine_tempus;resource_identified;open_license;;;
+ine.indicadores_urbanos;ine;Indicadores urbanos (Urban Audit);;;json-api;ciudades/FUA;;anual;none;;catalogued;open_license;;;
+ine.movilidad;ine;Movilidad residencia-trabajo / estudios de movilidad;;;varios;áreas de movilidad;;;none;;catalogued;open_license;;;
+es_atlas.municipalities.0.6.0;es_atlas;es-atlas 0.6.0 · municipios, provincias y CCAA (TopoJSON);https://registry.npmjs.org/es-atlas/-/es-atlas-0.6.0.tgz;;topojson;municipio · España;IGN ≤ 2024;;worker:geo_es_atlas;geo_es_atlas;import_tested;open_license;"2026-11-02: 8.213 recintos cargados (8.131 municipios + 81 condominios + Gibraltar excluido); 48916 Usansolo sin geometría.";;
+cnig.lineas_limite;cnig;Líneas límite municipales (SHP ETRS89/REGCAN95);https://centrodedescargas.cnig.es/CentroDescargas/ (secuencialDescDir=9000029);;shp;municipio;;;worker:geo_cnig;geo_cnig;resource_identified;open_license;;;"Implementado el conector; requiere ejecución desde el PC (la sesión de desarrollo no alcanza cnig.es)."
+ign.wfs_au;cnig;IGN · WFS INSPIRE Unidades administrativas;;;wfs;municipio;;;none;;catalogued;open_license;;;
+cartociudad.geocoder;cartociudad;CartoCiudad · geocodificador y direcciones;;;json-api;dirección;;;none;;catalogued;open_license;;;
+mivau.alquiler_tributario;mivau;Sistema estatal de referencia del precio del alquiler / rentas declaradas (IRPF);;;xlsx;municipio/sección;;anual;none;;catalogued;reuse_with_conditions;;;"Rentas declaradas por arrendadores; no son precios de oferta."
+mivau.serpavi;mivau;SERPAVI · índice de referencia de alquiler;;;visor;sección/municipio;;;none;;catalogued;consult_only;;;No se presupone API masiva.
+mivau.transacciones;mivau;Estadística de transacciones inmobiliarias;;;xls;municipio > 25.000 hab / provincia;;trimestral;none;;catalogued;reuse_with_conditions;;;
+mivau.tasaciones;mivau;Valor tasado de la vivienda libre;;;xls;municipio > 25.000 hab / provincia;;trimestral;none;;catalogued;reuse_with_conditions;;;Tasación ≠ precio de cierre.
+mivau.suelo;mivau;Precio del suelo urbano;;;xls;municipio > 50.000 hab;;trimestral;none;;catalogued;reuse_with_conditions;;;
+mivau.construccion;mivau;Construcción de edificios (visados) y certificados fin de obra;;;xls;provincia;;mensual;none;;catalogued;reuse_with_conditions;;;
+mivau.licencias;mivau;Licencias municipales de obra;;;xls;provincia;;mensual;none;;catalogued;reuse_with_conditions;;;
+mivau.vivienda_libre;mivau;Vivienda libre iniciada y terminada;;;xls;provincia;;trimestral;none;;catalogued;reuse_with_conditions;;;
+mivau.vpo;mivau;Vivienda protegida · calificaciones y actuaciones de rehabilitación;;;xls;provincia;;trimestral;none;;catalogued;reuse_with_conditions;;;
+mivau.observatorio;mivau;Observatorio de Vivienda y Suelo (boletines);;;pdf/xls;;;;none;;catalogued;reuse_with_conditions;;;
+aeat.irpf_municipal;aeat;Estadística de declarantes del IRPF por municipios;;;xlsx/visor;municipio > 1.000 hab (territorio común);;anual;none;;catalogued;reuse_with_conditions;;;Renta por declaración ≠ renta por hogar. Excluye País Vasco y Navarra.
+forales.irpf;forales;IRPF de las haciendas forales;;;varios;municipio (según territorio);;;none;;catalogued;unknown;;;
+eustat.renta;eustat;Eustat · renta personal y familiar por municipio;;;pxweb/csv;municipio CAPV;;;none;;catalogued;open_license;;;
+nastat.renta;nastat;Nastat · renta y estadísticas municipales de Navarra;;;varios;municipio Navarra;;;none;;catalogued;unknown;;;
+sepe.paro_municipal;sepe;Paro registrado y contratos por municipio;;;xls/csv;municipio;;mensual;none;;catalogued;reuse_with_conditions;;;"Paro registrado ≠ tasa de paro; contratos ≠ personas."
+seg_social.afiliacion_municipal;seg_social;Afiliación a la Seguridad Social por municipio y régimen;;;xlsx;municipio;;mensual;none;;catalogued;reuse_with_conditions;;;Afiliaciones ≠ personas únicas (pluriempleo).
+bde.tipos_hipotecarios;bde;Tipos de interés de préstamos para vivienda y Euríbor;;;csv;España;;mensual;none;;catalogued;reuse_with_conditions;;;
+bde.bono10;bde;Rendimiento del bono español a 10 años;;;csv;España;;mensual;none;;catalogued;reuse_with_conditions;;;
+catastro.inspire;catastro;Catastro INSPIRE · parcelas, edificios y direcciones (ATOM/WFS);;;gml/wfs;parcela;;;none;;catalogued;reuse_with_conditions;;;
+catastro.estadistica;catastro;Estadística catastral municipal (urbana);;;xls;municipio;;anual;none;;catalogued;reuse_with_conditions;;;
+hacienda.ibi_tipos;hacienda;Tipos de gravamen del IBI por municipio;;;xls;municipio;;anual;none;;catalogued;unknown;;;El tipo no basta para conocer el recibo individual.
+hacienda.itp_ajd;hacienda;Tipos autonómicos de ITP y AJD (normativa y 'Tributación autonómica');;;pdf/html;CCAA;;anual;none;;catalogued;unknown;;;"Las reglas se cargan en invest.tax_rules con vigencia y fuente; nunca se aplican sin confirmar."
+hacienda.conprel;hacienda;Presupuestos y liquidaciones de entidades locales;;;mdb/xlsx;municipio;;anual;none;;catalogued;unknown;;;
+boe.legislacion;boe;BOE · legislación consolidada (API);;;xml/json-api;;;;none;;catalogued;open_license;;;
+ccaa.normativa;ccaa_normativa;Normativa autonómica de vivienda, turismo y tributos;;;varios;;;;none;;catalogued;unknown;;;
+ayto.ordenanzas_urbanismo;ayuntamientos;Ordenanzas fiscales, planeamiento, protección patrimonial, ITE/IEE;;;varios;municipio;;;none;;catalogued;unknown;;;
+energia.registros;energia_ccaa;Registros autonómicos de certificados de eficiencia energética;;;varios;inmueble (según CCAA);;;none;;catalogued;unknown;;;
+sanidad.regcess;sanidad;Registro de centros, servicios y establecimientos sanitarios;;;xlsx;punto;;;none;;catalogued;unknown;;;
+educacion.rcd_ruct;educacion;Registro de centros docentes y universidades (RCD/RUCT) y matrícula (SIIU);;;varios;punto/municipio;;;none;;catalogued;unknown;;;
+nap.gtfs;nap;Feeds GTFS/NeTEx del NAP;;;gtfs/netex;paradas;;;none;;catalogued;reuse_with_conditions;;;
+turismo.registros;turismo_ccaa;Registros de viviendas de uso turístico por CCAA y registro único;;;varios;inmueble/municipio;;;none;;catalogued;unknown;;;
+notariado.portal;notariado;Portal estadístico notarial (compraventas y precios);;;visor;municipio;;;none;;catalogued;consult_only;;;
+registradores.eri;registradores;Estadística Registral Inmobiliaria;;;pdf;CCAA/provincia;;;none;;catalogued;consult_only;;;
+placsp.atom;placsp;Licitaciones y contratos (ATOM);;;atom/xml;;;;none;;catalogued;open_license;;;
+estudios.varios;estudios;Estudios públicos pertinentes;;;pdf;;;;none;;catalogued;unknown;;;
+valencia.ovv;estudios;Referencias 'OVV' e indicadores específicos de València;;;;;;;none;;catalogued;unknown;;;Pendiente identificar organismo, territorio y metodología. No se extiende al resto de España.
+idealista_api.search;idealista_api;Idealista · API de búsqueda de inmuebles;;;json-api;España;;;worker:idealista_api;idealista_api;blocked;restricted;;Requiere credenciales (API key/secret) concedidas por Idealista. Conector implementado sin activar.;
+fotocasa.web;fotocasa;Fotocasa;;;;;;;none;;blocked;restricted;;Sin API o feed autorizado. No se implementa extracción HTML ni se eluden protecciones.;
+agency_web.jsonld;agency_web;Webs de agencias con datos estructurados (JSON-LD schema.org / sitemap);;;html+jsonld;según agencia;;;worker:agency_jsonld;agency_jsonld;catalogued;unknown;;;"Conector genérico implementado y probado con páginas de prueba; requiere lista de agencias y ejecución en el PC."
+agency_network.franquicias;agency_network;Redes de agencias (franquicias);;;;;;;none;;catalogued;unknown;;;Revisar condiciones y robots de cada red antes de activar.
+feed.kyero_xml;feed;Feeds XML formato Kyero aportados por agencias;;;xml;;;;worker:feed_kyero;feed_kyero;catalogued;unknown;;;Parser implementado y probado con XML de prueba.
+file_import.listings;file_import;CSV/JSON de anuncios (contrato documentado);;;csv/json;;;;worker:file_import;file_import;import_tested;not_applicable;Pruebas del trabajador contra BD aislada (idempotencia, unidades de precio, errores).;;
+google_places.discovery;google_places;Descubrimiento de agencias con Google Places;;;;;;;none;;catalogued;restricted;;;Opcional, no implementado: no es dependencia del MVP.
+derived.inmo360;derived;Indicadores derivados calculados por Inmo360;;;;;;;sql/ts;;operational;not_applicable;Transformaciones con pruebas unitarias (packages/indicators).;;
+market.inmo360;derived;Estadísticas de oferta observada (anuncios deduplicados);;;;;;;sql;;operational;not_applicable;;;Cobertura de anuncios separada de la cobertura estadística.
+user.input;user;Valores introducidos por el usuario;;;;;;;ui;;operational;not_applicable;;;
+excluded.product_decision;excluded;Bloques excluidos por decisión de producto (§9.13);;;;;;;none;;not_available;not_applicable;;;

@@ -1,0 +1,15 @@
+{
+  "name": "inmo360",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Inmo360 · análisis de inversión inmobiliaria en España (MVP privado)",
+  "workspaces": ["packages/*", "apps/*"],
+  "engines": { "node": ">=20.9" },
+  "scripts": {
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "build": "npm run build -w apps/web",
+    "dev": "npm run dev -w apps/web",
+    "catalog": "python catalog/build.py"
+  }
+}
