@@ -30,6 +30,17 @@ export async function signIn(_prev: { error: string }, form: FormData): Promise<
   redirect("/login?sent=1");
 }
 
+/** Acceso con Google (OAuth PKCE de Supabase). La cuenta debe existir ya en Supabase Auth: sin registro público. */
+export async function signInWithGoogle() {
+  if (process.env.AUTH_MODE === "local") redirect("/login?error=No%20disponible%20en%20modo%20local");
+  const sb = await supabaseServer();
+  const h = await headers();
+  const origin = h.get("origin") ?? `${h.get("x-forwarded-proto") ?? "https"}://${h.get("host")}`;
+  const { data, error } = await sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: `${origin}/auth/callback` } });
+  if (error || !data.url) redirect("/login?error=No%20se%20pudo%20iniciar%20el%20acceso%20con%20Google");
+  redirect(data.url);
+}
+
 export async function signOut() {
   if (process.env.AUTH_MODE === "local") (await cookies()).delete(LOCAL_COOKIE);
   else await (await supabaseServer()).auth.signOut();

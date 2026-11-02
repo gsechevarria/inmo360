@@ -66,6 +66,13 @@ Ambos clientes ya desactivan las sentencias preparadas (compatibles con el modo 
 - **Email** activado; **«Allow new users to sign up» desactivado** (no hay registro público).
 - Enlace mágico / OTP por correo. *URL Configuration*: `Site URL` = URL de Vercel; *Redirect URLs*: `https://<su-app>.vercel.app/auth/callback` y `http://localhost:3000/auth/callback`.
 
+Acceso con Google (opcional, recomendado si usa Google SSO):
+
+1. Google Cloud Console → *APIs y servicios → Pantalla de consentimiento OAuth* (tipo «Externo» o «Interno» si es Workspace) → *Credenciales → Crear ID de cliente OAuth → Aplicación web*.
+2. *URI de redireccionamiento autorizado*: `https://<project-ref>.supabase.co/auth/v1/callback`.
+3. Supabase → *Authentication → Sign In / Providers → Google*: activar y pegar *Client ID* y *Client Secret* (el secreto lo introduce el propietario).
+4. Con el registro público desactivado, la cuenta de Google debe existir antes en *Users* con el **mismo correo** (Supabase vincula la identidad de Google a ese usuario). Una cuenta autenticada sin perfil en `app.user_profiles` no entra: la web cierra su sesión.
+
 Alta del propietario (una vez):
 
 1. *Authentication → Users → Add user* (o *Invite*) con su correo.
