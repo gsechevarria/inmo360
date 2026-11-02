@@ -1,0 +1,76 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+/* Tokens del sistema visual (docs/SISTEMA_VISUAL.md) */
+@theme {
+  --font-sans: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+  --color-ink: #0f1e2e;
+  --color-ink-2: #3d4b5c;
+  --color-ink-3: #5f6b79;
+  --color-surface: #ffffff;
+  --color-canvas: #f3f5f7;
+  --color-line: #dde2e8;
+  --color-line-2: #eef1f4;
+  --color-brand: #123a5c;
+  --color-brand-2: #1f5f8b;
+  --color-brand-50: #e8f1f8;
+  --color-focus: #f0a500;
+  --color-pos: #1b7a4b;
+  --color-pos-50: #e6f4ec;
+  --color-neg: #b3261e;
+  --color-neg-50: #fbeaea;
+  --color-warn: #8a5a00;
+  --color-warn-50: #fdf3e1;
+  --color-info: #2f5d9e;
+  --color-info-50: #e9effa;
+  --color-seq-1: #e8f1f8;
+  --color-seq-2: #c3dbec;
+  --color-seq-3: #8fbcdb;
+  --color-seq-4: #5797c4;
+  --color-seq-5: #2b6ea3;
+  --color-seq-6: #123a5c;
+}
+
+:root { color-scheme: light; }
+html, body { height: 100%; }
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+.num, td, .tabular { font-variant-numeric: tabular-nums; }
+code, .code { font-family: var(--font-mono); font-size: 12px; }
+
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Componentes base */
+@layer components {
+  .panel { @apply bg-surface border border-line rounded-lg; }
+  .panel-h { @apply flex items-center justify-between gap-2 px-4 py-2.5 border-b border-line; }
+  .panel-t { @apply text-[13px] font-semibold text-ink uppercase tracking-wide; }
+  .btn { @apply inline-flex items-center gap-1.5 rounded-md border border-line bg-surface px-3 py-1.5 text-[13px] font-medium text-ink hover:bg-canvas disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply inline-flex items-center gap-1.5 rounded-md bg-brand px-3 py-1.5 text-[13px] font-medium text-white hover:bg-brand-2 disabled:opacity-50; }
+  .btn-ghost { @apply inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-[13px] text-ink-2 hover:bg-canvas; }
+  .input { @apply w-full rounded-md border border-line bg-surface px-2.5 py-1.5 text-[13px] text-ink placeholder:text-ink-3 focus:border-brand-2 focus:outline-none; }
+  .label { @apply block text-[12px] font-medium text-ink-2 mb-1; }
+  .chip { @apply inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[11.5px] font-medium leading-4 whitespace-nowrap; }
+  .tbl { @apply w-full border-collapse text-[13px]; }
+  .tbl th { @apply sticky top-0 z-[1] bg-surface border-b border-line px-3 py-2 text-left text-[12px] font-semibold text-ink-2 align-bottom; }
+  .tbl td { @apply border-b border-line-2 px-3 py-1.5 align-top; }
+  .tbl tr:hover td { @apply bg-canvas/60; }
+  .kpi { @apply text-[22px] font-semibold tracking-tight text-ink; }
+  .meta { @apply text-[12px] text-ink-3; }
+  .hatch { background-image: repeating-linear-gradient(45deg, #c9ced6 0 2px, transparent 2px 6px); }
+}
+
+.maplibregl-ctrl-attrib { font-size: 11px; }

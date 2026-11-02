@@ -14,6 +14,7 @@ def handle_derive(ctx: JobContext) -> Outcome:
     if unknown:
         raise ValueError(f"derivados desconocidos: {sorted(unknown)}")
     r = ctx.api.compute_derived(ctx.claim, list(codes))
+    ctx.api.refresh_latest(ctx.claim)       # agregado de "último dato disponible" para la web
     return Outcome("completed", {"derived": r}, {"indicators": list(codes)}, True)
 
 

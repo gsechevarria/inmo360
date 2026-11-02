@@ -252,7 +252,7 @@ AFY = ind("emp.affiliations_yoy", "Variación interanual de la afiliación", uni
           formula="(afil[t] / afil[t-12m]) - 1", functions=SCR, scoring="eligible", higher="better", **J)
 CUR = ind("emp.census_rates", "Tasas censales de paro, empleo y actividad", unit="%", stat_type="rate", dims=["rate"], **J)
 FIR = ind("emp.firms_by_activity", "Empresas y locales por actividad", unit="unidades", stat_type="stock", dims=["unit_type", "sector"], **J)
-UNS = ind("emp.registered_unemployment.by_sex", "Paro registrado por sexo", unit="personas", stat_type="stock", dims=["sex"], protected=True, **J)
+UNS = ind("emp.registered_unemployment.by_sex", "Paro registrado por sexo", unit="personas", stat_type="stock", dims=["sex", "age_group"], protected=True, **J)
 CONS = ind("emp.contracts.by_sex", "Contratos por tipo y sexo", unit="contratos", stat_type="flow", dims=["contract_type", "sex"], protected=True, **J)
 inv(S, "Paro registrado", UNR)
 inv(S, "Variación interanual del paro", UNY)
@@ -461,6 +461,21 @@ GV = ind("der.change_abs", "Variación absoluta", unit="según indicador", stat_
 GP = ind("der.change_pct", "Variación porcentual", unit="%", stat_type="rate", formula="(v[t] / v[t-k]) - 1", dims=["indicator", "k"], **Z)
 inv(S, "Variación absoluta", GV)
 inv(S, "Variación porcentual", GP)
+
+# ---------------------------------------------------------------- Indicadores añadidos por el adjunto original (texto.txt)
+S = "orig"
+ind("pop.share_of_total.by_age_sex", "Porcentaje por grupo de edad y sexo sobre la población total", "poblacion", "9.1", "%", "share",
+    dims=["age_group", "sex"], protected=True, formula="pop.by_age_sex / pop.padron × 100", denominator="pop.padron (total)")
+ind("pop.share.by_nationality", "Porcentaje de población por nacionalidad", "poblacion", "9.1", "%", "share", dims=["nationality"],
+    protected=True, formula="pop.by_nationality / pop.padron × 100", denominator="pop.padron")
+ind("pop.share.by_birthplace", "Porcentaje de población por lugar de nacimiento", "poblacion", "9.1", "%", "share", dims=["birthplace"],
+    protected=True, formula="pop.by_birthplace / pop.padron × 100", denominator="pop.padron")
+ind("edu.enrolment_share", "Porcentaje de población matriculada", "educacion", "9.6", "%", "share", dims=["level"],
+    notes="Denominador a validar con la fuente.")
+ind("pers.disability_pension_share", "Porcentaje de población con pensión por discapacidad", "educacion", "9.6", "%", "share", protected=True)
+ind("pers.activity_share", "Porcentaje por situación de actividad", "educacion", "9.6", "%", "share", dims=["activity"],
+    denominator="población de 16 y más (censo) salvo indicación")
+ind("pers.marital_share", "Porcentaje por estado civil", "educacion", "9.6", "%", "share", dims=["marital_status"], protected=True)
 
 # ---------------------------------------------------------------- 9.13 Exclusiones
 S = "9.13"

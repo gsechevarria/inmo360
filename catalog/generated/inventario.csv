@@ -425,3 +425,332 @@ position;origin;section;block;original_label;indicator_code;dims;match_status;is
 424;especificacion;9.13;;Otros riesgos físicos del catálogo original;risk.other_physical;{};exact;True;
 425;especificacion;9.13;;Criminalidad;risk.crime;{};exact;True;
 426;especificacion;9.13;;Ejecuciones o lanzamientos como indicadores de riesgo;risk.evictions;{};exact;True;
+427;texto.txt;original;;Población total del padrón;pop.padron;{};exact;False;
+428;texto.txt;original;;Población total censal;pop.census;{};exact;False;Universo censal: no se mezcla con el padrón.
+429;texto.txt;original;;Hombres;pop.padron.by_sex;"{""sex"": ""male""}";exact;False;
+430;texto.txt;original;;Mujeres;pop.padron.by_sex;"{""sex"": ""female""}";exact;False;
+431;texto.txt;original;;Porcentaje de hombres;pop.share.by_sex;"{""sex"": ""male""}";exact;False;
+432;texto.txt;original;;Porcentaje de mujeres;pop.share.by_sex;"{""sex"": ""female""}";exact;False;
+433;texto.txt;original;;Edad media de la población;pop.mean_age;{};exact;False;
+434;texto.txt;original;;Edad media de los hombres;pop.mean_age.by_sex;"{""sex"": ""male""}";exact;False;
+435;texto.txt;original;;Edad media de las mujeres;pop.mean_age.by_sex;"{""sex"": ""female""}";exact;False;
+436;texto.txt;original;;Hombres de nacionalidad extranjera;pop.by_nationality;"{""nationality"": ""foreign"", ""sex"": ""male""}";exact;False;
+437;texto.txt;original;;Mujeres de nacionalidad extranjera;pop.by_nationality;"{""nationality"": ""foreign"", ""sex"": ""female""}";exact;False;
+438;texto.txt;original;;Hombres nacidos en el extranjero;pop.by_birthplace;"{""birthplace"": ""abroad"", ""sex"": ""male""}";exact;False;
+439;texto.txt;original;;Mujeres nacidas en el extranjero;pop.by_birthplace;"{""birthplace"": ""abroad"", ""sex"": ""female""}";exact;False;
+440;texto.txt;original;;Hombres menores de 16 años;pop.by_age_sex;"{""age_group"": ""0-15"", ""sex"": ""male""}";exact;False;
+441;texto.txt;original;;Mujeres menores de 16 años;pop.by_age_sex;"{""age_group"": ""0-15"", ""sex"": ""female""}";exact;False;
+442;texto.txt;original;;Hombres de 16 a 64 años;pop.by_age_sex;"{""age_group"": ""16-64"", ""sex"": ""male""}";exact;False;
+443;texto.txt;original;;Mujeres de 16 a 64 años;pop.by_age_sex;"{""age_group"": ""16-64"", ""sex"": ""female""}";exact;False;
+444;texto.txt;original;;Porcentaje de población menor de 16 años;pop.share.by_age;"{""age_group"": ""0-15""}";exact;False;
+445;texto.txt;original;;Porcentaje de población de 16 a 64 años;pop.share.by_age;"{""age_group"": ""16-64""}";exact;False;
+446;texto.txt;original;;Porcentaje de población de 65 años y más;pop.share.by_age;"{""age_group"": ""65+""}";exact;False;
+447;texto.txt;original;;Porcentaje de población de nacionalidad extranjera;pop.share.by_nationality;"{""nationality"": ""foreign""}";exact;False;
+448;texto.txt;original;;Porcentaje de población nacida en el extranjero;pop.share.by_birthplace;"{""birthplace"": ""abroad""}";exact;False;
+449;texto.txt;original;;Porcentaje de población de nacionalidad española;pop.share.by_nationality;"{""nationality"": ""spanish""}";exact;False;
+450;texto.txt;original;;Índice de masculinidad;demo.masculinity_index;{};exact;False;
+451;texto.txt;original;;Índice de envejecimiento;demo.ageing_index;{};exact;False;
+452;texto.txt;original;;Tasa de dependencia juvenil;demo.dependency_youth;{};exact;False;
+453;texto.txt;original;;Tasa de dependencia de mayores;demo.dependency_old;{};exact;False;
+454;texto.txt;original;;Tasa de dependencia total;demo.dependency_total;{};exact;False;
+455;texto.txt;original;;Crecimiento de la población en un año;demo.pop_growth_1y;{};exact;False;
+456;texto.txt;original;;Crecimiento de la población en cinco años;demo.pop_growth_5y;{};exact;False;
+457;texto.txt;original;;Crecimiento de la población en diez años;demo.pop_growth_10y;{};exact;False;
+458;texto.txt;original;;Crecimiento anual compuesto de la población en cinco años;demo.pop_cagr_5y;{};exact;False;
+459;texto.txt;original;;Crecimiento anual compuesto de la población en diez años;demo.pop_cagr_10y;{};exact;False;
+460;texto.txt;original;;Inmigraciones interiores;mig.immigration_internal;{};exact;False;
+461;texto.txt;original;;Emigraciones interiores;mig.emigration_internal;{};exact;False;
+462;texto.txt;original;;Inmigraciones interiores de personas de nacionalidad extranjera;mig.internal_flows_foreign;"{""nationality"": ""foreign"", ""direction"": ""in""}";exact;False;
+463;texto.txt;original;;Emigraciones interiores de personas de nacionalidad extranjera;mig.internal_flows_foreign;"{""nationality"": ""foreign"", ""direction"": ""out""}";exact;False;
+464;texto.txt;original;;Inmigraciones exteriores;mig.immigration_external;{};exact;False;
+465;texto.txt;original;;Emigraciones exteriores;mig.emigration_external;{};exact;False;
+466;texto.txt;original;;Saldo migratorio interior;mig.net_internal;{};exact;False;
+467;texto.txt;original;;Saldo migratorio exterior;mig.net_external;{};exact;False;
+468;texto.txt;original;;Saldo migratorio total;mig.net_total;{};exact;False;
+469;texto.txt;original;;Saldo migratorio interior por 1.000 habitantes;mig.net_per_1000;"{""balance_type"": ""internal""}";exact;False;"Denominador: población a 1 de enero del año del flujo (convención Inmo360; validar con la fuente)."
+470;texto.txt;original;;Saldo migratorio exterior por 1.000 habitantes;mig.net_per_1000;"{""balance_type"": ""external""}";exact;False;"Denominador: población a 1 de enero del año del flujo (convención Inmo360; validar con la fuente)."
+471;texto.txt;original;;Saldo migratorio total por 1.000 habitantes;mig.net_per_1000;"{""balance_type"": ""total""}";exact;False;"Denominador: población a 1 de enero del año del flujo (convención Inmo360; validar con la fuente)."
+472;texto.txt;original;;Hombres de 0 a 4 años;pop.by_age_sex;"{""age_group"": ""0-4"", ""sex"": ""male""}";exact;False;
+473;texto.txt;original;;Porcentaje de hombres de 0 a 4 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""0-4"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+474;texto.txt;original;;Hombres de 5 a 9 años;pop.by_age_sex;"{""age_group"": ""5-9"", ""sex"": ""male""}";exact;False;
+475;texto.txt;original;;Porcentaje de hombres de 5 a 9 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""5-9"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+476;texto.txt;original;;Hombres de 10 a 14 años;pop.by_age_sex;"{""age_group"": ""10-14"", ""sex"": ""male""}";exact;False;
+477;texto.txt;original;;Porcentaje de hombres de 10 a 14 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""10-14"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+478;texto.txt;original;;Hombres de 15 a 19 años;pop.by_age_sex;"{""age_group"": ""15-19"", ""sex"": ""male""}";exact;False;
+479;texto.txt;original;;Porcentaje de hombres de 15 a 19 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""15-19"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+480;texto.txt;original;;Hombres de 20 a 24 años;pop.by_age_sex;"{""age_group"": ""20-24"", ""sex"": ""male""}";exact;False;
+481;texto.txt;original;;Porcentaje de hombres de 20 a 24 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""20-24"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+482;texto.txt;original;;Hombres de 25 a 29 años;pop.by_age_sex;"{""age_group"": ""25-29"", ""sex"": ""male""}";exact;False;
+483;texto.txt;original;;Porcentaje de hombres de 25 a 29 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""25-29"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+484;texto.txt;original;;Hombres de 30 a 34 años;pop.by_age_sex;"{""age_group"": ""30-34"", ""sex"": ""male""}";exact;False;
+485;texto.txt;original;;Porcentaje de hombres de 30 a 34 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""30-34"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+486;texto.txt;original;;Hombres de 35 a 39 años;pop.by_age_sex;"{""age_group"": ""35-39"", ""sex"": ""male""}";exact;False;
+487;texto.txt;original;;Porcentaje de hombres de 35 a 39 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""35-39"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+488;texto.txt;original;;Hombres de 40 a 44 años;pop.by_age_sex;"{""age_group"": ""40-44"", ""sex"": ""male""}";exact;False;
+489;texto.txt;original;;Porcentaje de hombres de 40 a 44 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""40-44"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+490;texto.txt;original;;Hombres de 45 a 49 años;pop.by_age_sex;"{""age_group"": ""45-49"", ""sex"": ""male""}";exact;False;
+491;texto.txt;original;;Porcentaje de hombres de 45 a 49 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""45-49"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+492;texto.txt;original;;Hombres de 50 a 54 años;pop.by_age_sex;"{""age_group"": ""50-54"", ""sex"": ""male""}";exact;False;
+493;texto.txt;original;;Porcentaje de hombres de 50 a 54 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""50-54"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+494;texto.txt;original;;Hombres de 55 a 59 años;pop.by_age_sex;"{""age_group"": ""55-59"", ""sex"": ""male""}";exact;False;
+495;texto.txt;original;;Porcentaje de hombres de 55 a 59 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""55-59"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+496;texto.txt;original;;Hombres de 60 a 64 años;pop.by_age_sex;"{""age_group"": ""60-64"", ""sex"": ""male""}";exact;False;
+497;texto.txt;original;;Porcentaje de hombres de 60 a 64 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""60-64"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+498;texto.txt;original;;Hombres de 65 a 69 años;pop.by_age_sex;"{""age_group"": ""65-69"", ""sex"": ""male""}";exact;False;
+499;texto.txt;original;;Porcentaje de hombres de 65 a 69 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""65-69"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+500;texto.txt;original;;Hombres de 70 a 74 años;pop.by_age_sex;"{""age_group"": ""70-74"", ""sex"": ""male""}";exact;False;
+501;texto.txt;original;;Porcentaje de hombres de 70 a 74 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""70-74"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+502;texto.txt;original;;Hombres de 75 a 79 años;pop.by_age_sex;"{""age_group"": ""75-79"", ""sex"": ""male""}";exact;False;
+503;texto.txt;original;;Porcentaje de hombres de 75 a 79 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""75-79"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+504;texto.txt;original;;Hombres de 80 a 84 años;pop.by_age_sex;"{""age_group"": ""80-84"", ""sex"": ""male""}";exact;False;
+505;texto.txt;original;;Porcentaje de hombres de 80 a 84 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""80-84"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+506;texto.txt;original;;Hombres de 85 a 89 años;pop.by_age_sex;"{""age_group"": ""85-89"", ""sex"": ""male""}";exact;False;
+507;texto.txt;original;;Porcentaje de hombres de 85 a 89 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""85-89"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+508;texto.txt;original;;Hombres de 90 a 94 años;pop.by_age_sex;"{""age_group"": ""90-94"", ""sex"": ""male""}";exact;False;
+509;texto.txt;original;;Porcentaje de hombres de 90 a 94 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""90-94"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+510;texto.txt;original;;Hombres de 95 a 99 años;pop.by_age_sex;"{""age_group"": ""95-99"", ""sex"": ""male""}";exact;False;
+511;texto.txt;original;;Porcentaje de hombres de 95 a 99 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""95-99"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+512;texto.txt;original;;Hombres de 100 años y más;pop.by_age_sex;"{""age_group"": ""100+"", ""sex"": ""male""}";exact;False;
+513;texto.txt;original;;Porcentaje de hombres de 100 años y más sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""100+"", ""sex"": ""male""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+514;texto.txt;original;;Mujeres de 0 a 4 años;pop.by_age_sex;"{""age_group"": ""0-4"", ""sex"": ""female""}";exact;False;
+515;texto.txt;original;;Porcentaje de mujeres de 0 a 4 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""0-4"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+516;texto.txt;original;;Mujeres de 5 a 9 años;pop.by_age_sex;"{""age_group"": ""5-9"", ""sex"": ""female""}";exact;False;
+517;texto.txt;original;;Porcentaje de mujeres de 5 a 9 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""5-9"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+518;texto.txt;original;;Mujeres de 10 a 14 años;pop.by_age_sex;"{""age_group"": ""10-14"", ""sex"": ""female""}";exact;False;
+519;texto.txt;original;;Porcentaje de mujeres de 10 a 14 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""10-14"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+520;texto.txt;original;;Mujeres de 15 a 19 años;pop.by_age_sex;"{""age_group"": ""15-19"", ""sex"": ""female""}";exact;False;
+521;texto.txt;original;;Porcentaje de mujeres de 15 a 19 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""15-19"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+522;texto.txt;original;;Mujeres de 20 a 24 años;pop.by_age_sex;"{""age_group"": ""20-24"", ""sex"": ""female""}";exact;False;
+523;texto.txt;original;;Porcentaje de mujeres de 20 a 24 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""20-24"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+524;texto.txt;original;;Mujeres de 25 a 29 años;pop.by_age_sex;"{""age_group"": ""25-29"", ""sex"": ""female""}";exact;False;
+525;texto.txt;original;;Porcentaje de mujeres de 25 a 29 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""25-29"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+526;texto.txt;original;;Mujeres de 30 a 34 años;pop.by_age_sex;"{""age_group"": ""30-34"", ""sex"": ""female""}";exact;False;
+527;texto.txt;original;;Porcentaje de mujeres de 30 a 34 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""30-34"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+528;texto.txt;original;;Mujeres de 35 a 39 años;pop.by_age_sex;"{""age_group"": ""35-39"", ""sex"": ""female""}";exact;False;
+529;texto.txt;original;;Porcentaje de mujeres de 35 a 39 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""35-39"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+530;texto.txt;original;;Mujeres de 40 a 44 años;pop.by_age_sex;"{""age_group"": ""40-44"", ""sex"": ""female""}";exact;False;
+531;texto.txt;original;;Porcentaje de mujeres de 40 a 44 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""40-44"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+532;texto.txt;original;;Mujeres de 45 a 49 años;pop.by_age_sex;"{""age_group"": ""45-49"", ""sex"": ""female""}";exact;False;
+533;texto.txt;original;;Porcentaje de mujeres de 45 a 49 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""45-49"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+534;texto.txt;original;;Mujeres de 50 a 54 años;pop.by_age_sex;"{""age_group"": ""50-54"", ""sex"": ""female""}";exact;False;
+535;texto.txt;original;;Porcentaje de mujeres de 50 a 54 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""50-54"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+536;texto.txt;original;;Mujeres de 55 a 59 años;pop.by_age_sex;"{""age_group"": ""55-59"", ""sex"": ""female""}";exact;False;
+537;texto.txt;original;;Porcentaje de mujeres de 55 a 59 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""55-59"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+538;texto.txt;original;;Mujeres de 60 a 64 años;pop.by_age_sex;"{""age_group"": ""60-64"", ""sex"": ""female""}";exact;False;
+539;texto.txt;original;;Porcentaje de mujeres de 60 a 64 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""60-64"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+540;texto.txt;original;;Mujeres de 65 a 69 años;pop.by_age_sex;"{""age_group"": ""65-69"", ""sex"": ""female""}";exact;False;
+541;texto.txt;original;;Porcentaje de mujeres de 65 a 69 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""65-69"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+542;texto.txt;original;;Mujeres de 70 a 74 años;pop.by_age_sex;"{""age_group"": ""70-74"", ""sex"": ""female""}";exact;False;
+543;texto.txt;original;;Porcentaje de mujeres de 70 a 74 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""70-74"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+544;texto.txt;original;;Mujeres de 75 a 79 años;pop.by_age_sex;"{""age_group"": ""75-79"", ""sex"": ""female""}";exact;False;
+545;texto.txt;original;;Porcentaje de mujeres de 75 a 79 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""75-79"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+546;texto.txt;original;;Mujeres de 80 a 84 años;pop.by_age_sex;"{""age_group"": ""80-84"", ""sex"": ""female""}";exact;False;
+547;texto.txt;original;;Porcentaje de mujeres de 80 a 84 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""80-84"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+548;texto.txt;original;;Mujeres de 85 a 89 años;pop.by_age_sex;"{""age_group"": ""85-89"", ""sex"": ""female""}";exact;False;
+549;texto.txt;original;;Porcentaje de mujeres de 85 a 89 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""85-89"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+550;texto.txt;original;;Mujeres de 90 a 94 años;pop.by_age_sex;"{""age_group"": ""90-94"", ""sex"": ""female""}";exact;False;
+551;texto.txt;original;;Porcentaje de mujeres de 90 a 94 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""90-94"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+552;texto.txt;original;;Mujeres de 95 a 99 años;pop.by_age_sex;"{""age_group"": ""95-99"", ""sex"": ""female""}";exact;False;
+553;texto.txt;original;;Porcentaje de mujeres de 95 a 99 años sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""95-99"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+554;texto.txt;original;;Mujeres de 100 años y más;pop.by_age_sex;"{""age_group"": ""100+"", ""sex"": ""female""}";exact;False;
+555;texto.txt;original;;Porcentaje de mujeres de 100 años y más sobre la población total;pop.share_of_total.by_age_sex;"{""age_group"": ""100+"", ""sex"": ""female""}";exact;False;Denominador: población TOTAL (no la del mismo sexo).
+556;texto.txt;original;;Porcentaje de población de 0 a 15 años;pop.share.by_age;"{""age_group"": ""0-15""}";exact;False;
+557;texto.txt;original;;Porcentaje de población de 16 a 24 años;pop.share.by_age;"{""age_group"": ""16-24""}";exact;False;
+558;texto.txt;original;;Porcentaje de población de 25 a 34 años;pop.share.by_age;"{""age_group"": ""25-34""}";exact;False;
+559;texto.txt;original;;Porcentaje de población de 35 a 44 años;pop.share.by_age;"{""age_group"": ""35-44""}";exact;False;
+560;texto.txt;original;;Porcentaje de población de 45 a 64 años;pop.share.by_age;"{""age_group"": ""45-64""}";exact;False;
+561;texto.txt;original;;Porcentaje de población de 65 y más años;pop.share.by_age;"{""age_group"": ""65+""}";exact;False;
+562;texto.txt;original;;Porcentaje de población de 80 y más años;pop.share.by_age;"{""age_group"": ""80+""}";exact;False;
+563;texto.txt;original;;Población nacida en el mismo municipio;pop.by_birthplace;"{""birthplace"": ""same_municipality"", ""sex"": ""total""}";exact;False;
+564;texto.txt;original;;Porcentaje de población nacida en el mismo municipio;pop.share.by_birthplace;"{""birthplace"": ""same_municipality""}";exact;False;
+565;texto.txt;original;;Población nacida en otro municipio de la misma provincia;pop.by_birthplace;"{""birthplace"": ""other_municipality_same_province"", ""sex"": ""total""}";exact;False;
+566;texto.txt;original;;Porcentaje de población nacida en otro municipio de la misma provincia;pop.share.by_birthplace;"{""birthplace"": ""other_municipality_same_province""}";exact;False;
+567;texto.txt;original;;Población nacida en otra provincia de la misma comunidad autónoma;pop.by_birthplace;"{""birthplace"": ""other_province_same_ccaa"", ""sex"": ""total""}";exact;False;
+568;texto.txt;original;;Porcentaje de población nacida en otra provincia de la misma comunidad autónoma;pop.share.by_birthplace;"{""birthplace"": ""other_province_same_ccaa""}";exact;False;
+569;texto.txt;original;;Población nacida en otra comunidad autónoma;pop.by_birthplace;"{""birthplace"": ""other_ccaa"", ""sex"": ""total""}";exact;False;
+570;texto.txt;original;;Porcentaje de población nacida en otra comunidad autónoma;pop.share.by_birthplace;"{""birthplace"": ""other_ccaa""}";exact;False;
+571;texto.txt;original;;Población nacida en el extranjero;pop.by_birthplace;"{""birthplace"": ""abroad"", ""sex"": ""total""}";exact;False;
+572;texto.txt;original;;Renta neta media por persona;inc.net_mean_person;{};exact;False;
+573;texto.txt;original;;Renta neta media por hogar;inc.net_mean_household;{};exact;False;
+574;texto.txt;original;;Renta media por unidad de consumo;inc.mean_consumption_unit;{};exact;False;
+575;texto.txt;original;;Renta mediana por unidad de consumo;inc.median_consumption_unit;{};exact;False;
+576;texto.txt;original;;Renta bruta media por persona;inc.gross_mean_person;{};exact;False;
+577;texto.txt;original;;Renta bruta media por hogar;inc.gross_mean_household;{};exact;False;
+578;texto.txt;original;;Porcentaje de renta procedente de salarios;inc.source_share;"{""income_source"": ""salaries""}";exact;False;
+579;texto.txt;original;;Porcentaje de renta procedente de pensiones;inc.source_share;"{""income_source"": ""pensions""}";exact;False;
+580;texto.txt;original;;Porcentaje de renta procedente de prestaciones por desempleo;inc.source_share;"{""income_source"": ""unemployment_benefits""}";exact;False;
+581;texto.txt;original;;Porcentaje de renta procedente de otras prestaciones;inc.source_share;"{""income_source"": ""other_benefits""}";exact;False;
+582;texto.txt;original;;Porcentaje de renta procedente de otras fuentes;inc.source_share;"{""income_source"": ""other_sources""}";exact;False;
+583;texto.txt;original;;Porcentaje de población con renta por unidad de consumo inferior a 5.000 euros;inc.pop_below_threshold;"{""threshold"": ""abs_5000""}";partial;False;Pendiente validar etiqueta exacta del INE.
+584;texto.txt;original;;Porcentaje de población con renta por unidad de consumo inferior a 7.500 euros;inc.pop_below_threshold;"{""threshold"": ""abs_7500""}";partial;False;Pendiente validar etiqueta exacta del INE.
+585;texto.txt;original;;Porcentaje de población con renta por unidad de consumo inferior a 10.000 euros;inc.pop_below_threshold;"{""threshold"": ""abs_10000""}";partial;False;Pendiente validar etiqueta exacta del INE.
+586;texto.txt;original;;Porcentaje de población con renta inferior al 40 % de la mediana;inc.pop_below_threshold;"{""threshold"": ""rel_40""}";partial;False;"Solo umbrales publicados; sin interpolación."
+587;texto.txt;original;;Porcentaje de población con renta inferior al 50 % de la mediana;inc.pop_below_threshold;"{""threshold"": ""rel_50""}";partial;False;"Solo umbrales publicados; sin interpolación."
+588;texto.txt;original;;Porcentaje de población con renta inferior al 60 % de la mediana;inc.pop_below_threshold;"{""threshold"": ""rel_60""}";partial;False;"Solo umbrales publicados; sin interpolación."
+589;texto.txt;original;;Porcentaje de población con renta superior al 140 % de la mediana;inc.pop_above_threshold;"{""threshold"": ""rel_140""}";partial;False;"Solo umbrales publicados; sin interpolación."
+590;texto.txt;original;;Porcentaje de población con renta superior al 160 % de la mediana;inc.pop_above_threshold;"{""threshold"": ""rel_160""}";partial;False;"Solo umbrales publicados; sin interpolación."
+591;texto.txt;original;;Porcentaje de población con renta superior al 200 % de la mediana;inc.pop_above_threshold;"{""threshold"": ""rel_200""}";partial;False;"Solo umbrales publicados; sin interpolación."
+592;texto.txt;original;;Índice de Gini;inc.gini;{};exact;False;
+593;texto.txt;original;;Relación entre los percentiles 80 y 20 de renta;inc.p80_p20;{};exact;False;
+594;texto.txt;original;;Porcentaje de población menor de 18 años;pop.share.by_age;"{""age_group"": ""0-17""}";exact;False;"Menores de 18: indicador demográfico del ADRH; universo y fecha propios."
+595;texto.txt;original;;Tamaño medio del hogar;hh.mean_size;{};exact;False;
+596;texto.txt;original;;Porcentaje de hogares unipersonales;hh.share_single;{};exact;False;
+597;texto.txt;original;;Población de 15 años y más;pop.by_age;"{""age_group"": ""15+""}";exact;False;
+598;texto.txt;original;;Población de 16 años y más;pop.by_age;"{""age_group"": ""16+""}";exact;False;
+599;texto.txt;original;;Paro registrado;emp.registered_unemployment;{};exact;False;
+600;texto.txt;original;;Contratos registrados;emp.contracts;{};exact;False;Contratos ≠ personas.
+601;texto.txt;original;;Afiliaciones a la Seguridad Social;emp.affiliations;{};exact;False;Afiliaciones ≠ personas únicas.
+602;texto.txt;original;;Variación interanual del paro registrado;emp.registered_unemployment_yoy;{};exact;False;
+603;texto.txt;original;;Variación interanual de las afiliaciones a la Seguridad Social;emp.affiliations_yoy;{};exact;False;
+604;texto.txt;original;;Número total de declaraciones del IRPF;irpf.returns;{};exact;False;
+605;texto.txt;original;;Tasa de paro censal;emp.census_rates;"{""rate"": ""unemployment""}";exact;False;
+606;texto.txt;original;;Tasa de empleo censal;emp.census_rates;"{""rate"": ""employment""}";exact;False;
+607;texto.txt;original;;Tasa de actividad censal;emp.census_rates;"{""rate"": ""activity""}";exact;False;
+608;texto.txt;original;;Porcentaje de población matriculada en educación superior;edu.enrolment_share;"{""level"": ""tertiary""}";ambiguous;False;"Denominador no indicado en el original; matriculados residentes ≠ alumnado de centros del municipio."
+609;texto.txt;original;;Porcentaje de población matriculada en estudios universitarios;edu.enrolment_share;"{""level"": ""university""}";ambiguous;False;"Denominador no indicado en el original; matriculados residentes ≠ alumnado de centros del municipio."
+610;texto.txt;original;;Porcentaje de población con educación superior completada;edu.attainment_share;"{""level"": ""tertiary""}";partial;False;"Universo (15 y más) supuesto; validar."
+611;texto.txt;original;;Porcentaje de población con pensión por discapacidad;pers.disability_pension_share;{};ambiguous;False;Universo no indicado.
+612;texto.txt;original;;Porcentaje de población con pensión de jubilación;pers.activity_share;"{""activity"": ""retired""}";ambiguous;False;Universo no indicado.
+613;texto.txt;original;;Porcentaje de otras personas inactivas;pers.activity_share;"{""activity"": ""other_inactive""}";ambiguous;False;Universo no indicado.
+614;texto.txt;original;;Porcentaje de estudiantes;pers.activity_share;"{""activity"": ""student""}";ambiguous;False;"Universo no indicado (¿población total o 16 y más?); distinto de 'Porcentaje de población de 16 años y más estudiante'."
+615;texto.txt;original;;Porcentaje de población soltera;pers.marital_share;"{""marital_status"": ""single""}";exact;False;
+616;texto.txt;original;;Porcentaje de población casada;pers.marital_share;"{""marital_status"": ""married""}";exact;False;
+617;texto.txt;original;;Porcentaje de población viuda;pers.marital_share;"{""marital_status"": ""widowed""}";exact;False;
+618;texto.txt;original;;Porcentaje de población divorciada o separada;pers.marital_share;"{""marital_status"": ""divorced_separated""}";exact;False;
+619;texto.txt;original;;Porcentaje de población con estado civil desconocido;pers.marital_share;"{""marital_status"": ""unknown""}";exact;False;
+620;texto.txt;original;;Número de hogares;hh.total;{};exact;False;Hogar ≠ vivienda.
+621;texto.txt;original;;Hogares de una persona;hh.by_size;"{""household_size"": ""1""}";exact;False;
+622;texto.txt;original;;Hogares de dos personas;hh.by_size;"{""household_size"": ""2""}";exact;False;
+623;texto.txt;original;;Hogares de tres personas;hh.by_size;"{""household_size"": ""3""}";exact;False;
+624;texto.txt;original;;Hogares de cuatro personas;hh.by_size;"{""household_size"": ""4""}";exact;False;
+625;texto.txt;original;;Hogares de cinco personas o más;hh.by_size;"{""household_size"": ""5+""}";exact;False;
+626;texto.txt;original;;Número de viviendas;hou.dwellings;"{""dwelling_type"": ""total""}";exact;False;
+627;texto.txt;original;;Viviendas principales;hou.dwellings;"{""dwelling_type"": ""main""}";exact;False;
+628;texto.txt;original;;Viviendas no principales;hou.dwellings;"{""dwelling_type"": ""non_main""}";exact;False;
+629;texto.txt;original;;Viviendas principales en propiedad;hou.main_by_tenure;"{""tenure"": ""owned""}";exact;False;
+630;texto.txt;original;;Viviendas principales en alquiler;hou.main_by_tenure;"{""tenure"": ""rented""}";exact;False;
+631;texto.txt;original;;Viviendas principales con otra forma de tenencia;hou.main_by_tenure;"{""tenure"": ""other""}";exact;False;
+632;texto.txt;original;;Viviendas vacías;hou.dwellings;"{""dwelling_type"": ""empty""}";exact;False;Vacía no significa disponible para alquilar.
+633;texto.txt;original;;Porcentaje de viviendas no principales;hou.dwellings_share;"{""dwelling_type"": ""non_main""}";exact;False;
+634;texto.txt;original;;Porcentaje de viviendas principales en propiedad;hou.tenure_share;"{""tenure"": ""owned""}";exact;False;
+635;texto.txt;original;;Porcentaje de viviendas principales en alquiler;hou.tenure_share;"{""tenure"": ""rented""}";exact;False;
+636;texto.txt;original;;Porcentaje de viviendas vacías;hou.dwellings_share;"{""dwelling_type"": ""empty""}";exact;False;
+637;texto.txt;original;;Viviendas turísticas;tour.dwellings;{};exact;False;Universo INE VTE (plataformas).
+638;texto.txt;original;;Plazas en viviendas turísticas;tour.places;{};exact;False;
+639;texto.txt;original;;Plazas por vivienda turística;tour.places_per_dwelling;{};exact;False;
+640;texto.txt;original;;Porcentaje de viviendas turísticas;tour.dwellings_share;{};exact;False;Denominador: viviendas censadas (INE 39366).
+641;texto.txt;original;;Viviendas en proyectos visados;con.dwellings_stage;"{""stage"": ""permits_visa""}";exact;False;
+642;texto.txt;original;;Viviendas con certificado final de obra;con.dwellings_stage;"{""stage"": ""completion_certificate""}";exact;False;
+643;texto.txt;original;;Paro registrado: hombres menores de 25 años;emp.registered_unemployment.by_sex;"{""sex"": ""male"", ""age_group"": ""<25""}";exact;False;
+644;texto.txt;original;;Paro registrado: hombres de 25 a 44 años;emp.registered_unemployment.by_sex;"{""sex"": ""male"", ""age_group"": ""25-44""}";exact;False;
+645;texto.txt;original;;Paro registrado: hombres de 45 años y más;emp.registered_unemployment.by_sex;"{""sex"": ""male"", ""age_group"": ""45+""}";exact;False;
+646;texto.txt;original;;Contratos iniciales indefinidos: hombres;emp.contracts.by_sex;"{""contract_type"": ""initial_permanent"", ""sex"": ""male""}";exact;False;
+647;texto.txt;original;;Contratos iniciales temporales: hombres;emp.contracts.by_sex;"{""contract_type"": ""initial_temporary"", ""sex"": ""male""}";exact;False;
+648;texto.txt;original;;Contratos convertidos en indefinidos: hombres;emp.contracts.by_sex;"{""contract_type"": ""conversion_permanent"", ""sex"": ""male""}";exact;False;
+649;texto.txt;original;;Paro registrado: mujeres menores de 25 años;emp.registered_unemployment.by_sex;"{""sex"": ""female"", ""age_group"": ""<25""}";exact;False;
+650;texto.txt;original;;Paro registrado: mujeres de 25 a 44 años;emp.registered_unemployment.by_sex;"{""sex"": ""female"", ""age_group"": ""25-44""}";exact;False;
+651;texto.txt;original;;Paro registrado: mujeres de 45 años y más;emp.registered_unemployment.by_sex;"{""sex"": ""female"", ""age_group"": ""45+""}";exact;False;
+652;texto.txt;original;;Contratos iniciales indefinidos: mujeres;emp.contracts.by_sex;"{""contract_type"": ""initial_permanent"", ""sex"": ""female""}";exact;False;
+653;texto.txt;original;;Contratos iniciales temporales: mujeres;emp.contracts.by_sex;"{""contract_type"": ""initial_temporary"", ""sex"": ""female""}";exact;False;
+654;texto.txt;original;;Contratos convertidos en indefinidos: mujeres;emp.contracts.by_sex;"{""contract_type"": ""conversion_permanent"", ""sex"": ""female""}";exact;False;
+655;texto.txt;original;;Paro registrado en agricultura;emp.registered_unemployment;"{""sector"": ""agriculture""}";exact;False;
+656;texto.txt;original;;Contratos registrados en agricultura;emp.contracts;"{""sector"": ""agriculture""}";exact;False;
+657;texto.txt;original;;Paro registrado en industria;emp.registered_unemployment;"{""sector"": ""industry""}";exact;False;
+658;texto.txt;original;;Contratos registrados en industria;emp.contracts;"{""sector"": ""industry""}";exact;False;
+659;texto.txt;original;;Paro registrado en construcción;emp.registered_unemployment;"{""sector"": ""construction""}";exact;False;
+660;texto.txt;original;;Contratos registrados en construcción;emp.contracts;"{""sector"": ""construction""}";exact;False;
+661;texto.txt;original;;Paro registrado en servicios;emp.registered_unemployment;"{""sector"": ""services""}";exact;False;
+662;texto.txt;original;;Contratos registrados en servicios;emp.contracts;"{""sector"": ""services""}";exact;False;
+663;texto.txt;original;;Paro registrado sin empleo anterior;emp.registered_unemployment;"{""sector"": ""no_previous_job""}";exact;False;
+664;texto.txt;original;;Afiliaciones a la Seguridad Social en el régimen general sin sistemas especiales;emp.affiliations;"{""regime"": ""general_excl_special""}";exact;False;
+665;texto.txt;original;;Afiliaciones a la Seguridad Social en el sistema especial agrario;emp.affiliations;"{""regime"": ""agrarian""}";exact;False;
+666;texto.txt;original;;Afiliaciones a la Seguridad Social en el sistema especial del hogar;emp.affiliations;"{""regime"": ""household""}";exact;False;
+667;texto.txt;original;;Afiliaciones a la Seguridad Social en el régimen del mar;emp.affiliations;"{""regime"": ""sea""}";exact;False;
+668;texto.txt;original;;Afiliaciones a la Seguridad Social en el régimen de autónomos;emp.affiliations;"{""regime"": ""self_employed""}";exact;False;
+669;texto.txt;original;;Afiliaciones a la Seguridad Social en el régimen del carbón;emp.affiliations;"{""regime"": ""coal""}";exact;False;
+670;texto.txt;original;;Población de 15 años y más con educación primaria o inferior;edu.attainment;"{""level"": ""primary_or_less""}";exact;False;
+671;texto.txt;original;;Porcentaje de población de 15 años y más con educación primaria o inferior;edu.attainment_share;"{""level"": ""primary_or_less""}";exact;False;
+672;texto.txt;original;;Población de 15 años y más con primera etapa de educación secundaria;edu.attainment;"{""level"": ""lower_secondary""}";exact;False;
+673;texto.txt;original;;Porcentaje de población de 15 años y más con primera etapa de educación secundaria;edu.attainment_share;"{""level"": ""lower_secondary""}";exact;False;
+674;texto.txt;original;;Población de 15 años y más con segunda etapa de educación secundaria;edu.attainment;"{""level"": ""upper_secondary""}";exact;False;
+675;texto.txt;original;;Porcentaje de población de 15 años y más con segunda etapa de educación secundaria;edu.attainment_share;"{""level"": ""upper_secondary""}";exact;False;
+676;texto.txt;original;;Población de 15 años y más con educación superior;edu.attainment;"{""level"": ""tertiary""}";exact;False;
+677;texto.txt;original;;Porcentaje de población de 15 años y más con educación superior;edu.attainment_share;"{""level"": ""tertiary""}";exact;False;
+678;texto.txt;original;;Población de 16 años y más ocupada;pers.activity_status;"{""activity"": ""employed""}";exact;False;
+679;texto.txt;original;;Porcentaje de población de 16 años y más ocupada;pers.activity_share;"{""activity"": ""employed""}";exact;False;
+680;texto.txt;original;;Población de 16 años y más parada según el censo;pers.activity_status;"{""activity"": ""unemployed""}";exact;False;
+681;texto.txt;original;;Porcentaje de población de 16 años y más parada según el censo;pers.activity_share;"{""activity"": ""unemployed""}";exact;False;
+682;texto.txt;original;;Población de 16 años y más pensionista;pers.activity_status;"{""activity"": ""pensioner""}";exact;False;
+683;texto.txt;original;;Porcentaje de población de 16 años y más pensionista;pers.activity_share;"{""activity"": ""pensioner""}";exact;False;
+684;texto.txt;original;;Población de 16 años y más estudiante;pers.activity_status;"{""activity"": ""student""}";exact;False;
+685;texto.txt;original;;Porcentaje de población de 16 años y más estudiante;pers.activity_share;"{""activity"": ""student""}";exact;False;
+686;texto.txt;original;;Población de 16 años y más inactiva por otras causas;pers.activity_status;"{""activity"": ""other_inactive""}";exact;False;
+687;texto.txt;original;;Porcentaje de población de 16 años y más inactiva por otras causas;pers.activity_share;"{""activity"": ""other_inactive""}";exact;False;
+688;texto.txt;original;;Declaraciones del IRPF con rentas del trabajo;irpf.returns_by_component;"{""component"": ""work""}";exact;False;
+689;texto.txt;original;;Importe de rentas del trabajo en las declaraciones del IRPF;irpf.amount;"{""component"": ""work""}";exact;False;
+690;texto.txt;original;;Declaraciones del IRPF con rentas del capital mobiliario;irpf.returns_by_component;"{""component"": ""movable_capital""}";exact;False;
+691;texto.txt;original;;Importe de rentas del capital mobiliario en las declaraciones del IRPF;irpf.amount;"{""component"": ""movable_capital""}";exact;False;
+692;texto.txt;original;;Declaraciones del IRPF con rentas de bienes inmuebles no afectos a actividades económicas;irpf.returns_by_component;"{""component"": ""real_estate_not_business""}";exact;False;
+693;texto.txt;original;;Importe de rentas de bienes inmuebles no afectos a actividades económicas en las declaraciones del IRPF;irpf.amount;"{""component"": ""real_estate_not_business""}";exact;False;
+694;texto.txt;original;;Declaraciones del IRPF con rentas de actividades económicas;irpf.returns_by_component;"{""component"": ""business""}";exact;False;
+695;texto.txt;original;;Importe de rentas de actividades económicas en las declaraciones del IRPF;irpf.amount;"{""component"": ""business""}";exact;False;
+696;texto.txt;original;;Declaraciones del IRPF con otras rentas;irpf.returns_by_component;"{""component"": ""other_income""}";exact;False;
+697;texto.txt;original;;Importe de otras rentas en las declaraciones del IRPF;irpf.amount;"{""component"": ""other_income""}";exact;False;
+698;texto.txt;original;;Declaraciones del IRPF con ganancias patrimoniales netas;irpf.returns_by_component;"{""component"": ""capital_gains_net""}";exact;False;
+699;texto.txt;original;;Importe de ganancias patrimoniales netas en las declaraciones del IRPF;irpf.amount;"{""component"": ""capital_gains_net""}";exact;False;
+700;texto.txt;original;;Declaraciones del IRPF con rentas exentas;irpf.returns_by_component;"{""component"": ""exempt_income""}";exact;False;
+701;texto.txt;original;;Importe de rentas exentas en las declaraciones del IRPF;irpf.amount;"{""component"": ""exempt_income""}";exact;False;
+702;texto.txt;original;;Declaraciones del IRPF con trabajo personal;irpf.returns_by_component;"{""component"": ""work_personal""}";exact;False;
+703;texto.txt;original;;Importe de trabajo personal en las declaraciones del IRPF;irpf.amount;"{""component"": ""work_personal""}";exact;False;
+704;texto.txt;original;;Declaraciones del IRPF con maternidad, familias numerosas y dependencia;irpf.returns_by_component;"{""component"": ""family_benefits""}";exact;False;
+705;texto.txt;original;;Importe de maternidad, familias numerosas y dependencia en las declaraciones del IRPF;irpf.amount;"{""component"": ""family_benefits""}";exact;False;
+706;texto.txt;original;;Declaraciones del IRPF con renta bruta;irpf.returns_by_component;"{""component"": ""gross_income""}";exact;False;
+707;texto.txt;original;;Importe de renta bruta en las declaraciones del IRPF;irpf.amount;"{""component"": ""gross_income""}";exact;False;
+708;texto.txt;original;;Declaraciones del IRPF con renta bruta sujeta;irpf.returns_by_component;"{""component"": ""gross_income_subject""}";exact;False;
+709;texto.txt;original;;Importe de renta bruta sujeta en las declaraciones del IRPF;irpf.amount;"{""component"": ""gross_income_subject""}";exact;False;
+710;texto.txt;original;;Declaraciones del IRPF con renta bruta exenta;irpf.returns_by_component;"{""component"": ""gross_income_exempt""}";exact;False;
+711;texto.txt;original;;Importe de renta bruta exenta en las declaraciones del IRPF;irpf.amount;"{""component"": ""gross_income_exempt""}";exact;False;
+712;texto.txt;original;;Declaraciones del IRPF con renta disponible;irpf.returns_by_component;"{""component"": ""disposable_income""}";exact;False;
+713;texto.txt;original;;Importe de renta disponible en las declaraciones del IRPF;irpf.amount;"{""component"": ""disposable_income""}";exact;False;
+714;texto.txt;original;;Declaraciones del IRPF con renta disponible sujeta;irpf.returns_by_component;"{""component"": ""disposable_subject""}";exact;False;
+715;texto.txt;original;;Importe de renta disponible sujeta en las declaraciones del IRPF;irpf.amount;"{""component"": ""disposable_subject""}";exact;False;
+716;texto.txt;original;;Declaraciones del IRPF con renta disponible exenta;irpf.returns_by_component;"{""component"": ""disposable_exempt""}";exact;False;
+717;texto.txt;original;;Importe de renta disponible exenta en las declaraciones del IRPF;irpf.amount;"{""component"": ""disposable_exempt""}";exact;False;
+718;texto.txt;original;;Declaraciones del IRPF con deducciones generales;irpf.returns_by_component;"{""component"": ""general_deductions""}";exact;False;
+719;texto.txt;original;;Importe de deducciones generales en las declaraciones del IRPF;irpf.amount;"{""component"": ""general_deductions""}";exact;False;
+720;texto.txt;original;;Declaraciones del IRPF con deducción por vivienda;irpf.returns_by_component;"{""component"": ""housing_deduction""}";exact;False;
+721;texto.txt;original;;Importe de deducción por vivienda en las declaraciones del IRPF;irpf.amount;"{""component"": ""housing_deduction""}";exact;False;
+722;texto.txt;original;;Declaraciones del IRPF con deducción por actividades económicas;irpf.returns_by_component;"{""component"": ""business_deduction""}";exact;False;
+723;texto.txt;original;;Importe de deducción por actividades económicas en las declaraciones del IRPF;irpf.amount;"{""component"": ""business_deduction""}";exact;False;
+724;texto.txt;original;;Declaraciones del IRPF con otras deducciones;irpf.returns_by_component;"{""component"": ""other_deductions""}";exact;False;
+725;texto.txt;original;;Importe de otras deducciones en las declaraciones del IRPF;irpf.amount;"{""component"": ""other_deductions""}";exact;False;
+726;texto.txt;original;;Declaraciones del IRPF con deducción por alquiler de vivienda habitual;irpf.returns_by_component;"{""component"": ""rent_deduction""}";exact;False;
+727;texto.txt;original;;Importe de deducción por alquiler de vivienda habitual en las declaraciones del IRPF;irpf.amount;"{""component"": ""rent_deduction""}";exact;False;
+728;texto.txt;original;;Importe medio de renta bruta por declaración del IRPF;irpf.mean_per_return;"{""component"": ""gross_income""}";exact;False;
+729;texto.txt;original;;Importe medio de renta disponible por declaración del IRPF;irpf.mean_per_return;"{""component"": ""disposable_income""}";exact;False;
+730;texto.txt;original;;Importe medio de rentas del trabajo por declaración del IRPF;irpf.mean_per_return;"{""component"": ""work""}";exact;False;
+731;texto.txt;original;;Importe medio de rentas del capital mobiliario por declaración del IRPF;irpf.mean_per_return;"{""component"": ""movable_capital""}";exact;False;
+732;texto.txt;original;;Importe medio de rentas de bienes inmuebles no afectos a actividades económicas por declaración del IRPF;irpf.mean_per_return;"{""component"": ""real_estate_not_business""}";exact;False;
+733;texto.txt;original;;Importe medio de rentas de actividades económicas por declaración del IRPF;irpf.mean_per_return;"{""component"": ""business""}";exact;False;
+734;texto.txt;original;;Importe medio de ganancias patrimoniales netas por declaración del IRPF;irpf.mean_per_return;"{""component"": ""capital_gains_net""}";exact;False;
+735;texto.txt;original;;Viviendas previstas de nueva planta;con.dwellings_stage;"{""stage"": ""planned_new""}";exact;False;
+736;texto.txt;original;;Viviendas previstas en rehabilitación;con.dwellings_stage;"{""stage"": ""planned_rehab""}";exact;False;
+737;texto.txt;original;;Viviendas previstas para demolición;con.dwellings_stage;"{""stage"": ""planned_demolition""}";exact;False;
+738;texto.txt;original;;Licencias de obra mayor, todos los usos;con.licences;"{""licence_type"": ""major_all_uses""}";exact;False;
+739;texto.txt;original;;Licencias de nueva planta, todos los usos;con.licences;"{""licence_type"": ""new_build""}";exact;False;
+740;texto.txt;original;;Licencias de rehabilitación, todos los usos;con.licences;"{""licence_type"": ""rehab""}";exact;False;
+741;texto.txt;original;;Licencias de demolición total, todos los usos;con.licences;"{""licence_type"": ""total_demolition""}";exact;False;
+742;texto.txt;original;;Viviendas a crear por rehabilitación;con.dwellings_created;"{""origin"": ""rehab""}";exact;False;
+743;texto.txt;original;;Viviendas a crear en locales;con.dwellings_created;"{""origin"": ""commercial_premises""}";exact;False;
+744;texto.txt;original;;Licencias de vivienda nueva, quinquenio por 1.000 habitantes;con.licences_5y_per_1000;{};partial;False;"El original se limita a vivienda nueva; la fórmula del catálogo debe restringirse a ese tipo."
+745;texto.txt;original;;Viviendas protegidas y alojamientos, inicios administrativos OVV;;{};unresolved;False;Referencia «OVV»: pendiente identificar organismo, territorio y metodología (no se extiende al resto de España).
+746;texto.txt;original;;Viviendas protegidas y alojamientos, finalizaciones administrativas OVV;;{};unresolved;False;Referencia «OVV»: pendiente identificar organismo, territorio y metodología (no se extiende al resto de España).
+747;texto.txt;original;;Viviendas libres iniciadas, estimación MIVAU;con.dwellings_stage;"{""stage"": ""free_started""}";exact;False;Estimación publicada por el MIVAU.
+748;texto.txt;original;;Viviendas libres terminadas, estimación MIVAU;con.dwellings_stage;"{""stage"": ""free_completed""}";exact;False;Estimación publicada por el MIVAU.
+749;texto.txt;original;;Viviendas protegidas con calificación provisional;con.protected_housing;"{""measure"": ""provisional_qualification""}";exact;False;
+750;texto.txt;original;;Viviendas protegidas con calificación definitiva;con.protected_housing;"{""measure"": ""final_qualification""}";exact;False;
+751;texto.txt;original;;Viviendas con licencia de construcción;con.licences;"{""licence_type"": ""construction""}";partial;False;El original cuenta viviendas, no licencias: requiere unidad 'viviendas' al importar.
+752;texto.txt;original;;Viviendas con licencia de primera ocupación;con.licences;"{""licence_type"": ""first_occupation""}";partial;False;El original cuenta viviendas, no licencias: requiere unidad 'viviendas' al importar.
+753;texto.txt;original;;Licencias de construcción, València;;{};unresolved;False;"Indicador específico de València: pendiente de identificar fuente y metodología; no se extiende al resto de España."
+754;texto.txt;original;;Licencias de primera ocupación, València;;{};unresolved;False;"Indicador específico de València: pendiente de identificar fuente y metodología; no se extiende al resto de España."
+755;texto.txt;original;;Actuaciones protegidas de rehabilitación iniciadas;con.protected_housing;"{""measure"": ""protected_rehab""}";exact;False;

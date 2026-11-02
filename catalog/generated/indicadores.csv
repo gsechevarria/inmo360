@@ -61,7 +61,7 @@ emp.affiliations;Afiliaciones a la Seguridad Social;empleo;9.7;afiliaciones;stoc
 emp.affiliations_yoy;Variación interanual de la afiliación;empleo;9.7;%;rate;[];;;(afil[t] / afil[t-12m]) - 1;"[""pantalla"", ""filtro"", ""contexto"", ""scoring""]";eligible;False;False;
 emp.census_rates;Tasas censales de paro, empleo y actividad;empleo;9.7;%;rate;"[""rate""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
 emp.firms_by_activity;Empresas y locales por actividad;empleo;9.7;unidades;stock;"[""unit_type"", ""sector""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
-emp.registered_unemployment.by_sex;Paro registrado por sexo;empleo;9.7;personas;stock;"[""sex""]";;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+emp.registered_unemployment.by_sex;Paro registrado por sexo;empleo;9.7;personas;stock;"[""sex"", ""age_group""]";;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
 emp.contracts.by_sex;Contratos por tipo y sexo;empleo;9.7;contratos;flow;"[""contract_type"", ""sex""]";;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
 irpf.returns;Número de declaraciones del IRPF;irpf;9.8;declaraciones;count;[];;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;"Renta por declaración ≠ renta por hogar; no se asignan equivalencias por parecido de nombres."
 irpf.returns_by_component;Declaraciones con el componente;irpf;9.8;declaraciones;count;"[""component""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
@@ -125,6 +125,13 @@ der.percentile;Percentil en un universo estable;derivados;13;percentil;other;"["
 der.gross_yield_zone;Rentabilidad bruta estimada de la zona;derivados;13;%;ratio;[];;;mediana renta oferta €/m²/mes × 12 / mediana precio oferta €/m² × 100;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;"Estimación con medianas de oferta; requiere n mínimo y misma fecha. No es un resultado de inversión."
 der.change_abs;Variación absoluta;derivados;13;según indicador;flow;"[""indicator"", ""k""]";;;v[t] - v[t-k];"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
 der.change_pct;Variación porcentual;derivados;13;%;rate;"[""indicator"", ""k""]";;;(v[t] / v[t-k]) - 1;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+pop.share_of_total.by_age_sex;Porcentaje por grupo de edad y sexo sobre la población total;poblacion;9.1;%;share;"[""age_group"", ""sex""]";;pop.padron (total);pop.by_age_sex / pop.padron × 100;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+pop.share.by_nationality;Porcentaje de población por nacionalidad;poblacion;9.1;%;share;"[""nationality""]";;pop.padron;pop.by_nationality / pop.padron × 100;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+pop.share.by_birthplace;Porcentaje de población por lugar de nacimiento;poblacion;9.1;%;share;"[""birthplace""]";;pop.padron;pop.by_birthplace / pop.padron × 100;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+edu.enrolment_share;Porcentaje de población matriculada;educacion;9.6;%;share;"[""level""]";;;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;Denominador a validar con la fuente.
+pers.disability_pension_share;Porcentaje de población con pensión por discapacidad;educacion;9.6;%;share;[];;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
+pers.activity_share;Porcentaje por situación de actividad;educacion;9.6;%;share;"[""activity""]";;población de 16 y más (censo) salvo indicación;;"[""pantalla"", ""filtro"", ""contexto""]";not_scored;False;False;
+pers.marital_share;Porcentaje por estado civil;educacion;9.6;%;share;"[""marital_status""]";;;;"[""pantalla"", ""contexto"", ""documentacion""]";excluded_protected;True;False;
 risk.flood;Inundación;excluidos;9.13;—;other;[];;;;"[""documentacion""]";excluded_risk;False;True;
 risk.radon;Radón;excluidos;9.13;—;other;[];;;;"[""documentacion""]";excluded_risk;False;True;
 risk.fire;Incendio;excluidos;9.13;—;other;[];;;;"[""documentacion""]";excluded_risk;False;True;

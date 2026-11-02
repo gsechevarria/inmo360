@@ -164,7 +164,7 @@ RESOURCES = [
     R("cnig.lineas_limite", "cnig", "Líneas límite municipales (SHP ETRS89/REGCAN95)",
       url="https://centrodedescargas.cnig.es/CentroDescargas/ (secuencialDescDir=9000029)", fmt="shp", geo="municipio",
       method="worker:geo_cnig", connector="geo_cnig", status="resource_identified", reuse="open_license",
-      notes="Implementado el conector; requiere ejecución desde el PC (la sesión de desarrollo no alcanza cnig.es)."),
+      notes="Conector oficial pendiente: la descarga exige aceptar la licencia en el centro de descargas. Mientras tanto se usa es-atlas (derivado del mismo producto)."),
     R("ign.wfs_au", "cnig", "IGN · WFS INSPIRE Unidades administrativas", fmt="wfs", geo="municipio", method="none",
       status="catalogued", reuse="open_license"),
     R("cartociudad.geocoder", "cartociudad", "CartoCiudad · geocodificador y direcciones", fmt="json-api", geo="dirección",

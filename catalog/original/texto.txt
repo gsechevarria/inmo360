@@ -1,0 +1,330 @@
+nombre_indicador
+Población total del padrón
+Población total censal
+Hombres
+Mujeres
+Porcentaje de hombres
+Porcentaje de mujeres
+Edad media de la población
+Edad media de los hombres
+Edad media de las mujeres
+Hombres de nacionalidad extranjera
+Mujeres de nacionalidad extranjera
+Hombres nacidos en el extranjero
+Mujeres nacidas en el extranjero
+Hombres menores de 16 años
+Mujeres menores de 16 años
+Hombres de 16 a 64 años
+Mujeres de 16 a 64 años
+Porcentaje de población menor de 16 años
+Porcentaje de población de 16 a 64 años
+Porcentaje de población de 65 años y más
+Porcentaje de población de nacionalidad extranjera
+Porcentaje de población nacida en el extranjero
+Porcentaje de población de nacionalidad española
+Índice de masculinidad
+Índice de envejecimiento
+Tasa de dependencia juvenil
+Tasa de dependencia de mayores
+Tasa de dependencia total
+Crecimiento de la población en un año
+Crecimiento de la población en cinco años
+Crecimiento de la población en diez años
+Crecimiento anual compuesto de la población en cinco años
+Crecimiento anual compuesto de la población en diez años
+Inmigraciones interiores
+Emigraciones interiores
+Inmigraciones interiores de personas de nacionalidad extranjera
+Emigraciones interiores de personas de nacionalidad extranjera
+Inmigraciones exteriores
+Emigraciones exteriores
+Saldo migratorio interior
+Saldo migratorio exterior
+Saldo migratorio total
+Saldo migratorio interior por 1.000 habitantes
+Saldo migratorio exterior por 1.000 habitantes
+Saldo migratorio total por 1.000 habitantes
+Hombres de 0 a 4 años
+Porcentaje de hombres de 0 a 4 años sobre la población total
+Hombres de 5 a 9 años
+Porcentaje de hombres de 5 a 9 años sobre la población total
+Hombres de 10 a 14 años
+Porcentaje de hombres de 10 a 14 años sobre la población total
+Hombres de 15 a 19 años
+Porcentaje de hombres de 15 a 19 años sobre la población total
+Hombres de 20 a 24 años
+Porcentaje de hombres de 20 a 24 años sobre la población total
+Hombres de 25 a 29 años
+Porcentaje de hombres de 25 a 29 años sobre la población total
+Hombres de 30 a 34 años
+Porcentaje de hombres de 30 a 34 años sobre la población total
+Hombres de 35 a 39 años
+Porcentaje de hombres de 35 a 39 años sobre la población total
+Hombres de 40 a 44 años
+Porcentaje de hombres de 40 a 44 años sobre la población total
+Hombres de 45 a 49 años
+Porcentaje de hombres de 45 a 49 años sobre la población total
+Hombres de 50 a 54 años
+Porcentaje de hombres de 50 a 54 años sobre la población total
+Hombres de 55 a 59 años
+Porcentaje de hombres de 55 a 59 años sobre la población total
+Hombres de 60 a 64 años
+Porcentaje de hombres de 60 a 64 años sobre la población total
+Hombres de 65 a 69 años
+Porcentaje de hombres de 65 a 69 años sobre la población total
+Hombres de 70 a 74 años
+Porcentaje de hombres de 70 a 74 años sobre la población total
+Hombres de 75 a 79 años
+Porcentaje de hombres de 75 a 79 años sobre la población total
+Hombres de 80 a 84 años
+Porcentaje de hombres de 80 a 84 años sobre la población total
+Hombres de 85 a 89 años
+Porcentaje de hombres de 85 a 89 años sobre la población total
+Hombres de 90 a 94 años
+Porcentaje de hombres de 90 a 94 años sobre la población total
+Hombres de 95 a 99 años
+Porcentaje de hombres de 95 a 99 años sobre la población total
+Hombres de 100 años y más
+Porcentaje de hombres de 100 años y más sobre la población total
+Mujeres de 0 a 4 años
+Porcentaje de mujeres de 0 a 4 años sobre la población total
+Mujeres de 5 a 9 años
+Porcentaje de mujeres de 5 a 9 años sobre la población total
+Mujeres de 10 a 14 años
+Porcentaje de mujeres de 10 a 14 años sobre la población total
+Mujeres de 15 a 19 años
+Porcentaje de mujeres de 15 a 19 años sobre la población total
+Mujeres de 20 a 24 años
+Porcentaje de mujeres de 20 a 24 años sobre la población total
+Mujeres de 25 a 29 años
+Porcentaje de mujeres de 25 a 29 años sobre la población total
+Mujeres de 30 a 34 años
+Porcentaje de mujeres de 30 a 34 años sobre la población total
+Mujeres de 35 a 39 años
+Porcentaje de mujeres de 35 a 39 años sobre la población total
+Mujeres de 40 a 44 años
+Porcentaje de mujeres de 40 a 44 años sobre la población total
+Mujeres de 45 a 49 años
+Porcentaje de mujeres de 45 a 49 años sobre la población total
+Mujeres de 50 a 54 años
+Porcentaje de mujeres de 50 a 54 años sobre la población total
+Mujeres de 55 a 59 años
+Porcentaje de mujeres de 55 a 59 años sobre la población total
+Mujeres de 60 a 64 años
+Porcentaje de mujeres de 60 a 64 años sobre la población total
+Mujeres de 65 a 69 años
+Porcentaje de mujeres de 65 a 69 años sobre la población total
+Mujeres de 70 a 74 años
+Porcentaje de mujeres de 70 a 74 años sobre la población total
+Mujeres de 75 a 79 años
+Porcentaje de mujeres de 75 a 79 años sobre la población total
+Mujeres de 80 a 84 años
+Porcentaje de mujeres de 80 a 84 años sobre la población total
+Mujeres de 85 a 89 años
+Porcentaje de mujeres de 85 a 89 años sobre la población total
+Mujeres de 90 a 94 años
+Porcentaje de mujeres de 90 a 94 años sobre la población total
+Mujeres de 95 a 99 años
+Porcentaje de mujeres de 95 a 99 años sobre la población total
+Mujeres de 100 años y más
+Porcentaje de mujeres de 100 años y más sobre la población total
+Porcentaje de población de 0 a 15 años
+Porcentaje de población de 16 a 24 años
+Porcentaje de población de 25 a 34 años
+Porcentaje de población de 35 a 44 años
+Porcentaje de población de 45 a 64 años
+Porcentaje de población de 65 y más años
+Porcentaje de población de 80 y más años
+Población nacida en el mismo municipio
+Porcentaje de población nacida en el mismo municipio
+Población nacida en otro municipio de la misma provincia
+Porcentaje de población nacida en otro municipio de la misma provincia
+Población nacida en otra provincia de la misma comunidad autónoma
+Porcentaje de población nacida en otra provincia de la misma comunidad autónoma
+Población nacida en otra comunidad autónoma
+Porcentaje de población nacida en otra comunidad autónoma
+Población nacida en el extranjero
+Renta neta media por persona
+Renta neta media por hogar
+Renta media por unidad de consumo
+Renta mediana por unidad de consumo
+Renta bruta media por persona
+Renta bruta media por hogar
+Porcentaje de renta procedente de salarios
+Porcentaje de renta procedente de pensiones
+Porcentaje de renta procedente de prestaciones por desempleo
+Porcentaje de renta procedente de otras prestaciones
+Porcentaje de renta procedente de otras fuentes
+Porcentaje de población con renta por unidad de consumo inferior a 5.000 euros
+Porcentaje de población con renta por unidad de consumo inferior a 7.500 euros
+Porcentaje de población con renta por unidad de consumo inferior a 10.000 euros
+Porcentaje de población con renta inferior al 40 % de la mediana
+Porcentaje de población con renta inferior al 50 % de la mediana
+Porcentaje de población con renta inferior al 60 % de la mediana
+Porcentaje de población con renta superior al 140 % de la mediana
+Porcentaje de población con renta superior al 160 % de la mediana
+Porcentaje de población con renta superior al 200 % de la mediana
+Índice de Gini
+Relación entre los percentiles 80 y 20 de renta
+Porcentaje de población menor de 18 años
+Tamaño medio del hogar
+Porcentaje de hogares unipersonales
+Población de 15 años y más
+Población de 16 años y más
+Paro registrado
+Contratos registrados
+Afiliaciones a la Seguridad Social
+Variación interanual del paro registrado
+Variación interanual de las afiliaciones a la Seguridad Social
+Número total de declaraciones del IRPF
+Tasa de paro censal
+Tasa de empleo censal
+Tasa de actividad censal
+Porcentaje de población matriculada en educación superior
+Porcentaje de población matriculada en estudios universitarios
+Porcentaje de población con educación superior completada
+Porcentaje de población con pensión por discapacidad
+Porcentaje de población con pensión de jubilación
+Porcentaje de otras personas inactivas
+Porcentaje de estudiantes
+Porcentaje de población soltera
+Porcentaje de población casada
+Porcentaje de población viuda
+Porcentaje de población divorciada o separada
+Porcentaje de población con estado civil desconocido
+Número de hogares
+Hogares de una persona
+Hogares de dos personas
+Hogares de tres personas
+Hogares de cuatro personas
+Hogares de cinco personas o más
+Número de viviendas
+Viviendas principales
+Viviendas no principales
+Viviendas principales en propiedad
+Viviendas principales en alquiler
+Viviendas principales con otra forma de tenencia
+Viviendas vacías
+Porcentaje de viviendas no principales
+Porcentaje de viviendas principales en propiedad
+Porcentaje de viviendas principales en alquiler
+Porcentaje de viviendas vacías
+Viviendas turísticas
+Plazas en viviendas turísticas
+Plazas por vivienda turística
+Porcentaje de viviendas turísticas
+Viviendas en proyectos visados
+Viviendas con certificado final de obra
+Paro registrado: hombres menores de 25 años
+Paro registrado: hombres de 25 a 44 años
+Paro registrado: hombres de 45 años y más
+Contratos iniciales indefinidos: hombres
+Contratos iniciales temporales: hombres
+Contratos convertidos en indefinidos: hombres
+Paro registrado: mujeres menores de 25 años
+Paro registrado: mujeres de 25 a 44 años
+Paro registrado: mujeres de 45 años y más
+Contratos iniciales indefinidos: mujeres
+Contratos iniciales temporales: mujeres
+Contratos convertidos en indefinidos: mujeres
+Paro registrado en agricultura
+Contratos registrados en agricultura
+Paro registrado en industria
+Contratos registrados en industria
+Paro registrado en construcción
+Contratos registrados en construcción
+Paro registrado en servicios
+Contratos registrados en servicios
+Paro registrado sin empleo anterior
+Afiliaciones a la Seguridad Social en el régimen general sin sistemas especiales
+Afiliaciones a la Seguridad Social en el sistema especial agrario
+Afiliaciones a la Seguridad Social en el sistema especial del hogar
+Afiliaciones a la Seguridad Social en el régimen del mar
+Afiliaciones a la Seguridad Social en el régimen de autónomos
+Afiliaciones a la Seguridad Social en el régimen del carbón
+Población de 15 años y más con educación primaria o inferior
+Porcentaje de población de 15 años y más con educación primaria o inferior
+Población de 15 años y más con primera etapa de educación secundaria
+Porcentaje de población de 15 años y más con primera etapa de educación secundaria
+Población de 15 años y más con segunda etapa de educación secundaria
+Porcentaje de población de 15 años y más con segunda etapa de educación secundaria
+Población de 15 años y más con educación superior
+Porcentaje de población de 15 años y más con educación superior
+Población de 16 años y más ocupada
+Porcentaje de población de 16 años y más ocupada
+Población de 16 años y más parada según el censo
+Porcentaje de población de 16 años y más parada según el censo
+Población de 16 años y más pensionista
+Porcentaje de población de 16 años y más pensionista
+Población de 16 años y más estudiante
+Porcentaje de población de 16 años y más estudiante
+Población de 16 años y más inactiva por otras causas
+Porcentaje de población de 16 años y más inactiva por otras causas
+Declaraciones del IRPF con rentas del trabajo
+Importe de rentas del trabajo en las declaraciones del IRPF
+Declaraciones del IRPF con rentas del capital mobiliario
+Importe de rentas del capital mobiliario en las declaraciones del IRPF
+Declaraciones del IRPF con rentas de bienes inmuebles no afectos a actividades económicas
+Importe de rentas de bienes inmuebles no afectos a actividades económicas en las declaraciones del IRPF
+Declaraciones del IRPF con rentas de actividades económicas
+Importe de rentas de actividades económicas en las declaraciones del IRPF
+Declaraciones del IRPF con otras rentas
+Importe de otras rentas en las declaraciones del IRPF
+Declaraciones del IRPF con ganancias patrimoniales netas
+Importe de ganancias patrimoniales netas en las declaraciones del IRPF
+Declaraciones del IRPF con rentas exentas
+Importe de rentas exentas en las declaraciones del IRPF
+Declaraciones del IRPF con trabajo personal
+Importe de trabajo personal en las declaraciones del IRPF
+"Declaraciones del IRPF con maternidad, familias numerosas y dependencia"
+"Importe de maternidad, familias numerosas y dependencia en las declaraciones del IRPF"
+Declaraciones del IRPF con renta bruta
+Importe de renta bruta en las declaraciones del IRPF
+Declaraciones del IRPF con renta bruta sujeta
+Importe de renta bruta sujeta en las declaraciones del IRPF
+Declaraciones del IRPF con renta bruta exenta
+Importe de renta bruta exenta en las declaraciones del IRPF
+Declaraciones del IRPF con renta disponible
+Importe de renta disponible en las declaraciones del IRPF
+Declaraciones del IRPF con renta disponible sujeta
+Importe de renta disponible sujeta en las declaraciones del IRPF
+Declaraciones del IRPF con renta disponible exenta
+Importe de renta disponible exenta en las declaraciones del IRPF
+Declaraciones del IRPF con deducciones generales
+Importe de deducciones generales en las declaraciones del IRPF
+Declaraciones del IRPF con deducción por vivienda
+Importe de deducción por vivienda en las declaraciones del IRPF
+Declaraciones del IRPF con deducción por actividades económicas
+Importe de deducción por actividades económicas en las declaraciones del IRPF
+Declaraciones del IRPF con otras deducciones
+Importe de otras deducciones en las declaraciones del IRPF
+Declaraciones del IRPF con deducción por alquiler de vivienda habitual
+Importe de deducción por alquiler de vivienda habitual en las declaraciones del IRPF
+Importe medio de renta bruta por declaración del IRPF
+Importe medio de renta disponible por declaración del IRPF
+Importe medio de rentas del trabajo por declaración del IRPF
+Importe medio de rentas del capital mobiliario por declaración del IRPF
+Importe medio de rentas de bienes inmuebles no afectos a actividades económicas por declaración del IRPF
+Importe medio de rentas de actividades económicas por declaración del IRPF
+Importe medio de ganancias patrimoniales netas por declaración del IRPF
+Viviendas previstas de nueva planta
+Viviendas previstas en rehabilitación
+Viviendas previstas para demolición
+"Licencias de obra mayor, todos los usos"
+"Licencias de nueva planta, todos los usos"
+"Licencias de rehabilitación, todos los usos"
+"Licencias de demolición total, todos los usos"
+Viviendas a crear por rehabilitación
+Viviendas a crear en locales
+"Licencias de vivienda nueva, quinquenio por 1.000 habitantes"
+"Viviendas protegidas y alojamientos, inicios administrativos OVV"
+"Viviendas protegidas y alojamientos, finalizaciones administrativas OVV"
+"Viviendas libres iniciadas, estimación MIVAU"
+"Viviendas libres terminadas, estimación MIVAU"
+Viviendas protegidas con calificación provisional
+Viviendas protegidas con calificación definitiva
+Viviendas con licencia de construcción
+Viviendas con licencia de primera ocupación
+"Licencias de construcción, València"
+"Licencias de primera ocupación, València"
+Actuaciones protegidas de rehabilitación iniciadas

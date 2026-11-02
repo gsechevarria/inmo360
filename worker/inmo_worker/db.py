@@ -116,6 +116,9 @@ class WorkerAPI:
     def compute_derived(self, c: Claim, indicator_codes: list[str]) -> dict:
         return self._call("select ingest.worker_compute_derived(%s,%s,%s) as r", (c.run_id, c.lease_token, indicator_codes))[0]["r"]
 
+    def refresh_latest(self, c: Claim) -> None:
+        self._call("select ingest.worker_refresh_latest(%s,%s)", (c.run_id, c.lease_token))
+
     def finish(self, c: Claim, status: str, stats: dict, scope_covered: dict, coverage_complete: bool,
                error: str | None = None, retryable: bool = False) -> str:
         return self._call("select ingest.worker_finish(%s,%s,%s,%s::jsonb,%s::jsonb,%s,%s,%s) as r",

@@ -106,3 +106,11 @@ for i in ["mkt.offer_price_sale_m2", "mkt.offer_rent_m2", "mkt.active_listings",
     m("market.inmo360", i, "exact", transformation="estadística sobre inmuebles únicos deduplicados")
 for i in ["risk.flood", "risk.radon", "risk.fire", "risk.geological", "risk.other_physical", "risk.crime", "risk.evictions"]:
     m("excluded.product_decision", i, "exact", transformation="no se importa")
+
+# Añadidos por el adjunto original
+for i in ["pop.share_of_total.by_age_sex", "pop.share.by_nationality", "pop.share.by_birthplace"]:
+    m("derived.inmo360", i, "exact", transformation="ver fórmula del indicador")
+m("ine.censo2021.poblacion", "pers.activity_share", "partial")
+m("ine.censo2021.poblacion", "pers.marital_share", "partial")
+m("ine.censo2021.poblacion", "pers.disability_pension_share", "ambiguous")
+m("educacion.rcd_ruct", "edu.enrolment_share", "ambiguous")
