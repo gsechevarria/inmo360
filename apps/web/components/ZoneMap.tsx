@@ -127,7 +127,7 @@ export function ZoneMap({ indicator, unit, label, selectedProvinces, highlight, 
 
   return (
     <div className={`relative overflow-hidden rounded-lg border border-line bg-[#eef2f5] ${className}`}>
-      <div ref={ref} className="absolute inset-0" role="region" aria-label={`Mapa de municipios coloreado por ${label}`} />
+      <div ref={ref} style={{ position: "absolute", inset: 0 }} role="region" aria-label={`Mapa de municipios coloreado por ${label}`} />
       <div className="absolute left-2 top-2 z-10 flex gap-1">
         <button className="btn py-1 text-[12px]" onClick={() => jump(SPAIN)}>Península y Baleares</button>
         <button className="btn py-1 text-[12px]" onClick={() => jump(CANARIAS)}>Canarias</button>

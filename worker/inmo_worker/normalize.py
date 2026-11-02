@@ -104,6 +104,17 @@ def to_num(v) -> float | None:
     return float(n) if n is not None else None
 
 
+def to_coord(v) -> float | None:
+    """Coordenadas: punto o coma decimal, NUNCA separador de miles ('-3.703' es -3,703 grados)."""
+    if v in (None, ""):
+        return None
+    try:
+        x = float(str(v).strip().replace(",", "."))
+    except ValueError:
+        return None
+    return x if -180 <= x <= 180 else None
+
+
 def to_bool(v) -> bool | None:
     if v in (None, ""):
         return None
@@ -144,7 +155,10 @@ def listing(source_code: str, external_id: str, *, operation: str, price_amount,
         "property_type": norm_property_type(f.pop("property_type", None)),
         "location": {k: loc.get(k) for k in ("lat", "lon", "precision", "address_text", "postal_code", "municipality_code")},
     }
-    item["location"]["precision"] = loc.get("precision") or ("exact" if loc.get("lat") is not None else "unknown")
+    item["location"]["lat"], item["location"]["lon"] = to_coord(loc.get("lat")), to_coord(loc.get("lon"))
+    if item["location"]["lat"] is not None and not -90 <= item["location"]["lat"] <= 90:
+        raise ListingInvalid("latitud fuera de rango")
+    item["location"]["precision"] = loc.get("precision") or ("exact" if item["location"]["lat"] is not None else "unknown")
     for k in ("built_area_m2", "useful_area_m2", "plot_area_m2"):
         item[k] = to_num(f.pop(k, None))
     for k in ("rooms", "bathrooms", "year_built", "image_count"):

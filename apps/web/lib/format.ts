@@ -51,3 +51,16 @@ export function periodLabel(p: string | null | undefined): string {
   }
   return p;
 }
+
+const DIM_VALUES: Record<string, string> = {
+  male: "hombres", female: "mujeres", total: "total", foreign: "extranjera", spanish: "española", abroad: "extranjero",
+  sale: "venta", rent: "alquiler", properties: "inmuebles únicos", listings: "anuncios",
+};
+const DIM_KEYS: Record<string, string> = { sex: "sexo", age_group: "edad", nationality: "nacionalidad", birthplace: "nacimiento",
+  operation: "operación", count_unit: "unidad", tenure: "tenencia", dwelling_type: "tipo" };
+
+/** "operation=sale|sex=male" → "operación: venta · sexo: hombres" */
+export function dimsLabel(key: string): string {
+  if (!key) return "";
+  return key.split("|").map((kv) => { const [k, v] = kv.split("="); return `${DIM_KEYS[k!] ?? k}: ${DIM_VALUES[v!] ?? v}`; }).join(" · ");
+}

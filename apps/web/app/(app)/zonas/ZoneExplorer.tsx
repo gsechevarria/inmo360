@@ -184,7 +184,7 @@ export function ZoneExplorer({ query, layer, rows, counts, pageSize, regions, se
                     {query.cols.map((c) => {
                       const v = r.vals[c];
                       return (
-                        <td key={c} className="text-right">
+                        <td key={c} className="text-right whitespace-nowrap">
                           <div className="num">{v?.v == null ? <span className="text-ink-3" title="Sin dato">—</span> : fmtUnit(Number(v.v), colMeta(c).unit)}</div>
                           <div className="meta">{v ? periodLabel(v.p) : ""}{v?.s && !["observed", "revised"].includes(v.s) && v.v != null ? <> <StatusChip status={v.s} /></> : null}</div>
                         </td>

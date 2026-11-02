@@ -150,6 +150,12 @@ def test_listing_price_units_are_explicit():
     assert it["price"] == {"amount": 45.0, "unit": "rent_night", "unit_note": None}   # sin multiplicar a mensual
 
 
+def test_coordinates_are_never_thousands():
+    it = row_to_listing("file_import", {"external_id": "c", "operation": "sale", "price_amount": "1", "price_unit": "sale_total",
+                                        "lat": "40.4168", "lon": "-3.703"}, "t")
+    assert (it["location"]["lat"], it["location"]["lon"]) == (40.4168, -3.703)
+
+
 def test_csv_row_keeps_leading_zeros():
     it = row_to_listing("file_import", {"external_id": "x1", "operation": "sale", "price_amount": "120.000", "price_unit": "sale_total",
                                         "municipality_code": "2003", "rooms": "3"}, "2026-11-02T00:00:00Z")

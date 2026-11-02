@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["postgres"],
   poweredByHeader: false,
   reactStrictMode: true,
+  agentRules: false,
+  allowedDevOrigins: ["127.0.0.1", "localhost"],
   async headers() {
     // La web no carga imágenes de portales ni de terceros: img-src limitado a self/data/blob.
     const csp = [

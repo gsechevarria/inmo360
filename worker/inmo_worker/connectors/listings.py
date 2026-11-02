@@ -49,7 +49,7 @@ def rows_from_file(path: Path) -> list[dict]:
 
 
 def row_to_listing(source: str, row: dict, observed_at: str) -> dict:
-    loc = {"lat": to_num(row.get("lat")), "lon": to_num(row.get("lon")), "precision": row.get("location_precision") or None,
+    loc = {"lat": row.get("lat"), "lon": row.get("lon"), "precision": row.get("location_precision") or None,
            "address_text": row.get("address_text") or None, "postal_code": row.get("postal_code") or None,
            "municipality_code": (str(row["municipality_code"]).zfill(5) if row.get("municipality_code") not in (None, "") else None)}
     agency = None

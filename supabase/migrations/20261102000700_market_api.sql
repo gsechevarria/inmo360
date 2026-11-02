@@ -233,19 +233,23 @@ begin
         'elevator', case when (s_row).has_elevator is not null and (c_row).has_elevator is not null
                          then jsonb_build_object('points', case when (s_row).has_elevator = (c_row).has_elevator then 2 else -8 end) end
       )) as signals,
+      -- Señales fuertes: superficie casi idéntica, misma ubicación exacta, misma referencia de agencia o imagen idéntica.
+      -- La similitud de descripción solo apoya (las agencias usan plantillas).
       ((case when area_diff <= 0.02 then 1 else 0 end) + (case when dist_m <= 30 then 1 else 0 end)
-       + (case when desc_sim >= 0.6 then 1 else 0 end) + (case when same_ref then 1 else 0 end)) as strong
+       + (case when same_ref then 1 else 0 end) + (case when shared_image then 1 else 0 end)) as strong,
+      ((s_row).source_code = (c_row).source_code) as same_source
     from pairs
   ), totals as (
-    select distinct on (a, b) a, b, signals, strong,
+    select distinct on (a, b) a, b, signals, strong, same_source,
       (select coalesce(sum((v->>'points')::numeric), 0) from jsonb_each(signals) e(k, v)) as score,
       (select count(*) from jsonb_each(signals) e(k, v) where (v->>'points')::numeric > 0) as positive_signals
     from scored
     order by a, b
   ), ins as (
     insert into market.match_candidates(listing_a, listing_b, score, signals, strong_signals, method_version)
-    select a, b, score, signals, strong, 'dedup-v1' from totals
-     where score >= 45 and positive_signals >= 3          -- nunca por una sola señal
+    select a, b, score, signals, strong, 'dedup-v2' from totals
+     where score >= 55 and positive_signals >= 3          -- nunca por una sola señal
+       and strong >= case when same_source then 2 else 1 end  -- misma fuente (posible republicación): más exigente
     on conflict (listing_a, listing_b) do update
       set score = excluded.score, signals = excluded.signals, strong_signals = excluded.strong_signals
       where market.match_candidates.status = 'pending'
