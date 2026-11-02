@@ -66,6 +66,8 @@ Ambos clientes ya desactivan las sentencias preparadas (compatibles con el modo 
 - **Email** activado; **«Allow new users to sign up» desactivado** (no hay registro público).
 - Enlace mágico / OTP por correo. *URL Configuration*: `Site URL` = URL de Vercel; *Redirect URLs*: `https://<su-app>.vercel.app/auth/callback` y `http://localhost:3000/auth/callback`. En este proyecto: `https://inmo360-two.vercel.app` y `https://inmo360-two.vercel.app/auth/callback`.
 - El SMTP integrado de Supabase solo entrega a correos de miembros del equipo del proyecto y con un límite bajo por hora: suficiente para el propietario; para más usuarios, configure un SMTP propio (*Authentication → Emails → SMTP*).
+- **Plantilla de correo** (*Authentication → Emails → Templates → Magic Link*): asunto «Acceso a Inmo360» y el cuerpo de [`supabase/templates/magic_link.html`](../supabase/templates/magic_link.html). Incluye el **código de un solo uso** (`{{ .Token }}`), que se escribe en la pantalla de acceso, y un enlace a `/auth/confirm?token_hash=…`, que se verifica en el servidor. Ambos funcionan en cualquier navegador o dispositivo. Con la plantilla por defecto, el enlace pasa por `/auth/callback` (PKCE) y **solo funciona en el mismo navegador donde se pidió**: abrirlo desde el móvil o desde otro navegador da «enlace no válido».
+- La pantalla de acceso muestra la causa concreta de cada fallo (límite de correos, correo no autorizado por el SMTP integrado, código caducado, enlace abierto en otro navegador…), traducida del código de error de Supabase.
 
 Acceso con Google (opcional, recomendado si usa Google SSO):
 

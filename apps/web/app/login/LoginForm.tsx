@@ -1,9 +1,38 @@
 "use client";
-import { useActionState } from "react";
-import { signIn, signInWithGoogle } from "./actions";
+import { useActionState, useState } from "react";
+import { signIn, signInWithGoogle, verifyCode, type LoginState } from "./actions";
+
+const EMPTY: LoginState = { error: "" };
 
 export function LoginForm({ local, google }: { local: boolean; google: boolean }) {
-  const [state, action, pending] = useActionState(signIn, { error: "" });
+  const [state, action, pending] = useActionState(signIn, EMPTY);
+  const [codeState, codeAction, codePending] = useActionState(verifyCode, EMPTY);
+  // «Usar otro correo» descarta los estados actuales; cada envío crea un estado nuevo que vuelve a mostrarse
+  const [dismissed, setDismissed] = useState<LoginState[]>([]);
+  const live = (s: LoginState) => !dismissed.includes(s);
+  const sentTo = codeState.sent && live(codeState) ? codeState.sent : state.sent && live(state) ? state.sent : null;
+
+  if (sentTo) {
+    return (
+      <div className="space-y-3">
+        <p role="status" className="rounded-md bg-pos-50 px-3 py-2 text-[13px] text-pos">
+          Le hemos enviado un correo a <strong>{sentTo}</strong>. Escriba el código o pulse el enlace del correo.
+        </p>
+        <form action={codeAction} className="space-y-3">
+          <input type="hidden" name="email" value={sentTo} />
+          <div>
+            <label className="label" htmlFor="token">Código del correo</label>
+            <input id="token" name="token" inputMode="numeric" autoComplete="one-time-code" pattern="[0-9 ]{6,12}" required
+              className="input tracking-[0.3em] text-center text-lg" autoFocus />
+          </div>
+          {codeState.error && live(codeState) && <p role="alert" className="text-[13px] text-neg">{codeState.error}</p>}
+          <button className="btn-primary w-full justify-center py-2" disabled={codePending}>{codePending ? "Comprobando…" : "Entrar"}</button>
+        </form>
+        <button type="button" className="btn w-full justify-center" onClick={() => setDismissed((d) => [...d, state, codeState])}>Usar otro correo o pedir otro código</button>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-4">
     {!local && google && (
@@ -14,18 +43,18 @@ export function LoginForm({ local, google }: { local: boolean; google: boolean }
         </button>
       </form>
     )}
-    <form action={action} className="space-y-3">
+    <form action={action} className="space-y-3" key={dismissed.length}>
       <div>
         <label className="label" htmlFor="email">Correo electrónico</label>
         <input id="email" name="email" type="email" required autoComplete="email" className="input" defaultValue={local ? "propietario@inmo360.local" : ""} />
       </div>
       {!local && (
         <div>
-          <label className="label" htmlFor="password">Contraseña <span className="meta">(o déjela vacía para recibir un enlace)</span></label>
+          <label className="label" htmlFor="password">Contraseña <span className="meta">(o déjela vacía para recibir un código)</span></label>
           <input id="password" name="password" type="password" autoComplete="current-password" className="input" />
         </div>
       )}
-      {state.error && <p role="alert" className="text-[13px] text-neg">{state.error}</p>}
+      {state.error && live(state) && <p role="alert" className="text-[13px] text-neg">{state.error}</p>}
       <button className="btn-primary w-full justify-center py-2" disabled={pending}>{pending ? "Entrando…" : "Entrar"}</button>
     </form>
     </div>

@@ -87,3 +87,19 @@ describe("supuestos y formato", () => {
     expect(fmtMetric({ key: "x", label: "x", unit: "%", value: null, status: "not_computable" })).toBe("No calculable");
   });
 });
+
+import { authErrorText, authErrorFromParams } from "../lib/authErrors";
+describe("mensajes de acceso", () => {
+  it("traduce los códigos de Supabase y nunca deja el error vacío", () => {
+    expect(authErrorText({ code: "over_email_send_rate_limit" })).toMatch(/límite de correos/);
+    expect(authErrorText({ code: "email_address_not_authorized" })).toMatch(/SMTP/);
+    expect(authErrorText({ name: "AuthPKCECodeVerifierMissingError" })).toMatch(/navegador donde se pidió/);
+    expect(authErrorText({ code: "otp_expired" })).toMatch(/caducado/);
+    expect(authErrorText({ code: "algo_nuevo" })).toContain("algo_nuevo");
+    expect(authErrorText(null)).toMatch(/error desconocido/);
+  });
+  it("lee el error que Supabase añade a la URL de retorno", () => {
+    expect(authErrorFromParams(new URLSearchParams("error=access_denied&error_code=otp_expired"))).toMatch(/caducado/);
+    expect(authErrorFromParams(new URLSearchParams("code=abc"))).toBeNull();
+  });
+});

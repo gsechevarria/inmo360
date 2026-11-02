@@ -1,0 +1,6 @@
+<h2>Acceso a Inmo360</h2>
+<p>Su código de acceso:</p>
+<p style="font-size:28px;font-weight:bold;letter-spacing:6px;font-family:monospace">{{ .Token }}</p>
+<p>Escríbalo en la pantalla de acceso, o pulse este enlace (funciona en cualquier navegador):</p>
+<p><a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email">Entrar en Inmo360</a></p>
+<p style="color:#666;font-size:12px">Caduca en 1 hora y solo sirve una vez. Si no lo ha pedido usted, ignore este correo.</p>

@@ -4,7 +4,7 @@ import { LoginForm } from "./LoginForm";
 
 export const metadata = { title: "Acceso" };
 
-export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string; sent?: string }> }) {
+export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
   if (await getUser()) redirect("/zonas");
   const sp = await searchParams;
   const local = localAuthAllowed();
@@ -17,7 +17,6 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
         </div>
         <p className="meta mb-5">Acceso privado. No hay registro público: solo usuarios autorizados por el propietario.</p>
         {sp.error && <p role="alert" className="mb-3 rounded-md bg-neg-50 px-3 py-2 text-[13px] text-neg">{sp.error}</p>}
-        {sp.sent && <p role="status" className="mb-3 rounded-md bg-pos-50 px-3 py-2 text-[13px] text-pos">Revise su correo: le hemos enviado un enlace de acceso.</p>}
         <LoginForm local={local} google={process.env.AUTH_GOOGLE === "1"} />
         {local && <p className="meta mt-4 border-t border-line pt-3">Modo local de desarrollo (base aislada). No disponible en Vercel ni con bases remotas.</p>}
       </div>

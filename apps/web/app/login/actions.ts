@@ -2,9 +2,22 @@
 import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { LOCAL_COOKIE, localAuthAllowed, makeLocalSession, supabaseServer } from "@/lib/auth";
-import { sql } from "@/lib/db";
+import { authErrorText } from "@/lib/authErrors";
+import { withUser, sql } from "@/lib/db";
 
-export async function signIn(_prev: { error: string }, form: FormData): Promise<{ error: string }> {
+export interface LoginState { error: string; sent?: string }
+
+/** Autenticado en Supabase pero sin perfil en app.user_profiles → no autorizado: se cierra la sesión. */
+async function authorizedOrSignOut(sb: Awaited<ReturnType<typeof supabaseServer>>, userId: string): Promise<boolean> {
+  const prof = await withUser(userId, (tx) => tx`select 1 from app.user_profiles where user_id = ${userId}`);
+  if (prof.length) return true;
+  await sb.auth.signOut();
+  return false;
+}
+
+const NOT_AUTHORIZED = "Esta cuenta no está autorizada en Inmo360.";
+
+export async function signIn(_prev: LoginState, form: FormData): Promise<LoginState> {
   const email = String(form.get("email") ?? "").trim().toLowerCase();
   if (!/^[^@\s]+@[^@\s]+$/.test(email)) return { error: "Correo no válido." };
   if (process.env.AUTH_MODE === "local") {
@@ -19,15 +32,30 @@ export async function signIn(_prev: { error: string }, form: FormData): Promise<
   const sb = await supabaseServer();
   const password = String(form.get("password") ?? "");
   if (password) {
-    const { error } = await sb.auth.signInWithPassword({ email, password });
-    if (error) return { error: "Credenciales no válidas." };
+    const { data, error } = await sb.auth.signInWithPassword({ email, password });
+    if (error || !data.user) return { error: authErrorText(error) };
+    if (!(await authorizedOrSignOut(sb, data.user.id))) return { error: NOT_AUTHORIZED };
     redirect("/zonas");
   }
-  const origin = (await headers()).get("origin") ?? "";
+  const h = await headers();
+  const origin = h.get("origin") ?? `${h.get("x-forwarded-proto") ?? "https"}://${h.get("host")}`;
   // shouldCreateUser:false → sin registro público aunque alguien conozca la URL
   const { error } = await sb.auth.signInWithOtp({ email, options: { shouldCreateUser: false, emailRedirectTo: `${origin}/auth/callback` } });
-  if (error) return { error: "No se pudo enviar el enlace (¿usuario no invitado?)." };
-  redirect("/login?sent=1");
+  if (error) return { error: authErrorText(error) };
+  return { error: "", sent: email };
+}
+
+/** Código de un solo uso del correo ({{ .Token }}): funciona en cualquier navegador o dispositivo. */
+export async function verifyCode(_prev: LoginState, form: FormData): Promise<LoginState> {
+  const email = String(form.get("email") ?? "").trim().toLowerCase();
+  const token = String(form.get("token") ?? "").replace(/\s+/g, "");
+  if (!/^[^@\s]+@[^@\s]+$/.test(email)) return { error: "Correo no válido." };
+  if (!/^\d{6,10}$/.test(token)) return { error: "El código son las cifras que aparecen en el correo.", sent: email };
+  const sb = await supabaseServer();
+  const { data, error } = await sb.auth.verifyOtp({ email, token, type: "email" });
+  if (error || !data.user) return { error: authErrorText(error), sent: email };
+  if (!(await authorizedOrSignOut(sb, data.user.id))) return { error: NOT_AUTHORIZED };
+  redirect("/zonas");
 }
 
 /** Acceso con Google (OAuth PKCE de Supabase). La cuenta debe existir ya en Supabase Auth: sin registro público. */

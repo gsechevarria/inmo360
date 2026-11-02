@@ -7,7 +7,8 @@ Resultados de la última ejecución completa: **2026-11-02**, sesión de constru
 | Motor financiero | `packages/finance/test` | 36 | ✅ 36/36 |
 | Motor de puntuación | `packages/scoring/test` | 13 | ✅ 13/13 |
 | Contratos (zod) | `packages/contracts/test` | 3 | ✅ 3/3 |
-| Utilidades web (comparables, valores canónicos, supuestos, formato) | `apps/web/test` | 9 | ✅ 9/9 |
+| Utilidades web (comparables, valores canónicos, supuestos, formato, mensajes de acceso) | `apps/web/test` | 11 | ✅ 11/11 |
+| Acceso con Supabase Auth simulado (código, enlace `token_hash`, callback PKCE, errores, cuenta sin perfil) | `apps/web/e2e/acceso` | 14 | ✅ 14/14 |
 | Trabajador: unidades, conectores, contratos, cola y datos contra la base aislada | `worker/tests` | 44 | ✅ 44/44 |
 | E2E escritorio (Playwright, Chromium 1440×900) | `apps/web/e2e/flujos.spec.ts` | 10 | ✅ 10/10 |
 | E2E móvil (Pixel 7) | `apps/web/e2e/movil.spec.ts` | 8 | ✅ 8/8 |
@@ -46,10 +47,21 @@ cd apps/web && cp .env.example .env.local   # DATABASE_URL=inmo_web@127.0.0.1, A
 npx playwright test
 ```
 
+Acceso con Supabase Auth simulado (sin red): un servidor que imita GoTrue y la web compilada contra él.
+
+```bash
+node apps/web/e2e/acceso/supabase-auth-mock.mjs &          # escucha en 127.0.0.1:54999
+cd apps/web && mv .env.local /tmp/env.local.bak
+grep -v '^AUTH_MODE\|^LOCAL_AUTH' /tmp/env.local.bak > .env.production.local
+printf 'AUTH_MODE=supabase\nNEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54999\nNEXT_PUBLIC_SUPABASE_ANON_KEY=prueba\n' >> .env.production.local
+npx next build && (npx next start -p 3200 &) && node e2e/acceso/flujo-acceso.mjs
+rm .env.production.local && mv /tmp/env.local.bak .env.local && npx next build   # volver al modo local
+```
+
 ## No probado (y por qué)
 
 - **Contra Supabase real y Vercel**: la red de la sesión no alcanzaba Supabase y el despliegue público requiere autorización del propietario. Las migraciones usan solo SQL compatible y los roles de Supabase emulados; ver ⚠ en [SUPABASE.md](SUPABASE.md).
-- **Login por enlace mágico** (Supabase Auth): implementado con `@supabase/ssr`; las pruebas usan el modo local de la base aislada.
+- **Acceso contra Supabase Auth real**: el flujo se prueba con un GoTrue simulado (`e2e/acceso`); el envío real de correos depende del SMTP de Supabase.
 - **`stats.ine_tempus` contra la API del INE en directo** desde el PC: probado con respuesta real capturada, no en vivo.
 - **Idealista API**: sin credenciales concedidas.
 - Rendimiento con decenas de miles de anuncios reales: probado con 507 sintéticos (consultas paginadas y agrupación en servidor; ver DECISIONES.md).
