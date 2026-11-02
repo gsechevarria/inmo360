@@ -237,10 +237,11 @@ begin
        + (case when desc_sim >= 0.6 then 1 else 0 end) + (case when same_ref then 1 else 0 end)) as strong
     from pairs
   ), totals as (
-    select a, b, signals, strong,
+    select distinct on (a, b) a, b, signals, strong,
       (select coalesce(sum((v->>'points')::numeric), 0) from jsonb_each(signals) e(k, v)) as score,
       (select count(*) from jsonb_each(signals) e(k, v) where (v->>'points')::numeric > 0) as positive_signals
     from scored
+    order by a, b
   ), ins as (
     insert into market.match_candidates(listing_a, listing_b, score, signals, strong_signals, method_version)
     select a, b, score, signals, strong, 'dedup-v1' from totals

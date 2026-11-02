@@ -18,7 +18,8 @@ def parse_es_number(s: str) -> Decimal | None:
         return None
     if "," in t:
         t = t.replace(".", "").replace(",", ".")
-    elif t.count(".") > 1:
+    elif re.fullmatch(r"-?\d{1,3}(\.\d{3})+", t):
+        # Formato español con separador de miles (p. ej. '120.000'): convención documentada en CONECTORES.md
         t = t.replace(".", "")
     try:
         return Decimal(t)

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SINTÉTICO: feed de prueba en formato Kyero -->
+<root><kyero><feed_version>3</feed_version></kyero>
+<property><id>101</id><ref>K-101</ref><price>210000</price><price_freq>sale</price_freq><type>villa</type><town>Ejemplo</town>
+ <beds>4</beds><baths>2</baths><pool>1</pool><surface_area><built>180</built></surface_area>
+ <location><latitude>38.1</latitude><longitude>-0.6</longitude></location><url><es>https://costa.example/101</es></url><desc><es>Villa sintética</es></desc></property>
+<property><id>102</id><ref>K-102</ref><price>850</price><price_freq>month</price_freq><type>apartment</type><town>Ejemplo</town>
+ <beds>2</beds><baths>1</baths><surface_area><built>70</built></surface_area><url><es>https://costa.example/102</es></url></property>
+</root>
