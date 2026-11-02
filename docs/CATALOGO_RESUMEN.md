@@ -10,10 +10,10 @@
 |---|---|
 | blocked | 2 |
 | catalogued | 47 |
-| import_tested | 4 |
+| import_tested | 5 |
 | not_available | 1 |
 | operational | 3 |
-| resource_identified | 21 |
+| resource_identified | 20 |
 
 ## Estado de reutilización
 

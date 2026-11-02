@@ -161,3 +161,21 @@ def test_member_can_read_reference_data_but_not_write(db):
         with pytest.raises(psycopg.errors.InsufficientPrivilege):
             u.execute("insert into market.listings(source_code, external_id, operation, price_unit, first_seen_at, last_seen_at, last_checked_at, content_hash) "
                       "values ('x','y','sale','sale_total',now(),now(),now(),'h')")
+
+
+def test_offer_stats_from_synthetic_listings_are_marked_synthetic(db, admin, enqueue, clean_queue):
+    """Un derivado calculado con anuncios sintéticos hereda la marca «sintético» (la web lo señala)."""
+    a, c = claim(enqueue, "listings.file_import", "file_import")
+    loc = lambda i: {"municipality_code": "02001", "lat": 39.0 + i / 100, "lon": -1.5 - i / 100, "precision": "exact"}
+    a.submit_listings(c, [L(f"S{i}", 100000 + i * 1000, area=80 + i * 3, location=loc(i)) for i in range(6)])
+    a.finish(c, "completed", {}, {}, False)
+    admin.execute("select market.compute_offer_stats()")
+    admin.execute("select stats.refresh_latest()")
+    row = admin.execute("""select lv.value_num, lv.is_synthetic from stats.latest_values_mv lv join geo.geographies g on g.id = lv.geography_id
+                            where g.code = '02001' and lv.indicator_code = 'mkt.offer_price_sale_m2'""").fetchone()
+    assert row["value_num"] is not None and row["is_synthetic"] is True
+    with psycopg.connect(db, autocommit=True) as u:
+        as_user(u, OTHER)   # miembro: lo ve marcado también en la vista unificada (security_invoker + RLS)
+        r = u.execute("""select bool_or(is_synthetic) from stats.current_values v join geo.geographies g on g.id = v.geography_id
+                         where g.code = '02001' and v.indicator_code = 'mkt.offer_price_sale_m2'""").fetchone()
+        assert r[0] is True

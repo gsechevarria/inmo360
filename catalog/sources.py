@@ -126,7 +126,9 @@ RESOURCES = [
       status="resource_identified", reuse="open_license"),
     R("ine.vte.39363", "ine", "Viviendas turísticas, plazas y plazas por vivienda turística por municipio", url=INE_API + "39363",
       table="39363", fmt="json-api", geo="municipio", freq="semestral", method="worker:ine_tempus", connector="ine_tempus",
-      status="resource_identified", reuse="open_license", notes="Estadística experimental del INE basada en plataformas."),
+      status="import_tested", reuse="open_license", notes="Estadística experimental del INE basada en plataformas.",
+      evidence="2026-11-02: descarga real desde el navegador del propietario; viviendas turísticas y plazas por municipio "
+               "(2020-08 → 2026-05) importadas en BD aislada por el trabajador (captura de navegador). Pendiente ejecución directa desde el PC."),
     R("ine.vte.39366", "ine", "Porcentaje de viviendas turísticas sobre el total de viviendas censadas", url=INE_API + "39366",
       table="39366", fmt="json-api", geo="municipio", freq="semestral", method="worker:ine_tempus", connector="ine_tempus",
       status="resource_identified", reuse="open_license"),
@@ -267,7 +269,7 @@ RESOURCES = [
       status="catalogued", reuse="restricted", notes="Opcional, no implementado: no es dependencia del MVP."),
     # --- Propios
     R("derived.inmo360", "derived", "Indicadores derivados calculados por Inmo360", method="sql/ts", status="operational",
-      reuse="not_applicable", evidence="Transformaciones con pruebas unitarias (packages/indicators)."),
+      reuse="not_applicable", evidence="Funciones SQL stats.derive_* y market.compute_offer_stats con pruebas en BD aislada (worker/tests); ejecutadas sobre los datos INE importados."),
     R("market.inmo360", "derived", "Estadísticas de oferta observada (anuncios deduplicados)", method="sql", status="operational",
       reuse="not_applicable", notes="Cobertura de anuncios separada de la cobertura estadística."),
     R("user.input", "user", "Valores introducidos por el usuario", method="ui", status="operational", reuse="not_applicable"),
