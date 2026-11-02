@@ -57,14 +57,15 @@ Cadenas de conexión (pooler Supavisor; IPv4):
 | Web (Vercel) | Transacción, 6543 | `postgresql://inmo_web.<project-ref>:<pwd>@aws-0-<region>.pooler.supabase.com:6543/postgres` |
 | Trabajador (PC) | Sesión, 5432 | `postgresql://inmo_worker.<project-ref>:<pwd>@aws-0-<region>.pooler.supabase.com:5432/postgres` |
 
-Ambos clientes ya desactivan las sentencias preparadas (compatibles con el modo transacción). Copie el host exacto desde *Connect → Connection string*.
+Ambos clientes ya desactivan las sentencias preparadas (compatibles con el modo transacción). Copie el host exacto desde *Connect → Connection string* (en este proyecto: `aws-1-eu-central-1.pooler.supabase.com`).
 
 ## 4. Autenticación (acceso privado)
 
 *Authentication → Sign In / Providers*:
 
 - **Email** activado; **«Allow new users to sign up» desactivado** (no hay registro público).
-- Enlace mágico / OTP por correo. *URL Configuration*: `Site URL` = URL de Vercel; *Redirect URLs*: `https://<su-app>.vercel.app/auth/callback` y `http://localhost:3000/auth/callback`.
+- Enlace mágico / OTP por correo. *URL Configuration*: `Site URL` = URL de Vercel; *Redirect URLs*: `https://<su-app>.vercel.app/auth/callback` y `http://localhost:3000/auth/callback`. En este proyecto: `https://inmo360-two.vercel.app` y `https://inmo360-two.vercel.app/auth/callback`.
+- El SMTP integrado de Supabase solo entrega a correos de miembros del equipo del proyecto y con un límite bajo por hora: suficiente para el propietario; para más usuarios, configure un SMTP propio (*Authentication → Emails → SMTP*).
 
 Acceso con Google (opcional, recomendado si usa Google SSO):
 
@@ -72,6 +73,7 @@ Acceso con Google (opcional, recomendado si usa Google SSO):
 2. *URI de redireccionamiento autorizado*: `https://<project-ref>.supabase.co/auth/v1/callback`.
 3. Supabase → *Authentication → Sign In / Providers → Google*: activar y pegar *Client ID* y *Client Secret* (el secreto lo introduce el propietario).
 4. Con el registro público desactivado, la cuenta de Google debe existir antes en *Users* con el **mismo correo** (Supabase vincula la identidad de Google a ese usuario). Una cuenta autenticada sin perfil en `app.user_profiles` no entra: la web cierra su sesión.
+5. Vercel → variable `AUTH_GOOGLE=1` y *Redeploy*. Sin ella el botón de Google no aparece (evita un error de «proveedor no activado» mientras no esté configurado).
 
 Alta del propietario (una vez):
 

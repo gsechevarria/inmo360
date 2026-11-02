@@ -4,7 +4,7 @@ Para retomar Inmo360 en otra sesión (humana o de IA) sin contexto previo. Últi
 
 ## Dónde está cada cosa
 
-- Repositorio Git (rama `feat/mvp`): carpeta del propietario `Documentos\Claude\inmo360`. El propietario hace el *push* a GitHub (privado).
+- Repositorio Git (rama `main`): copia de trabajo en `Documentos\Claude\inmo360\inmo360` → GitHub `gsechevarria/inmo360` (privado). El propietario hace el *push*; Vercel despliega `main` automáticamente.
 - Especificación funcional: la conversación original con el propietario (secciones 1–31). Las decisiones que la concretan están en [DECISIONES.md](DECISIONES.md); el catálogo §9 en `catalog/` y en la app (*Fuentes e indicadores*).
 - Estado verificado: [INFORME_FINAL.md](INFORME_FINAL.md), [PRUEBAS.md](PRUEBAS.md), [ESTADO_FUENTES.md](ESTADO_FUENTES.md).
 
@@ -18,13 +18,13 @@ Para retomar Inmo360 en otra sesión (humana o de IA) sin contexto previo. Últi
 | Datos públicos | Padrón, renta ADRH y viviendas turísticas importados **en la base aislada**; nada todavía en Supabase |
 | Anuncios reales | **Ninguno**: no hay fuente autorizada. Solo 507 sintéticos de prueba (no cargar en producción) |
 | Supabase | **Instalado** (proyecto `npilepdhviyzlenmycvv`, Frankfurt): esquema, catálogo, perfiles, roles, Auth sin registro público, propietario. Sin datos todavía |
-| Vercel | **No desplegado** |
+| Vercel | **Desplegado** en <https://inmo360-two.vercel.app> (2026-11-02). Pendiente: región `fra1` (en `vercel.json`, aplica al siguiente despliegue), URL en Supabase Auth y primer acceso |
 
 ## Próximos pasos (orden recomendado)
 
 1. ~~Instalar en Supabase~~ (hecho el 2026-11-02). Revocar el token personal usado. Configuración con secretos en `Documentos\Claude\inmo360\instalacion_supabase\SECRETO_*.env`.
 2. **Arrancar el trabajador** en el PC ([GUIA_WINDOWS.md](GUIA_WINDOWS.md)) y encolar: `geo.es_atlas` → `stats.ine_tempus` (padrón, VTE, ADRH) → `stats.derive`. Verificar que `stats.ine_tempus` funciona en directo; si no, usar `stats.browser_capture` con las capturas entregadas aparte (`capturas_ine_2026-11-02.zip`). Al lograrlo, subir el estado de esos recursos a `operational` con evidencia en `catalog/sources.py`.
-3. **Desplegar en Vercel** ([DESPLIEGUE_VERCEL.md](DESPLIEGUE_VERCEL.md)).
+3. ~~Desplegar en Vercel~~ (hecho el 2026-11-02). Autorizar `https://inmo360-two.vercel.app/auth/callback` en Supabase Auth, desplegar con `fra1` y comprobar `/api/health` y el primer acceso. Google: opcional ([SUPABASE.md](SUPABASE.md) §4 + `AUTH_GOOGLE=1`).
 4. **Registrar reglas fiscales** (ITP de su comunidad, etc.) con su fuente oficial en *Supuestos y scoring*.
 5. **Revisar y activar perfiles de puntuación** (experimentales) o crear variantes.
 6. **Fuente de anuncios autorizada**: feed de agencias (Kyero XML), webs de agencias con schema.org (respetando condiciones), exportaciones propias por CSV o API de Idealista si conceden acceso.
@@ -34,7 +34,7 @@ Para retomar Inmo360 en otra sesión (humana o de IA) sin contexto previo. Últi
 
 | Pendiente | Motivo / bloqueo |
 |---|---|
-| Despliegue en Supabase y Vercel | Requiere cuentas y autorización expresa del propietario |
+| Acceso con Google | Requiere crear el cliente OAuth en Google Cloud; el secreto lo introduce el propietario |
 | `stats.ine_tempus` en directo | La red de la sesión de construcción no alcanzaba el INE; validado con respuestas reales capturadas |
 | ADRH tabla 30824 | Respuesta truncada en la captura; reintentar desde el PC |
 | 47 recursos «catalogados» y 20 «identificados» sin importar (empleo, IRPF/AEAT, censo de viviendas, MIVAU, Catastro, educación, servicios, construcción…) | Alcance: cada recurso necesita conector y validación con respuesta real; no se marcan como hechos sin evidencia |

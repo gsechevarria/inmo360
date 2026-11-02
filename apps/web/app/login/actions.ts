@@ -33,6 +33,7 @@ export async function signIn(_prev: { error: string }, form: FormData): Promise<
 /** Acceso con Google (OAuth PKCE de Supabase). La cuenta debe existir ya en Supabase Auth: sin registro público. */
 export async function signInWithGoogle() {
   if (process.env.AUTH_MODE === "local") redirect("/login?error=No%20disponible%20en%20modo%20local");
+  if (process.env.AUTH_GOOGLE !== "1") redirect("/login?error=Acceso%20con%20Google%20no%20configurado");
   const sb = await supabaseServer();
   const h = await headers();
   const origin = h.get("origin") ?? `${h.get("x-forwarded-proto") ?? "https"}://${h.get("host")}`;

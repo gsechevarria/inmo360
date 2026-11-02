@@ -48,7 +48,7 @@ Total: 641.815 observaciones vigentes. Catálogo: 37 fuentes, 78 recursos (3 ope
 
 Resumen (lista completa en [CONTINUIDAD.md](CONTINUIDAD.md)):
 
-- **Despliegue en Supabase y Vercel**: requiere su cuenta y autorización expresa; la red de la sesión no alcanzaba Supabase. Hay un punto a verificar en la primera instalación (`grant authenticated to inmo_web`).
+- **Despliegue**: Supabase instalado y verificado; web desplegada en <https://inmo360-two.vercel.app> (2026-11-02). Falta autorizar la URL en Supabase Auth, fijar la región `fra1` y comprobar el primer acceso. Sin datos en Supabase hasta que el trabajador del PC haga la primera carga.
 - **Ejecución en directo contra el INE desde su PC** (`stats.ine_tempus`): validado con respuestas reales capturadas, no en vivo.
 - **Resto del catálogo §9** (empleo, IRPF, censo de viviendas, precios MIVAU, Catastro, educación, servicios, construcción…): catalogado con su estado real; cada recurso necesita conector y validación.
 - **Anuncios reales**: sin canal autorizado (Idealista requiere credenciales; Fotocasa no tiene canal).
