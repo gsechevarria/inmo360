@@ -45,3 +45,21 @@ Se fijan versiones estables con al menos dos semanas de publicación y API conoc
 - **Sin teselas de fotos ni galería** en la web. Inventario de medios en Supabase; bytes en disco local del trabajador.
 - **Scoring**: no hay pesos aprobados. Se entregan perfiles **experimentales** que el propietario debe seleccionar explícitamente. Sin perfil activo: “puntuación pendiente de configuración”.
 - **Fiscalidad**: no se precargan tipos autonómicos como confirmados. La tabla `invest.tax_rules` admite reglas fechadas con fuente; las sugerencias que se añadan quedan en estado *publicado, pendiente de confirmar* y nunca se aplican sin confirmación.
+
+## 2026-11-02 · Datos y almacenamiento
+
+- **Presupuesto de 500 MB (Supabase gratuito)**. Con todos los datos reales importados la base ocupaba 1,33 GB: 910.000 filas de derivados (todos los periodos, incluidos los no calculables), un índice único duplicado en observaciones y una nota de captura de ~160 bytes repetida por fila. Decisión: derivados como **foto del último periodo** con poda (son recalculables desde las observaciones, que sí guardan la serie completa), eliminar el índice redundante (la unicidad de la fila vigente la garantiza `observations_current_uq`) y notas por fila cortas. Resultado: **322 MB** con la misma cobertura vigente. Migración `0012_storage_budget`.
+- **Derivados de anuncios sintéticos heredan la marca «sintético»** (antes solo constaba en avisos). Migración `0011`.
+- **Vistas con `security_invoker`**: las vistas ordinarias respetan la RLS de quien consulta. Excepción deliberada: `stats.latest_values` e `indicator_coverage` leen la vista materializada y filtran por `app.is_member()`.
+- **Booleanos desde CSV** con `to_bool` («false» ya no se interpreta como verdadero).
+
+## 2026-11-02 · Web
+
+- **Calculadora en el navegador, verdad en el servidor**: el motor corre en el cliente para respuesta inmediata; al guardar, el servidor recalcula y guarda resultado y movimientos (`invest.calculation_results`, `cashflow_entries`). El precio máximo también se recalcula en servidor al guardarlo.
+- **Cambiar de modalidad** conserva compra, adquisición, reforma, financiación, reserva, reposiciones y gastos de tenencia comunes; regenera la explotación con la plantilla de la nueva modalidad.
+- **Un préstamo sin tipo de interés queda pendiente** (antes producía NaN silencioso). Prueba añadida.
+- **Precio máximo**: si no se fija límite superior y el borde sigue siendo factible, el intervalo se amplía automáticamente (×4, hasta 3 veces).
+- **Reglas fiscales sin precarga**: la calculadora ofrece las reglas registradas para el territorio del inmueble y solo las aplica a petición, con fuente y estado. No se incluyen tipos autonómicos porque cambian por normativa y no se han podido verificar contra el BOE/boletines en esta sesión.
+- **Comparador de viviendas con supuestos comunes** introducidos en el propio comparador (vacío = desconocido) y renta estimada por comparables solo si la calidad no es insuficiente.
+- **Borrados en dos pasos** en la interfaz (sin diálogos modales del navegador).
+- **Contratos**: `packages/contracts` (zod) genera JSON Schema que validan las pruebas del trabajador (TS ↔ Python).

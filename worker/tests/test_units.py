@@ -178,3 +178,12 @@ def test_kyero_feed():
     items, errs = parse_kyero((FIX / "kyero_feed.xml").read_bytes(), "feed", {"source_agency_id": "costa"}, "2026-11-02T00:00:00Z")
     assert len(items) == 2 and not errs
     assert {i["price"]["unit"] for i in items} == {"sale_total", "rent_month"}
+
+
+def test_boolean_flags_from_csv_strings():
+    from inmo_worker.normalize import listing
+    base = dict(operation="sale", price_amount="100000", price_unit="sale_total", location={"municipality_code": "02003"})
+    assert listing("s", "1", is_synthetic="false", **base)["is_synthetic"] is False
+    assert listing("s", "2", is_synthetic="true", **base)["is_synthetic"] is True
+    assert listing("s", "3", is_synthetic="", **base)["is_synthetic"] is False
+    assert listing("s", "4", withdrawn_confirmed="no", **base)["withdrawn_confirmed"] is False

@@ -171,8 +171,9 @@ def listing(source_code: str, external_id: str, *, operation: str, price_amount,
         item[k] = str(v) if v not in (None, "") else None
     if item["condition"] not in (None, "new", "good", "to_renovate", "unknown"):
         item["condition"] = "unknown"
-    item["withdrawn_confirmed"] = bool(f.pop("withdrawn_confirmed", False))
-    item["is_synthetic"] = bool(f.pop("is_synthetic", False))
+    # Desde CSV llegan cadenas: «false» NO es verdadero (bool("false") lo sería)
+    item["withdrawn_confirmed"] = bool(to_bool(f.pop("withdrawn_confirmed", False)))
+    item["is_synthetic"] = bool(to_bool(f.pop("is_synthetic", False)))
     if "agency" in f:
         item["agency"] = f.pop("agency")
     item["extra"] = f.pop("extra", {}) or {}

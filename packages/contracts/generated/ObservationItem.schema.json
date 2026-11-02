@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "resource_code": {
+      "type": "string",
+      "minLength": 3
+    },
+    "indicator_code": {
+      "type": "string",
+      "minLength": 3
+    },
+    "geography_level": {
+      "type": "string",
+      "enum": [
+        "country",
+        "ccaa",
+        "province",
+        "island",
+        "comarca",
+        "municipality",
+        "district",
+        "census_section",
+        "non_municipal_area",
+        "other"
+      ]
+    },
+    "geography_code": {
+      "type": "string",
+      "pattern": "^[0-9A-Za-z._-]+$"
+    },
+    "period": {
+      "type": "string",
+      "minLength": 4
+    },
+    "period_type": {
+      "type": "string",
+      "enum": [
+        "year",
+        "quarter",
+        "month",
+        "date",
+        "range",
+        "census"
+      ]
+    },
+    "period_start": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "period_end": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ref_date": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "published_at": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "captured_at": {
+      "type": "string",
+      "minLength": 10
+    },
+    "dims": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "value_raw": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "value_num": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^-?\\d+(\\.\\d+)?([eE][-+]?\\d+)?$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "value_status": {
+      "type": "string",
+      "enum": [
+        "observed",
+        "provisional",
+        "revised",
+        "estimated",
+        "censored",
+        "suppressed",
+        "absent",
+        "not_applicable",
+        "not_available",
+        "pending_interpretation"
+      ]
+    },
+    "unit_raw": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "scale_raw": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "type": "string",
+          "maxLength": 300
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "capture_method": {
+      "type": "string",
+      "enum": [
+        "worker",
+        "browser_capture",
+        "manual_upload",
+        "fixture"
+      ]
+    },
+    "is_synthetic": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "resource_code",
+    "indicator_code",
+    "geography_level",
+    "geography_code",
+    "period",
+    "period_type",
+    "period_start",
+    "period_end",
+    "ref_date",
+    "published_at",
+    "captured_at",
+    "dims",
+    "value_raw",
+    "value_num",
+    "value_status",
+    "unit_raw",
+    "scale_raw",
+    "notes",
+    "capture_method",
+    "is_synthetic"
+  ]
+}
