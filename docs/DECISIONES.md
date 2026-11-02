@@ -63,3 +63,11 @@ Se fijan versiones estables con al menos dos semanas de publicación y API conoc
 - **Comparador de viviendas con supuestos comunes** introducidos en el propio comparador (vacío = desconocido) y renta estimada por comparables solo si la calidad no es insuficiente.
 - **Borrados en dos pasos** en la interfaz (sin diálogos modales del navegador).
 - **Contratos**: `packages/contracts` (zod) genera JSON Schema que validan las pruebas del trabajador (TS ↔ Python).
+
+## 2026-11-02 · Instalación en Supabase
+
+- **Vía**: la red de la sesión no alcanza Supabase. Se usó la **API de gestión** (`/v1/projects/{ref}/database/query`, `/config/auth`) ejecutada desde el Chrome del propietario con un token personal que él facilitó; los ficheros SQL se cargaron en la página con un `input type=file` (adjuntos del chat) para no transcribir 1 MB de SQL. El token debe revocarse tras la instalación.
+- **Contraseñas de roles**: generadas aleatoriamente en la sesión; en Supabase solo se envió el **verificador SCRAM-SHA-256** (comprobado en local que autentica la contraseña real y rechaza otras). Las contraseñas en claro solo están en `instalacion_supabase\SECRETO_*.env` en el PC del propietario y se borraron de la sesión.
+- **Propietario**: `gsechevarria@gmail.com`, creado con la API de administración de Auth (correo confirmado, sin envío) y con perfil `owner`. Registro público desactivado; URLs de retorno: `localhost:3000` y `127.0.0.1:3000`.
+- **Acceso con Google**: la web incluye «Continuar con Google» (OAuth PKCE). Activarlo requiere un cliente OAuth de Google Cloud; el *Client Secret* lo introduce el propietario.
+- Supabase ofrece PostGIS 3.3.7 (en local 3.4): sin diferencias para las funciones usadas (`ST_AsMVT`, `ST_Contains`, `ST_Distance` geográfica).

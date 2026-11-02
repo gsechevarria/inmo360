@@ -2,7 +2,7 @@
 
 Base de datos operativa, autenticación y (en el futuro) almacenamiento de fotos. Todo cabe en el **plan gratuito** con los datos actuales (ver «Presupuesto de almacenamiento»). No se contrata nada.
 
-> **Estado**: las migraciones se han ejecutado y probado en una base PostgreSQL 16 + PostGIS 3.4 aislada que emula los roles de Supabase. **No se han aplicado todavía en un proyecto Supabase real** (la sesión de construcción no tenía acceso de red a Supabase). Los puntos marcados ⚠ son los que hay que comprobar en la primera instalación.
+> **Estado (2026-11-02)**: instalado en el proyecto `inmo360` (`npilepdhviyzlenmycvv`, Frankfurt, Postgres 17.11, PostGIS 3.3.7) mediante la API de gestión desde el navegador del propietario. Migraciones 0001–0012, catálogo (140 indicadores, 78 recursos, 755 etiquetas) y 7 perfiles cargados; roles `inmo_web`/`inmo_worker` con acceso; registro público desactivado; propietario creado. Comprobado en Supabase: 0 tablas sin RLS; como propietario se ven los 140 indicadores y como usuario ajeno 0; `inmo_web` sin acceso directo a tablas; `inmo_worker` solo con funciones. **Pendiente de comprobar**: el primer inicio de sesión de `inmo_web` e `inmo_worker` a través del pooler (no hay red desde la sesión de construcción), y el proveedor de Google.
 
 ## 1. Crear el proyecto
 
@@ -35,11 +35,11 @@ psql "$SUPABASE_DB_URL" -v ON_ERROR_STOP=1 -f supabase/seed/020_scoring_profiles
 
 > No aplique nunca `scripts/local/*.sql` en Supabase: son solo para la base aislada (emulan `auth` y crean un usuario de desarrollo).
 
-⚠ La migración `0008_security` ejecuta `grant authenticated to inmo_web`. En Supabase el rol `postgres` normalmente puede concederlo; si falla con *must have admin option*, ejecute esa línea desde el *SQL Editor* (que usa un rol con más privilegios) y vuelva a lanzar `db push`.
+`grant authenticated to inmo_web` (migración 0008) funciona: en Supabase el rol `postgres` tiene ADMIN OPTION sobre `authenticated` (comprobado).
 
 ## 3. Credenciales de los roles de la aplicación
 
-En el *SQL Editor*, con contraseñas largas y aleatorias (generadas por su gestor):
+En el *SQL Editor*, con contraseñas largas y aleatorias (generadas por su gestor). También se admite el **verificador SCRAM** en lugar de la contraseña (`password 'SCRAM-SHA-256$4096:…'`), que es lo que se usó en la instalación: así la contraseña en claro no pasa por el editor ni por el historial de consultas.
 
 ```sql
 alter role inmo_web    with login password '<contraseña-web-48+caracteres>';
