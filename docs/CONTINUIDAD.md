@@ -22,7 +22,7 @@ Para retomar Inmo360 en otra sesión (humana o de IA) sin contexto previo. Últi
 
 ## Próximos pasos (orden recomendado)
 
-1. ~~Instalar en Supabase~~ (hecho el 2026-11-02). Revocar el token personal usado. Configuración con secretos en `Documentos\\Claude\\inmo360\\instalacion_supabase\\SECRETO_*.env`.
+1. ~~Instalar en Supabase~~ (hecho el 2026-11-02). Revocar el token personal usado. Configuración con secretos en `Documentos\Claude\inmo360\instalacion_supabase\SECRETO_*.env`.
 2. **Arrancar el trabajador** en el PC ([GUIA_WINDOWS.md](GUIA_WINDOWS.md)) y encolar: `geo.es_atlas` → `stats.ine_tempus` (padrón, VTE, ADRH) → `stats.derive`. Verificar que `stats.ine_tempus` funciona en directo; si no, usar `stats.browser_capture` con las capturas entregadas aparte (`capturas_ine_2026-11-02.zip`). Al lograrlo, subir el estado de esos recursos a `operational` con evidencia en `catalog/sources.py`.
 3. **Desplegar en Vercel** ([DESPLIEGUE_VERCEL.md](DESPLIEGUE_VERCEL.md)).
 4. **Registrar reglas fiscales** (ITP de su comunidad, etc.) con su fuente oficial en *Supuestos y scoring*.
