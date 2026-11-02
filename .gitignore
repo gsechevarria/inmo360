@@ -13,3 +13,8 @@ playwright-report/
 .pytest_cache/
 coverage/
 media-store/
+
+# Sesiones y artefactos de pruebas E2E
+apps/web/e2e/.auth/
+apps/web/test-results/
+apps/web/playwright-report/

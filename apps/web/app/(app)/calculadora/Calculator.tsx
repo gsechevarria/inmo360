@@ -90,11 +90,11 @@ export function Calculator({ initial, ctx }: { initial: ScenarioInput; ctx: Calc
       {/* barra de escenario */}
       <div className="mb-3 flex flex-wrap items-end gap-2 rounded-lg border border-line bg-surface p-3">
         <Field label="Modalidad" className="w-56">
-          <select className="input" value={s.strategy} onChange={(e) => setS(switchStrategy(s, e.target.value as Strategy))}>
+          <select aria-label="Modalidad" className="input" value={s.strategy} onChange={(e) => setS(switchStrategy(s, e.target.value as Strategy))}>
             {STRATEGIES.map((x) => <option key={x.id} value={x.id}>{x.label}</option>)}
           </select>
         </Field>
-        <Field label="Nombre del escenario" className="min-w-[220px] flex-1"><input className="input" value={name} maxLength={120} onChange={(e) => setName(e.target.value)} /></Field>
+        <Field label="Nombre del escenario" className="min-w-[220px] flex-1"><input aria-label="Nombre del escenario" className="input" value={name} maxLength={120} onChange={(e) => setName(e.target.value)} /></Field>
         {ctx.scenario ? <>
           <button className="btn-primary" disabled={pending || r.errors.length > 0} onClick={() => save(false)}>Guardar cambios</button>
           <button className="btn" disabled={pending || r.errors.length > 0} onClick={() => save(true)}>Guardar como alternativa</button>

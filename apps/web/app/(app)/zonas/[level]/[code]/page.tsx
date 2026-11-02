@@ -66,6 +66,7 @@ export default async function ZoneDetail({ params }: { params: Promise<{ level: 
         actions={<>
           <FavoriteButton targetType="geography" targetId={`${level}:${code}`} active={data.fav} />
           {level === "municipality" && <Link className="btn" href={`/comparar?zonas=${code}`}>Comparar</Link>}
+          {(level === "province" || level === "ccaa") && <Link className="btn" href={`/zonas?${level === "province" ? "prov" : "ccaa"}=${code}`}>Ver municipios</Link>}
           <Link className="btn-primary" href={`/viviendas?${level === "municipality" ? "muni" : level === "province" ? "prov" : "ccaa"}=${code}`}>Ver viviendas</Link>
         </>} />
       {h.notes && <div className="px-4 md:px-6 mb-3"><Notice kind="warn">{h.notes}</Notice></div>}
@@ -157,7 +158,7 @@ export default async function ZoneDetail({ params }: { params: Promise<{ level: 
                 const have = all.filter((c) => haveCodes.has(c.code as string)).length;
                 return all.length ? <div key={f} className="flex justify-between border-b border-line-2 py-1"><span>{label}</span><span className="num meta">{have} con dato / {all.length}</span></div> : null;
               })}
-              <Link href="/catalogo?tab=indicadores" className="btn mt-2">Abrir catálogo</Link>
+              <Link href="/catalogo?vista=indicadores" className="btn mt-2">Abrir catálogo</Link>
             </div>
           </Panel>
 

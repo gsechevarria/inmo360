@@ -1,9 +1,7 @@
 import "server-only";
 import { num, type Tx } from "../db";
 import type { Comp } from "../comparables";
-
-export const CANON_FIELDS = ["property_type", "built_area_m2", "useful_area_m2", "rooms", "bathrooms", "floor_text", "has_elevator", "has_terrace",
-  "has_parking", "condition", "energy_rating", "year_built", "address_text"] as const;
+export { CANON_FIELDS, canonical } from "../canonical";
 
 export async function propertyDetail(tx: Tx, id: string) {
   const prop = await tx`select p.*, st_y(p.location) as lat, st_x(p.location) as lon from market.properties p where p.id = ${id}`;
@@ -26,20 +24,6 @@ export async function propertyDetail(tx: Tx, id: string) {
         where s.listing_id = any(${ids}) order by s.observed_at`,
   ]);
   return { kind: "ok" as const, prop: prop[0]!, listings, events, corrections, candidates, history };
-}
-
-/** Valores canónicos explicables: corrección del usuario > valor más reciente no nulo; discrepancias visibles. */
-export function canonical(listings: Record<string, unknown>[], corrections: Record<string, unknown>[]) {
-  const out: Record<string, { value: unknown; origin: string; discrepancies: { source: string; value: unknown }[]; correction?: Record<string, unknown> }> = {};
-  for (const f of CANON_FIELDS) {
-    const corr = corrections.find((c) => c.field === f);
-    const vals = listings.filter((l) => l[f] !== null && l[f] !== undefined && l[f] !== "unknown").map((l) => ({ source: `${l.source_code}`, value: l[f] }));
-    const distinct = Array.from(new Set(vals.map((v) => JSON.stringify(v.value))));
-    out[f] = corr
-      ? { value: corr.value, origin: "corrección del usuario", discrepancies: vals, correction: corr }
-      : { value: vals[0]?.value ?? null, origin: vals[0] ? `publicación más reciente (${vals[0].source})` : "sin dato", discrepancies: distinct.length > 1 ? vals : [] };
-  }
-  return out;
 }
 
 /**

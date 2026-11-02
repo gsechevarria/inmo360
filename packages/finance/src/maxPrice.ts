@@ -58,6 +58,22 @@ export function evaluateObjectives(r: ScenarioResult, o: Objectives): Check[] {
  */
 export function maxPurchasePrice(s: ScenarioInput, o: Objectives,
                                  opts: { min?: number; max?: number; tolerance?: number; gridPoints?: number } = {}): MaxPriceResult {
+  // Sin límite superior explícito, si el borde superior sigue siendo factible se amplía el intervalo (hasta 3 veces ×4).
+  let r = searchMaxPrice(s, o, opts);
+  if (opts.max === undefined) {
+    let hi = r.searchRange[1], expansions = 0, evals = r.evaluations;
+    while (r.status === "search_limit" && expansions < 3) {
+      hi *= 4; expansions++;
+      r = searchMaxPrice(s, o, { ...opts, max: hi });
+      evals += r.evaluations;
+    }
+    if (expansions) r = { ...r, evaluations: evals, notes: [`Intervalo de búsqueda ampliado automáticamente ${expansions} vez/veces hasta ${Math.round(hi).toLocaleString("es-ES")} €.`, ...r.notes] };
+  }
+  return r;
+}
+
+function searchMaxPrice(s: ScenarioInput, o: Objectives,
+                        opts: { min?: number; max?: number; tolerance?: number; gridPoints?: number } = {}): MaxPriceResult {
   const lo = opts.min ?? 1_000;
   const hi = opts.max ?? Math.max(50_000, (s.purchase.price ?? 200_000) * 3);
   const tol = opts.tolerance ?? 100;

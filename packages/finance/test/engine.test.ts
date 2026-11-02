@@ -305,6 +305,17 @@ describe("precio máximo de compra", () => {
     expect(maxPurchasePrice(s, { minNetYield: 90 }, { min: 50_000, max: 200_000 }).status).toBe("infeasible");
     expect(maxPurchasePrice(s, { minNetYield: 0.1 }, { min: 50_000, max: 200_000 }).status).toBe("search_limit");
   });
+  it("sin límite superior explícito amplía la búsqueda en lugar de quedarse en el borde", () => {
+    const s = rentLong();     // precio 100.000 → búsqueda inicial hasta 300.000
+    const r = maxPurchasePrice(s, { minNetYield: 2 });
+    expect(r.status).toBe("calculated");
+    expect(r.price!).toBeGreaterThan(300_000);
+    expect(r.notes.join(" ")).toMatch(/ampliado automáticamente/);
+    const at = simulate({ ...s, purchase: { ...s.purchase, price: r.price! } }).metrics.netOperatingYield!.value!;
+    const above = simulate({ ...s, purchase: { ...s.purchase, price: r.price! + 200 } }).metrics.netOperatingYield!.value!;
+    expect(at).toBeGreaterThanOrEqual(2);
+    expect(above).toBeLessThan(2);
+  });
   it("objetivo de rentabilidad neta con financiación por LTV", () => {
     const s = rentLong({ financing: { loans: [{ id: "h", status: "confirmed", ltv: { ratio: 0.8, base: "price" }, rate: { type: "fixed", annualRate: 0.03 }, termMonths: 300, paymentFrequency: "monthly" }] } });
     const r = maxPurchasePrice(s, { minNetYield: 6, minMonthlyCashflow: 150 }, { min: 40_000, max: 300_000, tolerance: 100 });
