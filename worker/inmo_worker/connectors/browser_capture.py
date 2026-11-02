@@ -61,8 +61,7 @@ TIPOS = {"D": "Definitivo", "P": "Provisional", "A": "Avance", "E": "Estimación
 
 def parse(dataset: str, meta: dict, lines: list[str]) -> tuple[list[dict], dict[str, int]]:
     res = DATASETS[dataset]
-    cap = meta["captured_at"]
-    note = f"captura navegador {cap} · {meta.get('url', '')[:160]}"
+    cap = meta["captured_at"]   # la URL y la fecha de captura se guardan en la ejecución (no se repiten por fila)
     out: list[dict] = []
     last_year: dict[str, int] = {}
     for line in lines:
@@ -76,7 +75,7 @@ def parse(dataset: str, meta: dict, lines: list[str]) -> tuple[list[dict], dict[
                 fecha = b[3] if len(b) > 3 else f"{y}-01-01"
                 out.append(obs(res, ind, "municipality", muni, y, "year", raw=(int(v) if v != "" else None),
                                tipo=TIPOS.get(t, t), dims=dims, ref_date=fecha, unit_raw="Personas", captured_at=cap,
-                               capture_method="browser_capture", notes=f"serie {cod} · {note}"))
+                               capture_method="browser_capture", notes=f"serie {cod}"))
                 if sex == "0" and v != "":
                     last_year[muni] = max(last_year.get(muni, 0), int(y))
         elif dataset == "ine_adrh":
@@ -86,7 +85,7 @@ def parse(dataset: str, meta: dict, lines: list[str]) -> tuple[list[dict], dict[
                 y, v, t = b[0], b[1], b[2]
                 out.append(obs(res, ind, "municipality", muni, y, "year", raw=(int(v) if re.fullmatch(r"-?\d+", v) else (v or None)),
                                tipo=TIPOS.get(t, t), unit_raw=unit or "Euros", captured_at=cap, capture_method="browser_capture",
-                               notes=f"tabla {tabla} serie {cod} · {note}"))
+                               notes=f"tabla {tabla} serie {cod}"))
         elif dataset == "ine_vte":
             cod, muni, vp, data = f
             ind = {"V": "tour.dwellings", "P": "tour.places"}[vp]
@@ -94,7 +93,7 @@ def parse(dataset: str, meta: dict, lines: list[str]) -> tuple[list[dict], dict[
                 ym, v, t = b[0], b[1], b[2]
                 out.append(obs(res, ind, "municipality", muni, ym, "month", raw=(int(v) if re.fullmatch(r"-?\d+", v) else (v or None)),
                                tipo=TIPOS.get(t, t), ref_date=f"{ym}-01", unit_raw="Viviendas" if vp == "V" else "Plazas",
-                               captured_at=cap, capture_method="browser_capture", notes=f"serie {cod} · {note}"))
+                               captured_at=cap, capture_method="browser_capture", notes=f"serie {cod}"))
     return out, last_year
 
 
@@ -129,4 +128,5 @@ def handle(ctx: JobContext) -> Outcome:
             stats[k] = stats.get(k, 0) + v
         ctx.checkpoint("offset", i + step)
         ctx.set_progress(done=min(i + step, len(observations)), total=len(observations))
-    return Outcome("completed", stats, {"dataset": dataset, "captured_at": meta["captured_at"]}, True)
+    return Outcome("completed", stats, {"dataset": dataset, "captured_at": meta["captured_at"], "source_url": meta.get("url"),
+                                        "method": meta.get("method")}, True)

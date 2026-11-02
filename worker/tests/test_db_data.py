@@ -179,3 +179,41 @@ def test_offer_stats_from_synthetic_listings_are_marked_synthetic(db, admin, enq
         r = u.execute("""select bool_or(is_synthetic) from stats.current_values v join geo.geographies g on g.id = v.geography_id
                          where g.code = '02001' and v.indicator_code = 'mkt.offer_price_sale_m2'""").fetchone()
         assert r[0] is True
+
+
+def test_derived_are_latest_snapshot_with_explanations(db, admin, enqueue, clean_queue):
+    """Derivados: fórmula correcta, foto del último periodo, explicación cuando no son calculables y poda de periodos viejos."""
+    a, c = claim(enqueue, "stats.test", "ine")
+    pts = {"2014": 1000, "2019": 1100, "2024": 1210}
+    a.submit_observations(c, [obs("ine.dpop.29005", "pop.padron", "municipality", "02003", y, "year", raw=v, ref_date=f"{y}-01-01",
+                                  captured_at="2026-11-02T00:00:00Z") for y, v in pts.items()])
+    a.finish(c, "completed", {}, {}, True)
+    codes = ["demo.pop_growth_1y", "demo.pop_growth_5y", "demo.pop_cagr_10y"]
+
+    def derived():
+        rows = admin.execute("""select indicator_code, period, value_num, warnings from stats.derived_observations d
+                                  join geo.geographies g on g.id = d.geography_id where g.code = '02003' and indicator_code = any(%s)
+                                 order by indicator_code, period""", (codes,)).fetchall()
+        return {(r["indicator_code"], r["period"]): (None if r["value_num"] is None else round(float(r["value_num"]), 4), r["warnings"]) for r in rows}
+
+    a, c = claim(enqueue, "stats.derive", "derived")
+    a.compute_derived(c, codes)
+    a.finish(c, "completed", {}, {}, True)
+    d = derived()
+    assert d[("demo.pop_growth_5y", "2024")][0] == 10.0                       # 1210 / 1100 − 1
+    assert d[("demo.pop_cagr_10y", "2024")][0] == round((1.21 ** 0.1 - 1) * 100, 4)
+    assert d[("demo.pop_growth_1y", "2024")] == (None, ["sin dato del año inicial"])   # nunca 0
+    assert {k[1] for k in d} == {"2024"}                                      # solo el último periodo
+
+    # Llega 2025: se recalcula y se podan los periodos superados (se conserva el último con valor si el nuevo no lo tiene)
+    a, c = claim(enqueue, "stats.test", "ine")
+    a.submit_observations(c, [obs("ine.dpop.29005", "pop.padron", "municipality", "02003", "2025", "year", raw=1250,
+                                  ref_date="2025-01-01", captured_at="2026-11-02T00:00:00Z")])
+    a.finish(c, "completed", {}, {}, True)
+    a, c = claim(enqueue, "stats.derive", "derived")
+    a.compute_derived(c, codes)
+    a.finish(c, "completed", {}, {}, True)
+    d = derived()
+    assert d[("demo.pop_growth_1y", "2025")][0] == round((1250 / 1210 - 1) * 100, 4)
+    assert ("demo.pop_growth_1y", "2024") not in d
+    assert d[("demo.pop_growth_5y", "2025")][0] is None and d[("demo.pop_growth_5y", "2024")][0] == 10.0
