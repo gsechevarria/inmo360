@@ -79,3 +79,6 @@ export const ZONE_COLUMNS = [
   { code: "mkt.offer_rent_m2", label: "Renta de oferta", unit: "EUR/m2/mes", short: "Alquiler €/m²" },
 ] as const;
 export const DEFAULT_COLUMNS = ["pop.padron", "demo.pop_cagr_5y", "demo.pop_cagr_10y", "inc.net_mean_household", "tour.dwellings"];
+
+export const TYPE_LABEL: Record<string, string> = { flat: "Piso", house: "Casa/chalet", penthouse: "Ático", duplex: "Dúplex", studio: "Estudio", rural_house: "Casa rural", room: "Habitación", other: "Otro", unknown: "Sin especificar" };
+export const COND_LABEL: Record<string, string> = { new: "Nuevo", good: "Buen estado", to_renovate: "A reformar", unknown: "Estado desconocido" };

@@ -88,11 +88,12 @@ export async function setOpportunity(propertyId: string, status: string, planned
 export async function addCorrection(targetType: "listing" | "property", targetId: string, field: string, value: string, reason: string, path: string): Promise<R> {
   try {
     const u = await requireUser();
-    const f = z.enum(["built_area_m2", "useful_area_m2", "rooms", "bathrooms", "floor_text", "has_elevator", "has_terrace", "condition", "year_built", "energy_rating", "address_text"]).parse(field);
+    const f = z.enum(["built_area_m2", "useful_area_m2", "rooms", "bathrooms", "floor_text", "has_elevator", "has_terrace", "has_parking", "condition", "year_built", "energy_rating", "address_text"]).parse(field);
     const r = z.string().trim().min(3).max(500).parse(reason);
     const numeric = ["built_area_m2", "useful_area_m2", "rooms", "bathrooms", "year_built"].includes(f);
-    const bool = ["has_elevator", "has_terrace"].includes(f);
-    const v = numeric ? z.coerce.number().nonnegative().parse(value.replace(",", ".")) : bool ? value === "true" : z.string().trim().min(1).max(200).parse(value);
+    const bool = ["has_elevator", "has_terrace", "has_parking"].includes(f);
+    const v = numeric ? z.coerce.number().nonnegative().max(f === "year_built" ? 2100 : 100_000).parse(value.replace(",", ".")) : bool ? value === "true"
+      : f === "condition" ? z.enum(["new", "good", "to_renovate"]).parse(value) : z.string().trim().min(1).max(200).parse(value);
     await withUser(u.id, (tx) => tx`insert into market.attribute_corrections(target_type, target_id, field, value, author_id, reason)
                                      values (${targetType}, ${z.string().uuid().parse(targetId)}, ${f}, ${tx.json(v)}, ${u.id}, ${r})`);
     revalidatePath(path);
@@ -124,6 +125,15 @@ export async function refreshAggregates(): Promise<R> {
     const u = await requireOwner();
     await withUser(u.id, (tx) => tx`select stats.owner_refresh_latest()`);
     revalidatePath("/", "layout");
+    return { ok: true };
+  } catch (e) { return fail(e); }
+}
+
+export async function deleteZoneSelection(id: string): Promise<R> {
+  try {
+    const u = await requireUser();
+    await withUser(u.id, (tx) => tx`delete from app.zone_selections where id = ${z.string().uuid().parse(id)}`);
+    revalidatePath("/busquedas");
     return { ok: true };
   } catch (e) { return fail(e); }
 }

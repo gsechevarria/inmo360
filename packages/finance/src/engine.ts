@@ -414,11 +414,15 @@ export function simulate(s: ScenarioInput, overridePrice?: number): ScenarioResu
   let totalPrincipal: number | null = 0;
   for (const loan of input.financing.loans) {
     let principal: number | null = loan.status === "unknown" ? null : loan.principal ?? null;
-    if (loan.ltv) {
+    if (loan.ltv && loan.status !== "unknown") {
       const b = loan.ltv.base === "price" ? price : loan.ltv.appraisal ?? null;
       principal = b === null ? null : loan.ltv.ratio * (loan.ltv.base === "appraisal" && price !== null ? Math.min(b, price) : b);
     }
     if (principal === null) { miss(c, `loan:${loan.id}`, `Principal del préstamo ${loan.label ?? loan.id}`, "financing"); totalPrincipal = null; continue; }
+    // Tipo de interés desconocido: nunca se supone 0 %
+    const rateKnown = loan.rate.type === "fixed" ? loan.rate.annualRate != null && Number.isFinite(loan.rate.annualRate)
+      : (loan.rate.schedule ?? []).length > 0 && loan.rate.schedule!.every((x) => x.annualRate != null && Number.isFinite(x.annualRate));
+    if (!rateKnown) { miss(c, `loan:${loan.id}:rate`, `Tipo de interés del préstamo ${loan.label ?? loan.id}`, "financing"); totalPrincipal = null; continue; }
     totalPrincipal = totalPrincipal === null ? null : totalPrincipal + principal;
     const sched = buildSchedule(loan, principal, start, input.exit?.date ?? null);
     base.amortization.push(...sched.rows);

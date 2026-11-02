@@ -6,7 +6,7 @@ const f = (d: number) => cache.get(d) ?? (cache.set(d, nf(d)), cache.get(d)!);
 
 export function n(v: number | null | undefined, decimals = 0): string {
   if (v === null || v === undefined || !Number.isFinite(v)) return "—";
-  return f(decimals).format(v);
+  return f(decimals).format(Math.abs(v) < 0.5 * 10 ** -decimals ? 0 : v);   // evita «-0»
 }
 export const eur = (v: number | null | undefined, d = 0) => (v === null || v === undefined || !Number.isFinite(v) ? "—" : `${n(v, d)} €`);
 export const pct = (v: number | null | undefined, d = 1) => (v === null || v === undefined || !Number.isFinite(v) ? "—" : `${n(v, d)} %`);

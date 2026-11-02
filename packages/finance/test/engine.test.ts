@@ -164,6 +164,14 @@ describe("costes desconocidos", () => {
     expect(ibi.affects).toContain("Rentabilidad neta operativa");
     expect(r.ledger.filter((e) => e.itemId === "ibi").every((e) => e.unknown && e.amount === 0)).toBe(true);
   });
+  it("un préstamo sin tipo de interés no se calcula al 0 %: queda pendiente y bloquea métricas financiadas", () => {
+    const r = simulate(rentLong({ financing: { loans: [{ id: "h", label: "Hipoteca", ltv: { ratio: 0.7, base: "price" }, status: "user_input",
+      rate: { type: "fixed", annualRate: null as unknown as number }, termMonths: 300, paymentFrequency: "monthly" }] } }));
+    expect(r.missing.map((m) => m.itemId)).toContain("loan:h:rate");
+    expect(r.metrics.cashflowMonthly!.status).toBe("not_computable");
+    expect(r.metrics.netOperatingYield!.status).toBe("ok");          // la rentabilidad del activo no depende de la financiación
+    expect(r.ledger.some((e) => !Number.isFinite(e.amount))).toBe(false);
+  });
   it("partidas duplicadas se rechazan", () => {
     const r = simulate(rentLong({ operatingExpenses: [fixed("a", "Comunidad", 50, "monthly", { group: "community" }), fixed("b", "Gastos de comunidad", 50, "monthly", { group: "community" })] }));
     expect(r.errors[0]).toMatch(/duplicada/);
